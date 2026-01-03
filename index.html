@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <title>AI Shayari Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            padding-bottom: 70px;
+            overflow-x: hidden;
+        }
+
+        /* Top Header */
+        .header {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #1a1a1a;
+            box-shadow: 0 2px 10px rgba(218, 165, 32, 0.1);
+        }
+
+        .header h1 {
+            color: #DAA520;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .header p {
+            color: #888;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #000000;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(218, 165, 32, 0.1);
+        }
+
+        .nav-item {
+            flex: 1;
+            text-align: center;
+            padding: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-item i {
+            font-size: 22px;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .nav-item span {
+            display: block;
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+            font-weight: 500;
+        }
+
+        .nav-item.active i {
+            color: #DAA520;
+        }
+
+        .nav-item.active span {
+            color: #DAA520;
+        }
+
+        /* Content Screens */
+        .screen {
+            display: none;
+            padding: 20px;
+            animation: fadeIn 0.3s;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Shayari Card */
+        .shayari-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .author-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #DAA520;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .author-info span {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .shayari-image {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .shayari-text {
+            color: #e0e0e0;
+            line-height: 1.8;
+            font-size: 16px;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+
+        .shayari-text.bangla {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        .shayari-text.hindi, .shayari-text.urdu, .shayari-text.mixed {
+            font-family: 'Noto Nastaliq Urdu', serif;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #1a1a1a;
+            color: #DAA520;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .action-btn {
+            flex: 1;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            color: #DAA520;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .action-btn:active {
+            transform: scale(0.95);
+            background: #2a2a2a;
+        }
+
+        .action-btn.liked {
+            background: #DAA520;
+            color: #000;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .filter-section h3 {
+            color: #DAA520;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .filter-group {
+            margin-bottom: 15px;
+        }
+
+        .filter-group label {
+            display: block;
+            color: #888;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .filter-group select {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .filter-group select:focus {
+            outline: none;
+            border-color: #DAA520;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: #000;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary i {
+            margin-right: 8px;
+        }
+
+        /* AI Generated Badge */
+        .ai-badge {
+            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 60px;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: #888;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #DAA520;
+        }
+
+        .loading i {
+            font-size: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Copy Notification */
+        .toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #DAA520;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 2000;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #DAA520;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-feather-alt"></i> AI Shayari</h1>
+        <p>Express your emotions</p>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Home Screen -->
+    <div class="screen active" id="homeScreen">
+        <div class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filter Shayari</h3>
+            <div class="filter-group">
+                <label>Category</label>
+                <select id="filterCategory" onchange="filterShayari()">
+                    <option value="">All Categories</option>
+                    <option value="Love">Love</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Attitude">Attitude</option>
+                    <option value="Friendship">Friendship</option>
+                    <option value="Islamic">Islamic</option>
+                    <option value="Motivational">Motivational</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Language</label>
+                <select id="filterLanguage" onchange="filterShayari()">
+                    <option value="">All Languages</option>
+                    <option value="Bangla">Bangla</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Mixed">Mixed</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="shayariContainer">
+            <div class="loading">
+                <i class="fas fa-circle-notch"></i>
+                <p style="margin-top: 10px;">Loading shayari...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Generate Screen -->
+    <div class="screen" id="generateScreen">
+        <div class="filter-section">
+            <h3><i class="fas fa-robot"></i> AI Shayari Generator</h3>
+            <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Generate beautiful shayari using AI</p>
+            
+            <div class="filter-group">
+                <label>Select Category *</label>
+                <select id="genCategory">
+                    <option value="">Choose Category</option>
+                    <option value="Love">Love</option>
+                    <option value="Sad">Sad</option>
+                    <option value="Attitude">Attitude</option>
+                    <option value="Friendship">Friendship</option>
+                    <option value="Islamic">Islamic</option>
+                    <option value="Motivational">Motivational</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Select Language *</label>
+                <select id="genLanguage">
+                    <option value="">Choose Language</option>
+                    <option value="Bangla">Bangla</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Mixed">Mixed</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label>Select Mood *</label>
+                <select id="genMood">
+                    <option value="Romantic">Romantic</option>
+                    <option value="Melancholic">Melancholic</option>
+                    <option value="Inspirational">Inspirational</option>
+                    <option value="Joyful">Joyful</option>
+                    <option value="Reflective">Reflective</option>
+                    <option value="Passionate">Passionate</option>
+                </select>
+            </div>
+            
+            <button class="btn-primary" onclick="generateAIShayari()">
+                <i class="fas fa-magic"></i> Generate Shayari
+            </button>
+        </div>
+
+        <div id="generatedContainer"></div>
+    </div>
+
+    <!-- Favorites Screen -->
+    <div class="screen" id="favoritesScreen">
+        <div id="favoritesContainer">
+            <div class="empty-state">
+                <i class="fas fa-heart-broken"></i>
+                <h3>No Favorites Yet</h3>
+                <p>Start adding shayari to your favorites</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="switchScreen('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="switchScreen('generate')">
+            <i class="fas fa-magic"></i>
+            <span>Generate</span>
+        </div>
+        <div class="nav-item" onclick="switchScreen('favorites')">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+
+    <script>
+        // ============================================
+        // FIREBASE CONFIGURATION
+        // ============================================
+        const firebaseConfig = {
+  apiKey: "AIzaSyDpLakcRDEo9UMuRw3WWkBgW8EkwiQ_Ouw",
+  authDomain: "aishagameapp.firebaseapp.com",
+  databaseURL: "https://aishagameapp-default-rtdb.firebaseio.com",
+  projectId: "aishagameapp",
+  storageBucket: "aishagameapp.firebasestorage.app",
+  messagingSenderId: "1079958025420",
+  appId: "1:1079958025420:web:d6f328a107cd51bb487e69",
+  measurementId: "G-N6QH06L4N5"
+};
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Global Variables
+        let allShayari = [];
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Load Data on Page Load
+        window.onload = function() {
+            loadAllShayari();
+            loadFavorites();
+        };
+
+        // ============================================
+        // SCREEN NAVIGATION
+        // ============================================
+        function switchScreen(screen) {
+            // Hide all screens
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            
+            // Show selected screen
+            if (screen === 'home') {
+                document.getElementById('homeScreen').classList.add('active');
+                document.querySelectorAll('.nav-item')[0].classList.add('active');
+            } else if (screen === 'generate') {
+                document.getElementById('generateScreen').classList.add('active');
+                document.querySelectorAll('.nav-item')[1].classList.add('active');
+            } else if (screen === 'favorites') {
+                document.getElementById('favoritesScreen').classList.add('active');
+                document.querySelectorAll('.nav-item')[2].classList.add('active');
+                loadFavorites();
+            }
+        }
+
+        // ============================================
+        // LOAD SHAYARI FROM FIREBASE
+        // ============================================
+        function loadAllShayari() {
+            database.ref('shayari').on('value', (snapshot) => {
+                const data = snapshot.val();
+                
+                if (!data) {
+                    document.getElementById('shayariContainer').innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-inbox"></i>
+                            <h3>No Shayari Available</h3>
+                            <p>Check back later for new shayari</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                allShayari = Object.keys(data).map(key => ({
+                    id: key,
+                    ...data[key]
+                }));
+
+                allShayari.sort((a, b) => b.timestamp - a.timestamp);
+                displayShayari(allShayari);
+            });
+        }
+
+        // ============================================
+        // DISPLAY SHAYARI
+        // ============================================
+        function displayShayari(shayariArray) {
+            const container = document.getElementById('shayariContainer');
+            
+            if (shayariArray.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-search"></i>
+                        <h3>No Results Found</h3>
+                        <p>Try different filters</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            shayariArray.forEach(item => {
+                const isFavorite = favorites.includes(item.id);
+                const fontClass = item.language.toLowerCase();
+                
+                const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
+                
+                const imageHtml = item.imageUrl 
+                    ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
+                    : '';
+
+                html += `
+                    <div class="shayari-card">
+                        <div class="author-header">
+                            <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
+                            <div class="author-info">
+                                <h4>${item.authorName}</h4>
+                                <span>${timeAgo(item.timestamp)}</span>
+                            </div>
+                        </div>
+                        ${imageHtml}
+                        <div class="shayari-text ${fontClass}">${item.text}</div>
+                        <div class="tags">
+                            <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
+                            <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
+                            <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
+                        </div>
+                        <div class="actions">
+                            <button class="action-btn" onclick="copyShayari('${item.id}')">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="action-btn" onclick="shareShayari('${item.id}')">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                            <button class="action-btn ${isFavorite ? 'liked' : ''}" onclick="toggleFavorite('${item.id}')">
+                                <i class="fas fa-heart"></i> ${isFavorite ? 'Saved' : 'Save'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ============================================
+        // FILTER SHAYARI
+        // ============================================
+        function filterShayari() {
+            const category = document.getElementById('filterCategory').value;
+            const language = document.getElementById('filterLanguage').value;
+            
+            let filtered = allShayari;
+            
+            if (category) {
+                filtered = filtered.filter(s => s.category === category);
+            }
+            
+            if (language) {
+                filtered = filtered.filter(s => s.language === language);
+            }
+            
+            displayShayari(filtered);
+        }
+
+        // ============================================
+        // AI SHAYARI GENERATOR
+        // ============================================
+        function generateAIShayari() {
+            const category = document.getElementById('genCategory').value;
+            const language = document.getElementById('genLanguage').value;
+            const mood = document.getElementById('genMood').value;
+            
+            if (!category || !language) {
+                showToast('Please select category and language');
+                return;
+            }
+
+            // AI Logic: Get similar shayari from database
+            const similar = allShayari.filter(s => 
+                s.category === category && 
+                s.language === language && 
+                s.mood === mood
+            );
+
+            let generated;
+            if (similar.length > 0) {
+                // Pick random from similar
+                generated = similar[Math.floor(Math.random() * similar.length)];
+            } else {
+                // Pick random from same category
+                const categoryMatch = allShayari.filter(s => s.category === category);
+                if (categoryMatch.length > 0) {
+                    generated = categoryMatch[Math.floor(Math.random() * categoryMatch.length)];
+                } else {
+                    // Pick any random
+                    generated = allShayari[Math.floor(Math.random() * allShayari.length)];
+                }
+            }
+
+            if (!generated) {
+                showToast('No shayari available to generate');
+                return;
+            }
+
+            displayGeneratedShayari(generated);
+        }
+
+        function displayGeneratedShayari(item) {
+            const container = document.getElementById('generatedContainer');
+            const fontClass = item.language.toLowerCase();
+            const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
+            const imageHtml = item.imageUrl 
+                ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
+                : '';
+
+            container.innerHTML = `
+                <div class="shayari-card">
+                    <span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span>
+                    <div class="author-header">
+                        <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
+                        <div class="author-info">
+                            <h4>${item.authorName}</h4>
+                            <span>AI Selected</span>
+                        </div>
+                    </div>
+                    ${imageHtml}
+                    <div class="shayari-text ${fontClass}">${item.text}</div>
+                    <div class="tags">
+                        <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
+                        <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
+                        <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
+                    </div>
+                    <div class="actions">
+                        <button class="action-btn" onclick="copyShayari('${item.id}')">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                        <button class="action-btn" onclick="shareShayari('${item.id}')">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <button class="action-btn" onclick="toggleFavorite('${item.id}')">
+                            <i class="fas fa-heart"></i> Save
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            showToast('✨ Shayari generated successfully!');
+        }
+
+        // ============================================
+        // FAVORITES
+        // ============================================
+        function toggleFavorite(id) {
+            if (favorites.includes(id)) {
+                favorites = favorites.filter(f => f !== id);
+                showToast('Removed from favorites');
+            } else {
+                favorites.push(id);
+                showToast('Added to favorites ❤️');
+            }
+            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            
+            // Refresh current view
+            if (document.getElementById('homeScreen').classList.contains('active')) {
+                filterShayari();
+            } else if (document.getElementById('favoritesScreen').classList.contains('active')) {
+                loadFavorites();
+            }
+        }
+
+        function loadFavorites() {
+            const container = document.getElementById('favoritesContainer');
+            
+            if (favorites.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-heart-broken"></i>
+                        <h3>No Favorites Yet</h3>
+                        <p>Start adding shayari to your favorites</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const favShayari = allShayari.filter(s => favorites.includes(s.id));
+            
+            let html = '';
+            favShayari.forEach(item => {
+                const fontClass = item.language.toLowerCase();
+                const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
+                const imageHtml = item.imageUrl 
+                    ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
+                    : '';
+
+                html += `
+                    <div class="shayari-card">
+                        <div class="author-header">
+                            <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
+                            <div class="author-info">
+                                <h4>${item.authorName}</h4>
+                                <span>${timeAgo(item.timestamp)}</span>
+                            </div>
+                        </div>
+                        ${imageHtml}
+                        <div class="shayari-text ${fontClass}">${item.text}</div>
+                        <div class="tags">
+                            <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
+                            <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
+                            <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
+                        </div>
+                        <div class="actions">
+                            <button class="action-btn" onclick="copyShayari('${item.id}')">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="action-btn" onclick="shareShayari('${item.id}')">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                            <button class="action-btn liked" onclick="toggleFavorite('${item.id}')">
+                                <i class="fas fa-heart"></i> Saved
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        // ============================================
+        // ACTIONS
+        // ============================================
+        function copyShayari(id) {
+            const shayari = allShayari.find(s => s.id === id);
+            if (!shayari) return;
+            
+            const text = `${shayari.text}\n\n- ${shayari.authorName}\n${shayari.category} | ${shayari.language}`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('✓ Copied to clipboard');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                showToast('✓ Copied to clipboard');
+            });
+        }
+
+        function shareShayari(id) {
+            const shayari = allShayari.find(s => s.id === id);
+            if (!shayari) return;
+            
+            const text = `${shayari.text}\n\n- ${shayari.authorName}\n${shayari.category} | ${shayari.language}\n\nShared via AI Shayari App`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'AI Shayari',
+                    text: text
+                }).catch(() => {});
+            } else {
+                copyShayari(id);
+                showToast('Text copied! You can paste it anywhere');
+            }
+        }
+
+        // ============================================
+        // UTILITIES
+        // ============================================
+        function timeAgo(timestamp) {
+            const seconds = Math.floor((Date.now() - timestamp) / 1000);
+            
+            if (seconds < 60) return 'Just now';
+            if (seconds < 3600) return Math.floor(seconds / 60) + ' min ago';
+            if (seconds < 86400) return Math.floor(seconds / 3600) + ' hour ago';
+            if (seconds < 604800) return Math.floor(seconds / 86400) + ' day ago';
+            return new Date(timestamp).toLocaleDateString();
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+
+</body>
+</html>
