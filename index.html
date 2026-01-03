@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="theme-color" content="#FF69B4">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
     <title>Aisha Shayari</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -15,152 +15,211 @@
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
-        /* Pink Theme */
+        *:focus {
+            outline: none !important;
+            -webkit-tap-highlight-color: transparent !important;
+        }
+
         :root {
-            --primary-gradient: linear-gradient(135deg, #FFE4F0 0%, #FFF5FA 100%);
-            --secondary-gradient: linear-gradient(135deg, #FFF0F7 0%, #FFFFFF 100%);
-            --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 245, 250, 0.9) 100%);
-            --glass-bg: rgba(255, 255, 255, 0.25);
-            --glass-border: rgba(255, 105, 180, 0.18);
-            --text-primary: #D91E78;
-            --text-secondary: #666666;
-            --accent: #FF69B4;
-            --accent-dark: #FF1493;
-            --shadow: 0 8px 32px rgba(255, 105, 180, 0.2);
-            --glow: 0 0 30px rgba(255, 105, 180, 0.4);
-            --blur: blur(20px);
+            --bg-start: #FFFFFF;
+            --bg-end: #F8F9FA;
+            --card-bg: #FFFFFF;
+            --text-color: #2C3E50;
+            --text-light: #7F8C8D;
+            --accent: #E74C3C;
+            --accent-dark: #C0392B;
         }
 
-        body.dark-theme {
-            --primary-gradient: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
-            --secondary-gradient: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            --card-gradient: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 0.9) 100%);
-            --glass-bg: rgba(26, 26, 26, 0.4);
-            --glass-border: rgba(255, 105, 180, 0.25);
-            --text-primary: #FFFFFF;
-            --text-secondary: #888888;
-        }
-
-        body.light-theme {
-            --primary-gradient: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
-            --secondary-gradient: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
-            --card-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(249, 249, 249, 0.9) 100%);
-            --glass-bg: rgba(255, 255, 255, 0.3);
-            --glass-border: rgba(255, 105, 180, 0.2);
-            --text-primary: #333333;
-        }
-
-        html {
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+        body.theme-ocean { --bg-start: #00CED1; --bg-end: #4682B4; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #00CED1; --accent-dark: #4682B4; }
+        body.theme-sunset { --bg-start: #FF6B6B; --bg-end: #FFD93D; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF6B6B; --accent-dark: #FF4757; }
+        body.theme-purple { --bg-start: #A78BFA; --bg-end: #7C3AED; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #7C3AED; --accent-dark: #6D28D9; }
+        body.theme-mint { --bg-start: #6EE7B7; --bg-end: #10B981; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #10B981; --accent-dark: #059669; }
+        body.theme-pink { --bg-start: #FF69B4; --bg-end: #FF1493; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF1493; --accent-dark: #C71585; }
+        body.theme-dark { --bg-start: #1A1A2E; --bg-end: #16213E; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #E94560; --accent-dark: #C0392B; }
+        body.theme-golden { --bg-start: #FFD700; --bg-end: #FF8C00; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF8C00; --accent-dark: #FF6347; }
+        body.theme-forest { --bg-start: #2E8B57; --bg-end: #00CED1; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #2E8B57; --accent-dark: #228B22; }
+        body.theme-royal { --bg-start: #4169E1; --bg-end: #191970; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #4169E1; --accent-dark: #191970; }
+        body.theme-neon { --bg-start: #00FF7F; --bg-end: #FF1493; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #00FF7F; --accent-dark: #FF1493; }
+        body.theme-autumn { --bg-start: #FF7F50; --bg-end: #CD853F; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF7F50; --accent-dark: #FF6347; }
+        body.theme-lavender { --bg-start: #E6E6FA; --bg-end: #9370DB; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #9370DB; --accent-dark: #8A2BE2; }
+        body.theme-fire { --bg-start: #FF0000; --bg-end: #00BFFF; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF0000; --accent-dark: #DC143C; }
+        body.theme-watermelon { --bg-start: #DB2763; --bg-end: #B0DB43; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #DB2763; --accent-dark: #A81F4F; }
+        body.theme-sedona { --bg-start: #E43D00; --bg-end: #FFE900; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #E43D00; --accent-dark: #CC3700; }
+        body.theme-raspberry { --bg-start: #870057; --bg-end: #A5303F; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #870057; --accent-dark: #6B0045; }
+        body.theme-pinksands { --bg-start: #91F1EF; --bg-end: #FFD5E0; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #91F1EF; --accent-dark: #FFB3CC; }
+        body.theme-jade { --bg-start: #51A3A3; --bg-end: #75485E; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #51A3A3; --accent-dark: #75485E; }
+        body.theme-hotcold { --bg-start: #DA3068; --bg-end: #14469F; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #DA3068; --accent-dark: #14469F; }
+        body.theme-parakeet { --bg-start: #FCFB62; --bg-end: #91F9E5; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FCFB62; --accent-dark: #91F9E5; }
+        body.theme-lime { --bg-start: #17E0BC; --bg-end: #98CE00; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #17E0BC; --accent-dark: #98CE00; }
+        body.theme-peach { --bg-start: #FFB88C; --bg-end: #DE6262; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FFB88C; --accent-dark: #DE6262; }
+        body.theme-electric { --bg-start: #00D4FF; --bg-end: #0066FF; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #00D4FF; --accent-dark: #0066FF; }
+        body.theme-cosmic { --bg-start: #8B5CF6; --bg-end: #EC4899; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #8B5CF6; --accent-dark: #EC4899; }
+        body.theme-tropical { --bg-start: #FF6F91; --bg-end: #FFC75F; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF6F91; --accent-dark: #FF5470; }
+        body.theme-deepocean { --bg-start: #0F2027; --bg-end: #2C5364; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #2C5364; --accent-dark: #203A43; }
+        body.theme-cherry { --bg-start: #FFB7C5; --bg-end: #FF85A1; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FFB7C5; --accent-dark: #FF85A1; }
+        body.theme-emerald { --bg-start: #11998E; --bg-end: #38EF7D; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #11998E; --accent-dark: #0E7D74; }
+        body.theme-sunsetorange { --bg-start: #FF512F; --bg-end: #F09819; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF512F; --accent-dark: #DD3A1D; }
+        body.theme-violet { --bg-start: #667EEA; --bg-end: #764BA2; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #667EEA; --accent-dark: #764BA2; }
+        body.theme-candy { --bg-start: #FC5C7D; --bg-end: #6A82FB; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FC5C7D; --accent-dark: #6A82FB; }
+        body.theme-mango { --bg-start: #FFB75E; --bg-end: #ED8F03; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FFB75E; --accent-dark: #ED8F03; }
+        body.theme-blueberry { --bg-start: #56CCF2; --bg-end: #2F80ED; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #56CCF2; --accent-dark: #2F80ED; }
+        body.theme-rosegold { --bg-start: #ED6EA0; --bg-end: #EC8C69; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #ED6EA0; --accent-dark: #EC8C69; }
+        body.theme-limegreen { --bg-start: #56AB2F; --bg-end: #A8E063; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #56AB2F; --accent-dark: #468925; }
+        body.theme-cottoncandy { --bg-start: #FBC2EB; --bg-end: #A6C1EE; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FBC2EB; --accent-dark: #A6C1EE; }
+        body.theme-strawberry { --bg-start: #E44D26; --bg-end: #F16529; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #E44D26; --accent-dark: #C43D1F; }
+        body.theme-moonlight { --bg-start: #0F2027; --bg-end: #2C5364; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #2C5364; --accent-dark: #203A43; }
+        body.theme-coral { --bg-start: #FF6A88; --bg-end: #FF99AC; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF6A88; --accent-dark: #FF5577; }
+        body.theme-aquamarine { --bg-start: #1CD8D2; --bg-end: #93EDC7; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #1CD8D2; --accent-dark: #16B3AE; }
+        body.theme-burgundy { --bg-start: #5B2C6F; --bg-end: #A8175A; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #5B2C6F; --accent-dark: #A8175A; }
+        body.theme-teal { --bg-start: #134E5E; --bg-end: #71B280; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #134E5E; --accent-dark: #0E3946; }
+        body.theme-plum { --bg-start: #834D9B; --bg-end: #D04ED6; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #834D9B; --accent-dark: #6A3D7D; }
+        body.theme-sunshine { --bg-start: #F7B733; --bg-end: #FC4A1A; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #F7B733; --accent-dark: #FC4A1A; }
+        body.theme-midnight { --bg-start: #000046; --bg-end: #1CB5E0; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #1CB5E0; --accent-dark: #000046; }
+        body.theme-crimson { --bg-start: #CB2D3E; --bg-end: #EF473A; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #CB2D3E; --accent-dark: #A82432; }
+        body.theme-forestgreen { --bg-start: #134E5E; --bg-end: #71B280; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #134E5E; --accent-dark: #0E3A46; }
+        body.theme-magenta { --bg-start: #C33764; --bg-end: #1D2671; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #C33764; --accent-dark: #1D2671; }
+        body.theme-tangerine { --bg-start: #FF9966; --bg-end: #FF5E62; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #FF9966; --accent-dark: #FF5E62; }
+        body.theme-sapphire { --bg-start: #0575E6; --bg-end: #021B79; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #0575E6; --accent-dark: #021B79; }
+        body.theme-olive { --bg-start: #556B2F; --bg-end: #9ACD32; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #556B2F; --accent-dark: #3E5223; }
+        body.theme-mauve { --bg-start: #9796F0; --bg-end: #FBC7D4; --card-bg: rgba(255, 255, 255, 0.95); --text-color: #1A1A1A; --text-light: #555555; --accent: #9796F0; --accent-dark: #7C7BE0; }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: var(--primary-gradient);
-            color: var(--text-primary);
-            padding-bottom: 90px;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
             min-height: 100vh;
-            position: relative;
+            padding-bottom: 80px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Glassmorphism Background Effect */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+        body.theme-changing {
+            animation: colorPulse 0.6s ease-in-out;
         }
 
-        /* Header - Glassmorphism */
+        /* 3D Animations */
+        @keyframes spin3D {
+            0% { transform: perspective(1000px) rotateY(0deg); }
+            100% { transform: perspective(1000px) rotateY(360deg); }
+        }
+
+        @keyframes flip3D {
+            0% { transform: perspective(1000px) rotateX(0deg); }
+            50% { transform: perspective(1000px) rotateX(180deg); }
+            100% { transform: perspective(1000px) rotateX(360deg); }
+        }
+
+        @keyframes colorPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); filter: brightness(1.1); }
+        }
+
+        @keyframes modalBounceIn {
+            0% {
+                transform: scale(0.3) perspective(1000px) rotateY(-180deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05) perspective(1000px) rotateY(0deg);
+            }
+            100% {
+                transform: scale(1) perspective(1000px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 16px 20px;
+            background: var(--card-bg);
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
         }
 
         .header-left {
             display: flex;
             align-items: center;
             gap: 12px;
-            flex: 1;
         }
 
         .header-icon {
-            font-size: 32px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            font-size: 28px;
+            color: var(--accent);
+            transition: all 0.3s ease;
         }
 
         .header-text h1 {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            font-size: 24px;
+            font-weight: 900;
+            transition: all 0.3s ease;
         }
 
         .header-text p {
-            color: var(--text-secondary);
-            font-size: 13px;
-            margin-top: 2px;
-            font-weight: 400;
+            color: var(--text-light);
+            font-size: 12px;
+            transition: all 0.3s ease;
         }
 
+        /* Premium 3D Settings Button */
         .settings-btn {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: white;
             border: none;
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            font-size: 22px;
+            font-size: 20px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: var(--glow);
-            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+
+        .settings-btn::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            filter: blur(10px);
+        }
+
+        .settings-btn:hover::before {
+            opacity: 0.7;
+        }
+
+        .settings-btn.spinning {
+            animation: spin3D 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .settings-btn:active {
-            transform: rotate(360deg) scale(0.9);
+            transform: scale(0.9);
         }
 
-        /* Settings Modal */
+        /* Premium Modal with 3D */
         .modal {
             display: none;
             position: fixed;
@@ -170,39 +229,38 @@
             bottom: 0;
             background: rgba(0,0,0,0.85);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .modal.show {
             display: flex;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            opacity: 1;
         }
 
         .modal-content {
-            background: var(--card-gradient);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 30px 25px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 30px;
             width: 100%;
             max-width: 420px;
-            box-shadow: var(--shadow);
-            animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            transform: scale(0.3);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        @keyframes slideUp {
-            from { transform: translateY(50px) scale(0.95); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
+        .modal.show .modal-content {
+            transform: scale(1);
+            opacity: 1;
+            animation: modalBounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .modal-header {
@@ -210,78 +268,103 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
         }
 
         .modal-header h3 {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
             font-size: 22px;
             font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-header h3 i {
+            animation: spin3D 3s linear infinite;
         }
 
         .close-btn {
-            background: none;
+            background: rgba(0,0,0,0.05);
             border: none;
-            font-size: 28px;
-            color: var(--text-secondary);
-            cursor: pointer;
             width: 40px;
             height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
+        }
+
+        .close-btn:hover {
+            background: rgba(0,0,0,0.1);
+            transform: rotate(90deg);
+        }
+
+        .close-btn.spinning {
+            animation: spin3D 0.6s ease-in-out;
         }
 
         .close-btn:active {
-            transform: rotate(90deg) scale(0.9);
+            transform: scale(0.9);
         }
 
         .theme-options {
             display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
+        /* Premium 3D Theme Cards */
         .theme-option {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 2px solid var(--glass-border);
-            border-radius: 20px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
             padding: 18px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            transition: all 0.4s;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transform-style: preserve-3d;
             position: relative;
-            overflow: hidden;
         }
 
         .theme-option::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-            transition: all 0.5s;
-            transform: translate(-50%, -50%);
+            border-radius: 18px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
 
-        .theme-option:active::before {
-            width: 300px;
-            height: 300px;
+        .theme-option:hover {
+            transform: perspective(1000px) translateY(-5px) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .theme-option:active {
+            transform: perspective(1000px) scale(0.95);
         }
 
         .theme-option.active {
             border-color: var(--accent);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            box-shadow: var(--glow);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            transform: perspective(1000px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .theme-option.active::before {
+            opacity: 1;
         }
 
         .theme-option.active * {
@@ -289,243 +372,225 @@
         }
 
         .theme-icon {
-            width: 60px;
-            height: 60px;
-            min-width: 60px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
+            margin: 0 auto 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            position: relative;
-            z-index: 1;
-            flex-shrink: 0;
-        }
-
-        .theme-option[data-theme="pink"] .theme-icon {
-            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            font-size: 24px;
             color: white;
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .theme-option[data-theme="dark"] .theme-icon {
-            background: #000000;
-            color: #FF69B4;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-        }
-
-        .theme-option[data-theme="light"] .theme-icon {
-            background: #FFFFFF;
-            border: 2px solid #E0E0E0;
-            color: #FF69B4;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .theme-info {
-            position: relative;
-            z-index: 1;
-            flex: 1;
+        .theme-option:hover .theme-icon {
+            transform: perspective(500px) rotateY(360deg);
         }
 
         .theme-info h4 {
-            color: var(--text-primary);
-            font-size: 17px;
-            margin-bottom: 4px;
+            color: #2C3E50;
+            font-size: 14px;
             font-weight: 600;
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
         }
 
         .theme-info p {
-            color: var(--text-secondary);
-            font-size: 13px;
+            color: #7F8C8D;
+            font-size: 11px;
+            transition: all 0.3s ease;
         }
 
-        /* Content Container */
+        .theme-option[data-theme="white"] .theme-icon { background: linear-gradient(135deg, #FFFFFF, #F5F5F5); color: #E74C3C; border: 2px solid #E74C3C; }
+        .theme-option[data-theme="ocean"] .theme-icon { background: linear-gradient(135deg, #00CED1, #4682B4); }
+        .theme-option[data-theme="sunset"] .theme-icon { background: linear-gradient(135deg, #FF6B6B, #FFD93D); }
+        .theme-option[data-theme="purple"] .theme-icon { background: linear-gradient(135deg, #A78BFA, #7C3AED); }
+        .theme-option[data-theme="mint"] .theme-icon { background: linear-gradient(135deg, #6EE7B7, #10B981); }
+        .theme-option[data-theme="pink"] .theme-icon { background: linear-gradient(135deg, #FF69B4, #FF1493); }
+        .theme-option[data-theme="dark"] .theme-icon { background: linear-gradient(135deg, #1A1A2E, #16213E); color: #E94560; }
+        .theme-option[data-theme="golden"] .theme-icon { background: linear-gradient(135deg, #FFD700, #FF8C00); }
+        .theme-option[data-theme="forest"] .theme-icon { background: linear-gradient(135deg, #2E8B57, #00CED1); }
+        .theme-option[data-theme="royal"] .theme-icon { background: linear-gradient(135deg, #4169E1, #191970); }
+        .theme-option[data-theme="neon"] .theme-icon { background: linear-gradient(135deg, #00FF7F, #FF1493); }
+        .theme-option[data-theme="autumn"] .theme-icon { background: linear-gradient(135deg, #FF7F50, #CD853F); }
+        .theme-option[data-theme="lavender"] .theme-icon { background: linear-gradient(135deg, #E6E6FA, #9370DB); }
+        .theme-option[data-theme="fire"] .theme-icon { background: linear-gradient(135deg, #FF0000, #00BFFF); }
+        .theme-option[data-theme="watermelon"] .theme-icon { background: linear-gradient(135deg, #DB2763, #B0DB43); }
+        .theme-option[data-theme="sedona"] .theme-icon { background: linear-gradient(135deg, #E43D00, #FFE900); }
+        .theme-option[data-theme="raspberry"] .theme-icon { background: linear-gradient(135deg, #870057, #A5303F); }
+        .theme-option[data-theme="pinksands"] .theme-icon { background: linear-gradient(135deg, #91F1EF, #FFD5E0); }
+        .theme-option[data-theme="jade"] .theme-icon { background: linear-gradient(135deg, #51A3A3, #75485E); }
+        .theme-option[data-theme="hotcold"] .theme-icon { background: linear-gradient(135deg, #DA3068, #14469F); }
+        .theme-option[data-theme="parakeet"] .theme-icon { background: linear-gradient(135deg, #FCFB62, #91F9E5); }
+        .theme-option[data-theme="lime"] .theme-icon { background: linear-gradient(135deg, #17E0BC, #98CE00); }
+        .theme-option[data-theme="peach"] .theme-icon { background: linear-gradient(135deg, #FFB88C, #DE6262); }
+        .theme-option[data-theme="electric"] .theme-icon { background: linear-gradient(135deg, #00D4FF, #0066FF); }
+        .theme-option[data-theme="cosmic"] .theme-icon { background: linear-gradient(135deg, #8B5CF6, #EC4899); }
+        .theme-option[data-theme="tropical"] .theme-icon { background: linear-gradient(135deg, #FF6F91, #FFC75F); }
+        .theme-option[data-theme="deepocean"] .theme-icon { background: linear-gradient(135deg, #0F2027, #2C5364); }
+        .theme-option[data-theme="cherry"] .theme-icon { background: linear-gradient(135deg, #FFB7C5, #FF85A1); }
+        .theme-option[data-theme="emerald"] .theme-icon { background: linear-gradient(135deg, #11998E, #38EF7D); }
+        .theme-option[data-theme="sunsetorange"] .theme-icon { background: linear-gradient(135deg, #FF512F, #F09819); }
+        .theme-option[data-theme="violet"] .theme-icon { background: linear-gradient(135deg, #667EEA, #764BA2); }
+        .theme-option[data-theme="candy"] .theme-icon { background: linear-gradient(135deg, #FC5C7D, #6A82FB); }
+        .theme-option[data-theme="mango"] .theme-icon { background: linear-gradient(135deg, #FFB75E, #ED8F03); }
+        .theme-option[data-theme="blueberry"] .theme-icon { background: linear-gradient(135deg, #56CCF2, #2F80ED); }
+        .theme-option[data-theme="rosegold"] .theme-icon { background: linear-gradient(135deg, #ED6EA0, #EC8C69); }
+        .theme-option[data-theme="limegreen"] .theme-icon { background: linear-gradient(135deg, #56AB2F, #A8E063); }
+        .theme-option[data-theme="cottoncandy"] .theme-icon { background: linear-gradient(135deg, #FBC2EB, #A6C1EE); }
+        .theme-option[data-theme="strawberry"] .theme-icon { background: linear-gradient(135deg, #E44D26, #F16529); }
+        .theme-option[data-theme="moonlight"] .theme-icon { background: linear-gradient(135deg, #0F2027, #2C5364); }
+        .theme-option[data-theme="coral"] .theme-icon { background: linear-gradient(135deg, #FF6A88, #FF99AC); }
+        .theme-option[data-theme="aquamarine"] .theme-icon { background: linear-gradient(135deg, #1CD8D2, #93EDC7); }
+        .theme-option[data-theme="burgundy"] .theme-icon { background: linear-gradient(135deg, #5B2C6F, #A8175A); }
+        .theme-option[data-theme="teal"] .theme-icon { background: linear-gradient(135deg, #134E5E, #71B280); }
+        .theme-option[data-theme="plum"] .theme-icon { background: linear-gradient(135deg, #834D9B, #D04ED6); }
+        .theme-option[data-theme="sunshine"] .theme-icon { background: linear-gradient(135deg, #F7B733, #FC4A1A); }
+        .theme-option[data-theme="midnight"] .theme-icon { background: linear-gradient(135deg, #000046, #1CB5E0); }
+        .theme-option[data-theme="crimson"] .theme-icon { background: linear-gradient(135deg, #CB2D3E, #EF473A); }
+        .theme-option[data-theme="forestgreen"] .theme-icon { background: linear-gradient(135deg, #134E5E, #71B280); }
+        .theme-option[data-theme="magenta"] .theme-icon { background: linear-gradient(135deg, #C33764, #1D2671); }
+        .theme-option[data-theme="tangerine"] .theme-icon { background: linear-gradient(135deg, #FF9966, #FF5E62); }
+        .theme-option[data-theme="sapphire"] .theme-icon { background: linear-gradient(135deg, #0575E6, #021B79); }
+        .theme-option[data-theme="olive"] .theme-icon { background: linear-gradient(135deg, #556B2F, #9ACD32); }
+        .theme-option[data-theme="mauve"] .theme-icon { background: linear-gradient(135deg, #9796F0, #FBC7D4); }
+
         .content-wrapper {
-            position: relative;
-            z-index: 1;
-            padding: 16px;
+            padding: 20px;
         }
 
-        /* Screen */
         .screen {
             display: none;
-            animation: fadeInUp 0.4s;
         }
 
         .screen.active {
             display: block;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Filter Section - Glassmorphism */
         .filter-section {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
-            padding: 24px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 20px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
         .filter-section h3 {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 20px;
-            margin-bottom: 20px;
+            color: var(--accent);
+            font-size: 18px;
             font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
 
         .filter-group {
-            margin-bottom: 18px;
-        }
-
-        .filter-group:last-child {
-            margin-bottom: 0;
+            margin-bottom: 15px;
         }
 
         .filter-group label {
             display: block;
-            color: var(--text-primary);
+            color: var(--text-color);
             font-size: 14px;
-            margin-bottom: 10px;
-            font-weight: 500;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
         }
 
         .filter-group select {
             width: 100%;
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 2px solid var(--glass-border);
-            color: var(--text-primary);
-            padding: 15px 18px;
-            border-radius: 15px;
-            font-size: 15px;
+            background: white;
+            border: 2px solid #E0E0E0;
+            color: var(--text-color);
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
             font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            transition: all 0.3s;
-            appearance: none;
-            -webkit-appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FF69B4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            background-size: 20px;
-            padding-right: 45px;
+            transition: all 0.3s ease;
         }
 
         .filter-group select:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: var(--glow);
+            transform: scale(1.02);
         }
 
-        /* Shayari Card - Glassmorphism */
         .shayari-card {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 25px;
+            background: var(--card-bg);
+            border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-        }
-
-        .shayari-card:active {
-            transform: scale(0.99);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
 
         .author-header {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
-            min-width: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
-            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
-            flex-shrink: 0;
-        }
-
-        .author-info {
-            flex: 1;
-            min-width: 0;
+            transition: all 0.3s ease;
         }
 
         .author-info h4 {
-            color: var(--text-primary);
-            font-size: 16px;
+            color: var(--text-color);
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 2px;
+            transition: all 0.3s ease;
         }
 
         .author-info span {
-            color: var(--text-secondary);
+            color: var(--text-light);
             font-size: 12px;
+            transition: all 0.3s ease;
         }
 
         .shayari-image {
             width: 100%;
-            max-height: 350px;
+            max-height: 300px;
             object-fit: cover;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            border-radius: 15px;
+            margin-bottom: 15px;
         }
 
         .shayari-text {
-            color: var(--text-primary);
-            line-height: 1.9;
-            font-size: 16px;
-            margin-bottom: 16px;
-            white-space: pre-wrap;
-            word-wrap: break-word;
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
         }
 
         .shayari-text.hindi {
             font-family: 'Noto Nastaliq Urdu', serif;
-            font-size: 18px;
-            line-height: 2;
+            font-size: 17px;
         }
 
         .tags {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 16px;
+            margin-bottom: 15px;
         }
 
         .tag {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
+            background: #F8F9FA;
             color: var(--accent);
-            padding: 7px 14px;
-            border-radius: 20px;
-            font-size: 12px;
-            border: 1px solid var(--glass-border);
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .actions {
@@ -535,22 +600,19 @@
         }
 
         .action-btn {
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 2px solid var(--glass-border);
+            background: #F8F9FA;
+            border: 2px solid #E0E0E0;
             color: var(--accent);
-            padding: 13px 8px;
-            border-radius: 15px;
+            padding: 12px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 13px;
             font-weight: 600;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            min-height: 48px;
+            gap: 5px;
+            transition: all 0.2s ease;
         }
 
         .action-btn:active {
@@ -558,85 +620,169 @@
         }
 
         .action-btn.liked {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: white;
             border-color: transparent;
-            box-shadow: var(--glow);
         }
 
-        /* Bottom Navigation - Glassmorphism */
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--glass-bg);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border-top: 1px solid var(--glass-border);
+            background: var(--card-bg);
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            padding: 12px 0 20px 0;
+            padding: 10px 0 5px 0;
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
             z-index: 1000;
-            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
         }
 
         .nav-item {
             text-align: center;
             padding: 8px;
             cursor: pointer;
-            transition: all 0.3s;
             position: relative;
+            transition: all 0.3s ease;
         }
 
-        .nav-item::before {
+        .nav-item::after {
             content: '';
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-dark));
-            transition: all 0.4s;
-            border-radius: 0 0 10px 10px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            border-radius: 3px 3px 0 0;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-item.active::before {
-            width: 50%;
+        .nav-item.active::after {
+            width: 60%;
+        }
+
+        .nav-item:active {
+            transform: scale(0.95);
         }
 
         .nav-item i {
-            font-size: 26px;
-            color: var(--text-secondary);
-            transition: all 0.3s;
+            font-size: 22px;
+            color: var(--text-light);
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
+            transition: all 0.3s ease;
         }
 
         .nav-item span {
-            display: block;
-            font-size: 12px;
-            color: var(--text-secondary);
-            font-weight: 500;
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .nav-item.active i {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transform: scale(1.1);
+            color: var(--accent);
         }
 
         .nav-item.active span {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent);
         }
 
-        /* Share Modal */
+        .loading {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .loading i {
+            font-size: 40px;
+            color: var(--accent);
+            animation: spin3D 1s linear infinite;
+        }
+
+        .loading p {
+            color: var(--text-color);
+            margin-top: 10px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .empty-state i {
+            font-size: 60px;
+            color: var(--accent);
+            opacity: 0.5;
+            margin-bottom: 15px;
+        }
+
+        .empty-state h3 {
+            color: var(--text-color);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+
+        .ai-badge {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+
+        .toast {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 13px;
+            z-index: 4000;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         .modal-overlay {
             display: none;
             position: fixed;
@@ -644,15 +790,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.8);
             z-index: 2500;
         }
 
         .modal-overlay.show {
             display: block;
-            animation: fadeIn 0.3s;
         }
 
         .share-modal {
@@ -661,55 +804,42 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: var(--card-gradient);
-            backdrop-filter: var(--blur);
-            -webkit-backdrop-filter: var(--blur);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px 30px 0 0;
-            padding: 25px 20px 30px;
+            background: white;
+            border-radius: 25px 25px 0 0;
+            padding: 20px;
             z-index: 3000;
-            box-shadow: var(--shadow);
         }
 
         .share-modal.show {
             display: block;
-            animation: slideUpModal 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-        }
-
-        @keyframes slideUpModal {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
         }
 
         .share-modal-header {
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--glass-border);
+            border-bottom: 1px solid #E0E0E0;
         }
 
         .share-modal-header h3 {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-size: 20px;
+            color: var(--accent);
+            font-size: 18px;
             font-weight: 700;
         }
 
         .share-options {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 15px;
         }
 
         .share-option {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s ease;
         }
 
         .share-option:active {
@@ -717,192 +847,35 @@
         }
 
         .share-icon {
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 24px;
             color: white;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-            transition: all 0.3s;
         }
 
-        .share-option:active .share-icon {
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .share-icon.whatsapp { background: #25D366; }
-        .share-icon.telegram { background: #0088cc; }
-        .share-icon.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
-        .share-icon.facebook { background: #1877F2; }
-        .share-icon.twitter { background: #1DA1F2; }
+        .share-icon.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .share-icon.telegram { background: linear-gradient(135deg, #0088cc, #006699); }
+        .share-icon.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .share-icon.facebook { background: linear-gradient(135deg, #1877F2, #0D5DBF); }
+        .share-icon.twitter { background: linear-gradient(135deg, #1DA1F2, #0C7ABF); }
         .share-icon.messenger { background: linear-gradient(135deg, #00B2FF, #006AFF); }
         .share-icon.copy { background: linear-gradient(135deg, #667eea, #764ba2); }
         .share-icon.more { background: linear-gradient(135deg, #f093fb, #f5576c); }
 
         .share-option span {
-            font-size: 12px;
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* Generate Button */
-        .btn-primary {
-            width: 100%;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: white;
-            border: none;
-            padding: 17px;
-            border-radius: 18px;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 15px;
-            box-shadow: var(--glow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            min-height: 56px;
-        }
-
-        .btn-primary:active {
-            transform: scale(0.98);
-        }
-
-        /* AI Badge */
-        .ai-badge {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: white;
-            padding: 7px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 12px;
-            box-shadow: var(--glow);
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .empty-state i {
-            font-size: 80px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 20px;
-            opacity: 0.5;
-        }
-
-        .empty-state h3 {
-            color: var(--text-primary);
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 11px;
+            color: var(--text-color);
             font-weight: 600;
         }
 
-        .empty-state p {
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-
-        /* Loading */
-        .loading {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .loading i {
-            font-size: 50px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-
-        .loading p {
-            color: var(--text-secondary);
-            margin-top: 15px;
-            font-size: 15px;
-        }
-
-        /* Toast */
-        .toast {
-            position: fixed;
-            top: 90px;
-            left: 50%;
-            transform: translateX(-50%) translateY(-100px);
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 15px;
-            z-index: 4000;
-            opacity: 0;
-            transition: all 0.4s;
-            box-shadow: var(--glow);
-            max-width: 90%;
-        }
-
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            border-radius: 10px;
-        }
-
-        /* Touch Optimization */
-        @media (hover: none) {
-            .action-btn, .nav-item, .share-option, .theme-option, .settings-btn, .btn-primary {
-                -webkit-tap-highlight-color: transparent;
-            }
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 380px) {
-            .header-text h1 { font-size: 22px; }
-            .share-options { grid-template-columns: repeat(4, 1fr); gap: 15px; }
-            .share-icon { width: 55px; height: 55px; font-size: 26px; }
-            .share-option span { font-size: 11px; }
-        }
-
-        @media (min-width: 600px) {
-            .content-wrapper { max-width: 600px; margin: 0 auto; }
-            .bottom-nav { max-width: 600px; left: 50%; transform: translateX(-50%); }
-        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">
         <div class="header-left">
             <i class="fas fa-feather-alt header-icon"></i>
@@ -911,53 +884,23 @@
                 <p>Express your emotions</p>
             </div>
         </div>
-        <button class="settings-btn" onclick="openSettings()">
+        <button class="settings-btn" id="settingsBtn" onclick="openSettings()">
             <i class="fas fa-cog"></i>
         </button>
     </div>
 
-    <!-- Settings Modal -->
     <div class="modal" id="settingsModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-palette"></i> Theme</h3>
-                <button class="close-btn" onclick="closeSettings()">
+                <h3><i class="fas fa-palette"></i> Themes</h3>
+                <button class="close-btn" id="closeBtn" onclick="closeSettings()">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
-            <div class="theme-options">
-                <div class="theme-option active" data-theme="pink" onclick="changeTheme('pink')">
-                    <div class="theme-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="theme-info">
-                        <h4>Pink Theme</h4>
-                        <p>Sweet & lovely</p>
-                    </div>
-                </div>
-                <div class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
-                    <div class="theme-icon">
-                        <i class="fas fa-moon"></i>
-                    </div>
-                    <div class="theme-info">
-                        <h4>Dark Theme</h4>
-                        <p>Easy on eyes</p>
-                    </div>
-                </div>
-                <div class="theme-option" data-theme="light" onclick="changeTheme('light')">
-                    <div class="theme-icon">
-                        <i class="fas fa-sun"></i>
-                    </div>
-                    <div class="theme-info">
-                        <h4>Light Theme</h4>
-                        <p>Clean & bright</p>
-                    </div>
-                </div>
-            </div>
+            <div class="theme-options" id="themeContainer"></div>
         </div>
     </div>
 
-    <!-- Share Modal -->
     <div class="modal-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
     <div class="share-modal" id="shareModal">
         <div class="share-modal-header">
@@ -965,65 +908,46 @@
         </div>
         <div class="share-options">
             <div class="share-option" onclick="shareToSocial('whatsapp')">
-                <div class="share-icon whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
+                <div class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
                 <span>WhatsApp</span>
             </div>
             <div class="share-option" onclick="shareToSocial('telegram')">
-                <div class="share-icon telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                </div>
+                <div class="share-icon telegram"><i class="fab fa-telegram-plane"></i></div>
                 <span>Telegram</span>
             </div>
             <div class="share-option" onclick="shareToSocial('instagram')">
-                <div class="share-icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </div>
+                <div class="share-icon instagram"><i class="fab fa-instagram"></i></div>
                 <span>Instagram</span>
             </div>
             <div class="share-option" onclick="shareToSocial('facebook')">
-                <div class="share-icon facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </div>
+                <div class="share-icon facebook"><i class="fab fa-facebook-f"></i></div>
                 <span>Facebook</span>
             </div>
             <div class="share-option" onclick="shareToSocial('twitter')">
-                <div class="share-icon twitter">
-                    <i class="fab fa-twitter"></i>
-                </div>
+                <div class="share-icon twitter"><i class="fab fa-twitter"></i></div>
                 <span>Twitter</span>
             </div>
             <div class="share-option" onclick="shareToSocial('messenger')">
-                <div class="share-icon messenger">
-                    <i class="fab fa-facebook-messenger"></i>
-                </div>
+                <div class="share-icon messenger"><i class="fab fa-facebook-messenger"></i></div>
                 <span>Messenger</span>
             </div>
             <div class="share-option" onclick="shareToSocial('copy')">
-                <div class="share-icon copy">
-                    <i class="fas fa-copy"></i>
-                </div>
+                <div class="share-icon copy"><i class="fas fa-copy"></i></div>
                 <span>Copy</span>
             </div>
             <div class="share-option" onclick="shareToSocial('more')">
-                <div class="share-icon more">
-                    <i class="fas fa-ellipsis-h"></i>
-                </div>
+                <div class="share-icon more"><i class="fas fa-ellipsis-h"></i></div>
                 <span>More</span>
             </div>
         </div>
     </div>
 
-    <!-- Toast -->
     <div class="toast" id="toast"></div>
 
-    <!-- Content -->
     <div class="content-wrapper">
-        <!-- Home Screen -->
         <div class="screen active" id="homeScreen">
             <div class="filter-section">
-                <h3><i class="fas fa-filter"></i> Filter Shayari</h3>
+                <h3><i class="fas fa-filter"></i> Filter</h3>
                 <div class="filter-group">
                     <label>Category</label>
                     <select id="filterCategory" onchange="filterShayari()">
@@ -1053,7 +977,6 @@
             </div>
         </div>
 
-        <!-- Generate Screen -->
         <div class="screen" id="generateScreen">
             <div class="filter-section">
                 <h3><i class="fas fa-magic"></i> AI Generator</h3>
@@ -1088,25 +1011,23 @@
                     </select>
                 </div>
                 <button class="btn-primary" onclick="generateAIShayari()">
-                    <i class="fas fa-magic"></i> Generate Shayari
+                    <i class="fas fa-magic"></i> Generate
                 </button>
             </div>
             <div id="generatedContainer"></div>
         </div>
 
-        <!-- Favorites Screen -->
         <div class="screen" id="favoritesScreen">
             <div id="favoritesContainer">
                 <div class="empty-state">
                     <i class="fas fa-heart-broken"></i>
-                    <h3>No Favorites Yet</h3>
+                    <h3>No Favorites</h3>
                     <p>Start saving shayari</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bottom Navigation -->
     <div class="bottom-nav">
         <div class="nav-item active" onclick="switchScreen('home')">
             <i class="fas fa-home"></i>
@@ -1122,7 +1043,6 @@
         </div>
     </div>
 
-    <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
@@ -1144,22 +1064,102 @@
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         let currentShareId = null;
 
+        const themes = [
+            {id: 'white', name: 'White', desc: 'Clean'},
+            {id: 'ocean', name: 'Ocean', desc: 'Breeze'},
+            {id: 'sunset', name: 'Sunset', desc: 'Glow'},
+            {id: 'purple', name: 'Purple', desc: 'Dream'},
+            {id: 'mint', name: 'Mint', desc: 'Fresh'},
+            {id: 'pink', name: 'Pink', desc: 'Love'},
+            {id: 'dark', name: 'Dark', desc: 'Night'},
+            {id: 'golden', name: 'Golden', desc: 'Hour'},
+            {id: 'forest', name: 'Forest', desc: 'Green'},
+            {id: 'royal', name: 'Royal', desc: 'Blue'},
+            {id: 'neon', name: 'Neon', desc: 'Light'},
+            {id: 'autumn', name: 'Autumn', desc: 'Warm'},
+            {id: 'lavender', name: 'Lavender', desc: 'Soft'},
+            {id: 'fire', name: 'Fire', desc: 'Ice'},
+            {id: 'watermelon', name: 'Watermelon', desc: 'Summer'},
+            {id: 'sedona', name: 'Sedona', desc: 'Sunrise'},
+            {id: 'raspberry', name: 'Raspberry', desc: 'Wine'},
+            {id: 'pinksands', name: 'Pink Sands', desc: 'Beach'},
+            {id: 'jade', name: 'Jade', desc: 'Stone'},
+            {id: 'hotcold', name: 'Hot Cold', desc: 'Mix'},
+            {id: 'parakeet', name: 'Parakeet', desc: 'Bright'},
+            {id: 'lime', name: 'Lime', desc: 'Green'},
+            {id: 'peach', name: 'Peach', desc: 'Soft'},
+            {id: 'electric', name: 'Electric', desc: 'Blue'},
+            {id: 'cosmic', name: 'Cosmic', desc: 'Space'},
+            {id: 'tropical', name: 'Tropical', desc: 'Island'},
+            {id: 'deepocean', name: 'Deep Sea', desc: 'Dark'},
+            {id: 'cherry', name: 'Cherry', desc: 'Bloom'},
+            {id: 'emerald', name: 'Emerald', desc: 'Green'},
+            {id: 'sunsetorange', name: 'Orange', desc: 'Warm'},
+            {id: 'violet', name: 'Violet', desc: 'Sky'},
+            {id: 'candy', name: 'Candy', desc: 'Sweet'},
+            {id: 'mango', name: 'Mango', desc: 'Fruit'},
+            {id: 'blueberry', name: 'Blueberry', desc: 'Cool'},
+            {id: 'rosegold', name: 'Rose Gold', desc: 'Shine'},
+            {id: 'limegreen', name: 'Lime', desc: 'Fresh'},
+            {id: 'cottoncandy', name: 'Cotton', desc: 'Candy'},
+            {id: 'strawberry', name: 'Strawberry', desc: 'Red'},
+            {id: 'moonlight', name: 'Moonlight', desc: 'Night'},
+            {id: 'coral', name: 'Coral', desc: 'Reef'},
+            {id: 'aquamarine', name: 'Aqua', desc: 'Water'},
+            {id: 'burgundy', name: 'Burgundy', desc: 'Wine'},
+            {id: 'teal', name: 'Teal', desc: 'Blue'},
+            {id: 'plum', name: 'Plum', desc: 'Purple'},
+            {id: 'sunshine', name: 'Sunshine', desc: 'Yellow'},
+            {id: 'midnight', name: 'Midnight', desc: 'Dark'},
+            {id: 'crimson', name: 'Crimson', desc: 'Red'},
+            {id: 'forestgreen', name: 'Forest', desc: 'Deep'},
+            {id: 'magenta', name: 'Magenta', desc: 'Pink'},
+            {id: 'tangerine', name: 'Tangerine', desc: 'Orange'},
+            {id: 'sapphire', name: 'Sapphire', desc: 'Blue'},
+            {id: 'olive', name: 'Olive', desc: 'Green'},
+            {id: 'mauve', name: 'Mauve', desc: 'Purple'}
+        ];
+
+        function loadThemes() {
+            const container = document.getElementById('themeContainer');
+            let html = '';
+            themes.forEach(function(theme) {
+                const activeClass = theme.id === 'white' ? 'active' : '';
+                html += `<div class="theme-option ${activeClass}" data-theme="${theme.id}" onclick="changeTheme('${theme.id}')">`;
+                html += `<div class="theme-icon"><i class="fas fa-palette"></i></div>`;
+                html += `<div class="theme-info"><h4>${theme.name}</h4><p>${theme.desc}</p></div>`;
+                html += '</div>';
+            });
+            container.innerHTML = html;
+        }
+
         function initTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'pink';
+            const savedTheme = localStorage.getItem('theme') || 'white';
             applyTheme(savedTheme);
+            loadThemes();
         }
 
         function changeTheme(theme) {
-            localStorage.setItem('theme', theme);
-            applyTheme(theme);
-            closeSettings();
-            showToast('✓ Theme changed!');
+            // Add theme changing animation
+            document.body.classList.add('theme-changing');
+            
+            setTimeout(() => {
+                localStorage.setItem('theme', theme);
+                applyTheme(theme);
+                showToast('✨ Theme changed!');
+                setTimeout(() => closeSettings(), 300);
+                
+                setTimeout(() => {
+                    document.body.classList.remove('theme-changing');
+                }, 600);
+            }, 100);
         }
 
         function applyTheme(theme) {
             document.body.className = '';
-            if (theme === 'dark') document.body.classList.add('dark-theme');
-            else if (theme === 'light') document.body.classList.add('light-theme');
+            if (theme !== 'white') {
+                document.body.classList.add('theme-' + theme);
+            }
             
             document.querySelectorAll('.theme-option').forEach(function(option) {
                 option.classList.remove('active');
@@ -1170,10 +1170,18 @@
         }
 
         function openSettings() {
+            const btn = document.getElementById('settingsBtn');
+            btn.classList.add('spinning');
+            setTimeout(() => btn.classList.remove('spinning'), 800);
+            
             document.getElementById('settingsModal').classList.add('show');
         }
 
         function closeSettings() {
+            const btn = document.getElementById('closeBtn');
+            btn.classList.add('spinning');
+            setTimeout(() => btn.classList.remove('spinning'), 600);
+            
             document.getElementById('settingsModal').classList.remove('show');
         }
 
@@ -1194,7 +1202,7 @@
 
         function shareToSocial(platform) {
             if (!currentShareId) return;
-            const shayari = allShayari.find(function(s) { return s.id === currentShareId; });
+            const shayari = allShayari.find(s => s.id === currentShareId);
             if (!shayari) return;
             
             const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\nShared via Aisha Shayari';
@@ -1211,8 +1219,8 @@
                     window.open(url, '_blank');
                     break;
                 case 'instagram':
+                case 'copy':
                     copyShayari(currentShareId);
-                    showToast('Copied! Paste in Instagram');
                     break;
                 case 'facebook':
                     url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
@@ -1221,13 +1229,6 @@
                 case 'twitter':
                     url = 'https://twitter.com/intent/tweet?text=' + encodedText;
                     window.open(url, '_blank');
-                    break;
-                case 'messenger':
-                    url = 'fb-messenger://share?link=' + encodeURIComponent(window.location.href);
-                    window.open(url, '_blank');
-                    break;
-                case 'copy':
-                    copyShayari(currentShareId);
                     break;
                 case 'more':
                     if (navigator.share) {
@@ -1246,8 +1247,8 @@
         };
 
         function switchScreen(screen) {
-            document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
-            document.querySelectorAll('.nav-item').forEach(function(n) { n.classList.remove('active'); });
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             
             if (screen === 'home') {
                 document.getElementById('homeScreen').classList.add('active');
@@ -1271,7 +1272,7 @@
                 }
                 allShayari = [];
                 for (let key in data) allShayari.push({ id: key, ...data[key] });
-                allShayari.sort(function(a, b) { return b.timestamp - a.timestamp; });
+                allShayari.sort((a, b) => b.timestamp - a.timestamp);
                 displayShayari(allShayari);
             });
         }
@@ -1284,26 +1285,26 @@
             }
 
             let html = '';
-            shayariArray.forEach(function(item) {
+            shayariArray.forEach(item => {
                 const isFavorite = favorites.indexOf(item.id) !== -1;
                 const fontClass = item.language.toLowerCase();
-                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
-                const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
+                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
+                const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
 
                 html += '<div class="shayari-card">';
                 html += '<div class="author-header">';
-                html += '<img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '">';
-                html += '<div class="author-info"><h4>' + escapeHtml(item.authorName) + '</h4><span>' + timeAgo(item.timestamp) + '</span></div></div>';
+                html += `<img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">`;
+                html += `<div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>${timeAgo(item.timestamp)}</span></div></div>`;
                 html += imageHtml;
-                html += '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div>';
+                html += `<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div>`;
                 html += '<div class="tags">';
-                html += '<span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span>';
-                html += '<span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span>';
-                html += '<span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span>';
+                html += `<span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>`;
+                html += `<span class="tag"><i class="fas fa-language"></i> ${item.language}</span>`;
+                html += `<span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>`;
                 html += '</div><div class="actions">';
-                html += '<button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button>';
-                html += '<button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button>';
-                html += '<button class="action-btn ' + (isFavorite ? 'liked' : '') + '" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> ' + (isFavorite ? 'Saved' : 'Save') + '</button>';
+                html += `<button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button>`;
+                html += `<button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button>`;
+                html += `<button class="action-btn ${isFavorite ? 'liked' : ''}" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> ${isFavorite ? 'Saved' : 'Save'}</button>`;
                 html += '</div></div>';
             });
 
@@ -1314,8 +1315,8 @@
             const category = document.getElementById('filterCategory').value;
             const language = document.getElementById('filterLanguage').value;
             let filtered = allShayari;
-            if (category) filtered = filtered.filter(function(s) { return s.category === category; });
-            if (language) filtered = filtered.filter(function(s) { return s.language === language; });
+            if (category) filtered = filtered.filter(s => s.category === category);
+            if (language) filtered = filtered.filter(s => s.language === language);
             displayShayari(filtered);
         }
 
@@ -1323,17 +1324,15 @@
             const category = document.getElementById('genCategory').value;
             const language = document.getElementById('genLanguage').value;
             if (!category || !language) {
-                showToast('Select category & language');
+                showToast('⚠️ Select category & language');
                 return;
             }
 
-            const similar = allShayari.filter(function(s) {
-                return s.category === category && s.language === language;
-            });
+            const similar = allShayari.filter(s => s.category === category && s.language === language);
             const generated = similar.length > 0 ? similar[Math.floor(Math.random() * similar.length)] : allShayari[Math.floor(Math.random() * allShayari.length)];
             
             if (!generated) {
-                showToast('No shayari available');
+                showToast('⚠️ No shayari available');
                 return;
             }
             displayGeneratedShayari(generated);
@@ -1342,10 +1341,10 @@
         function displayGeneratedShayari(item) {
             const container = document.getElementById('generatedContainer');
             const fontClass = item.language.toLowerCase();
-            const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
-            const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
+            const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
+            const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
 
-            container.innerHTML = '<div class="shayari-card"><span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span><div class="author-header"><img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '"><div class="author-info"><h4>' + escapeHtml(item.authorName) + '</h4><span>AI Selected</span></div></div>' + imageHtml + '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span><span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span><span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span></div><div class="actions"><button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> Save</button></div></div>';
+            container.innerHTML = `<div class="shayari-card"><span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>AI Selected</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> Save</button></div></div>`;
             showToast('✨ Generated!');
         }
 
@@ -1353,10 +1352,10 @@
             const index = favorites.indexOf(id);
             if (index !== -1) {
                 favorites.splice(index, 1);
-                showToast('Removed from favorites');
+                showToast('💔 Removed from favorites');
             } else {
                 favorites.push(id);
-                showToast('Added to favorites ❤️');
+                showToast('❤️ Added to favorites');
             }
             localStorage.setItem('favorites', JSON.stringify(favorites));
             if (document.getElementById('homeScreen').classList.contains('active')) filterShayari();
@@ -1369,23 +1368,23 @@
                 container.innerHTML = '<div class="empty-state"><i class="fas fa-heart-broken"></i><h3>No Favorites</h3><p>Start saving shayari</p></div>';
                 return;
             }
-            const favShayari = allShayari.filter(function(s) { return favorites.indexOf(s.id) !== -1; });
+            const favShayari = allShayari.filter(s => favorites.indexOf(s.id) !== -1);
             let html = '';
-            favShayari.forEach(function(item) {
+            favShayari.forEach(item => {
                 const fontClass = item.language.toLowerCase();
-                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
-                const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
-                html += '<div class="shayari-card"><div class="author-header"><img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '"><div class="author-info"><h4>' + escapeHtml(item.authorName) + '</h4><span>' + timeAgo(item.timestamp) + '</span></div></div>' + imageHtml + '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span><span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span><span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span></div><div class="actions"><button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn liked" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> Saved</button></div></div>';
+                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
+                const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
+                html += `<div class="shayari-card"><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>${timeAgo(item.timestamp)}</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn liked" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> Saved</button></div></div>`;
             });
             container.innerHTML = html;
         }
 
         function copyShayari(id) {
-            const shayari = allShayari.find(function(s) { return s.id === id; });
+            const shayari = allShayari.find(s => s.id === id);
             if (!shayari) return;
             const text = shayari.text + '\n\n- ' + shayari.authorName;
             if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(function() { showToast('✓ Copied!'); });
+                navigator.clipboard.writeText(text).then(() => showToast('✅ Copied!'));
             } else {
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
@@ -1393,7 +1392,7 @@
                 textarea.select();
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
-                showToast('✓ Copied!');
+                showToast('✅ Copied!');
             }
         }
 
@@ -1409,12 +1408,12 @@
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
-            setTimeout(function() { toast.classList.remove('show'); }, 2500);
+            setTimeout(() => toast.classList.remove('show'), 2500);
         }
 
         function escapeHtml(text) {
             const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
-            return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
+            return String(text).replace(/[&<>"']/g, m => map[m]);
         }
     </script>
 
