@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
-    <title>AI Shayari Generator</title>
+    <meta name="theme-color" content="#FF69B4">
+    <title>Aisha Shayari</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -16,35 +16,297 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        /* Pink Theme (Default) */
+        :root {
+            --bg-primary: linear-gradient(135deg, #FFE4F0 0%, #FFF5FA 100%);
+            --bg-secondary: linear-gradient(135deg, #FFF0F7 0%, #FFFFFF 100%);
+            --bg-card: linear-gradient(135deg, #FFFFFF 0%, #FFF5FA 100%);
+            --text-primary: #D91E78;
+            --text-secondary: #666666;
+            --accent: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            --accent-solid: #FF69B4;
+            --accent-dark: #FF1493;
+            --border: #FFD6E8;
+            --shadow: 0 8px 32px rgba(255, 105, 180, 0.25);
+            --glow: 0 0 20px rgba(255, 105, 180, 0.4);
+        }
+
+        body.dark-theme {
+            --bg-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            --bg-secondary: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --bg-card: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            --text-primary: #FFFFFF;
+            --text-secondary: #888888;
+            --accent: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            --accent-solid: #FF69B4;
+            --accent-dark: #FF1493;
+            --border: #2a2a2a;
+            --shadow: 0 8px 32px rgba(255, 105, 180, 0.3);
+            --glow: 0 0 30px rgba(255, 105, 180, 0.6);
+        }
+
+        body.light-theme {
+            --bg-primary: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+            --bg-secondary: linear-gradient(135deg, #FFFFFF 0%, #FAFAFA 100%);
+            --bg-card: linear-gradient(135deg, #FFFFFF 0%, #F9F9F9 100%);
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent: linear-gradient(135deg, #FF69B4 0%, #FF1493 100%);
+            --accent-solid: #FF69B4;
+            --accent-dark: #FF1493;
+            --border: #E0E0E0;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --glow: 0 0 20px rgba(255, 105, 180, 0.3);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: #000000;
-            color: #ffffff;
-            padding-bottom: 70px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding-bottom: 80px;
             overflow-x: hidden;
+            transition: all 0.4s ease;
         }
 
         /* Top Header */
         .header {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            padding: 15px 20px;
+            background: var(--bg-secondary);
+            padding: 18px 20px;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid #1a1a1a;
-            box-shadow: 0 2px 10px rgba(218, 165, 32, 0.1);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
         }
 
-        .header h1 {
-            color: #DAA520;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            font-size: 28px;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .header-left h1 {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header-left p {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .settings-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: var(--glow);
+        }
+
+        .settings-btn:active {
+            transform: rotate(360deg) scale(0.9);
+        }
+
+        .settings-btn i {
+            transition: transform 0.6s ease;
+        }
+
+        /* Settings Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 25px;
+            padding: 35px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .modal-header h3 {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-size: 22px;
             font-weight: 700;
         }
 
-        .header p {
-            color: #888;
-            font-size: 12px;
-            margin-top: 2px;
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 26px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-btn:active {
+            transform: rotate(90deg);
+        }
+
+        .theme-options {
+            display: grid;
+            gap: 18px;
+        }
+
+        .theme-option {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 18px;
+            padding: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: all 0.4s;
+            z-index: 0;
+        }
+
+        .theme-option:active::before {
+            left: 0;
+        }
+
+        .theme-option:active {
+            transform: scale(0.98);
+        }
+
+        .theme-option.active {
+            border-color: var(--accent-solid);
+            background: var(--accent);
+            box-shadow: var(--glow);
+        }
+
+        .theme-option.active * {
+            color: white !important;
+        }
+
+        .theme-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .theme-option[data-theme="pink"] .theme-icon {
+            background: linear-gradient(135deg, #FF69B4, #FF1493);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .theme-option[data-theme="dark"] .theme-icon {
+            background: #000000;
+            color: #FF69B4;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .theme-option[data-theme="light"] .theme-icon {
+            background: #FFFFFF;
+            border: 2px solid #E0E0E0;
+            color: #FF69B4;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .theme-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .theme-info h4 {
+            color: var(--text-primary);
+            font-size: 17px;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .theme-info p {
+            color: var(--text-secondary);
+            font-size: 13px;
         }
 
         /* Bottom Navigation */
@@ -53,151 +315,183 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #000000;
-            border-top: 1px solid #1a1a1a;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-around;
-            padding: 10px 0;
+            padding: 12px 0;
             z-index: 1000;
-            box-shadow: 0 -2px 10px rgba(218, 165, 32, 0.1);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
         }
 
         .nav-item {
             flex: 1;
             text-align: center;
-            padding: 5px;
+            padding: 8px;
             cursor: pointer;
             transition: all 0.3s;
             position: relative;
         }
 
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--accent);
+            transition: all 0.3s;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .nav-item.active::before {
+            width: 60%;
+        }
+
         .nav-item i {
-            font-size: 22px;
-            color: #666;
+            font-size: 24px;
+            color: var(--text-secondary);
             transition: all 0.3s;
         }
 
         .nav-item span {
             display: block;
             font-size: 11px;
-            color: #666;
-            margin-top: 4px;
+            color: var(--text-secondary);
+            margin-top: 5px;
             font-weight: 500;
         }
 
         .nav-item.active i {
-            color: #DAA520;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: scale(1.1);
         }
 
         .nav-item.active span {
-            color: #DAA520;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* Content Screens */
         .screen {
             display: none;
             padding: 20px;
-            animation: fadeIn 0.3s;
+            animation: fadeInUp 0.4s;
         }
 
         .screen.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         /* Shayari Card */
         .shayari-card {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+
+        .shayari-card:active {
+            transform: scale(0.99);
         }
 
         .author-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
+            gap: 14px;
+            margin-bottom: 16px;
         }
 
         .author-avatar {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #DAA520;
+            border: 3px solid transparent;
+            background: var(--accent);
+            background-clip: padding-box;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
         }
 
         .author-info h4 {
-            color: #ffffff;
-            font-size: 15px;
+            color: var(--text-primary);
+            font-size: 16px;
             font-weight: 600;
         }
 
         .author-info span {
-            color: #888;
+            color: var(--text-secondary);
             font-size: 12px;
         }
 
         .shayari-image {
             width: 100%;
-            max-height: 300px;
+            max-height: 320px;
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
         }
 
         .shayari-text {
-            color: #e0e0e0;
-            line-height: 1.8;
+            color: var(--text-primary);
+            line-height: 1.9;
             font-size: 16px;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
             white-space: pre-wrap;
         }
 
-        .shayari-text.bangla {
-            font-family: 'Hind Siliguri', sans-serif;
-        }
-
-        .shayari-text.hindi, .shayari-text.urdu, .shayari-text.mixed {
+        .shayari-text.hindi {
             font-family: 'Noto Nastaliq Urdu', serif;
+            font-size: 17px;
         }
 
         .tags {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
         }
 
         .tag {
-            background: #1a1a1a;
-            color: #DAA520;
-            padding: 5px 12px;
+            background: var(--bg-secondary);
+            color: var(--accent-solid);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 11px;
-            border: 1px solid #2a2a2a;
+            border: 1px solid var(--border);
+            font-weight: 500;
         }
 
         .actions {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             justify-content: space-between;
         }
 
         .action-btn {
             flex: 1;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            color: #DAA520;
-            padding: 10px;
-            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1.5px solid var(--border);
+            color: var(--accent-solid);
+            padding: 12px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 13px;
             font-weight: 600;
@@ -205,73 +499,170 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 7px;
         }
 
         .action-btn:active {
             transform: scale(0.95);
-            background: #2a2a2a;
         }
 
         .action-btn.liked {
-            background: #DAA520;
-            color: #000;
+            background: var(--accent);
+            color: white;
+            border-color: var(--accent-solid);
+            box-shadow: var(--glow);
+        }
+
+        /* Share Modal */
+        .share-modal {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-radius: 25px 25px 0 0;
+            padding: 25px;
+            z-index: 3000;
+            box-shadow: 0 -8px 32px rgba(0,0,0,0.3);
+            animation: slideUpModal 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .share-modal.show {
+            display: block;
+        }
+
+        @keyframes slideUpModal {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .share-modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .share-modal-header h3 {
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .share-option:active {
+            transform: scale(0.9);
+        }
+
+        .share-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .share-icon.whatsapp { background: #25D366; }
+        .share-icon.telegram { background: #0088cc; }
+        .share-icon.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .share-icon.facebook { background: #1877F2; }
+        .share-icon.twitter { background: #1DA1F2; }
+        .share-icon.messenger { background: linear-gradient(135deg, #00B2FF, #006AFF); }
+        .share-icon.copy { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .share-icon.more { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+        .share-option span {
+            font-size: 11px;
+            color: var(--text-primary);
+            font-weight: 500;
         }
 
         /* Filter Section */
         .filter-section {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 22px;
+            box-shadow: var(--shadow);
         }
 
         .filter-section h3 {
-            color: #DAA520;
-            font-size: 16px;
-            margin-bottom: 15px;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 18px;
+            margin-bottom: 18px;
+            font-weight: 700;
         }
 
         .filter-group {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .filter-group label {
             display: block;
-            color: #888;
+            color: var(--text-secondary);
             font-size: 13px;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-weight: 500;
         }
 
         .filter-group select {
             width: 100%;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            color: #ffffff;
-            padding: 12px;
-            border-radius: 10px;
+            background: var(--bg-secondary);
+            border: 1.5px solid var(--border);
+            color: var(--text-primary);
+            padding: 14px;
+            border-radius: 12px;
             font-size: 14px;
             font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
         }
 
         .filter-group select:focus {
             outline: none;
-            border-color: #DAA520;
+            border-color: var(--accent-solid);
+            box-shadow: var(--glow);
         }
 
         .btn-primary {
             width: 100%;
-            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
-            color: #000;
+            background: var(--accent);
+            color: white;
             border: none;
-            padding: 15px;
-            border-radius: 10px;
+            padding: 16px;
+            border-radius: 12px;
             font-size: 16px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
-            margin-top: 10px;
+            margin-top: 12px;
+            box-shadow: var(--glow);
         }
 
         .btn-primary:active {
@@ -279,54 +670,62 @@
         }
 
         .btn-primary i {
-            margin-right: 8px;
+            margin-right: 10px;
         }
 
         /* AI Generated Badge */
         .ai-badge {
-            background: linear-gradient(135deg, #DAA520 0%, #B8860B 100%);
-            color: #000;
-            padding: 5px 12px;
+            background: var(--accent);
+            color: white;
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            box-shadow: var(--glow);
         }
 
         /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
-            color: #666;
+            padding: 70px 20px;
+            color: var(--text-secondary);
         }
 
         .empty-state i {
-            font-size: 60px;
-            color: #2a2a2a;
-            margin-bottom: 15px;
+            font-size: 70px;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+            opacity: 0.5;
         }
 
         .empty-state h3 {
-            color: #888;
-            font-size: 18px;
-            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
         .empty-state p {
-            color: #666;
+            color: var(--text-secondary);
             font-size: 14px;
         }
 
         /* Loading */
         .loading {
             text-align: center;
-            padding: 40px;
-            color: #DAA520;
+            padding: 50px;
         }
 
         .loading i {
-            font-size: 40px;
+            font-size: 45px;
+            background: var(--accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             animation: spin 1s linear infinite;
         }
 
@@ -334,21 +733,22 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Copy Notification */
+        /* Toast Notification */
         .toast {
             position: fixed;
-            top: 80px;
+            top: 90px;
             left: 50%;
             transform: translateX(-50%) translateY(-100px);
-            background: #DAA520;
-            color: #000;
-            padding: 12px 24px;
-            border-radius: 25px;
+            background: var(--accent);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
             font-weight: 600;
             font-size: 14px;
-            z-index: 2000;
+            z-index: 4000;
             opacity: 0;
-            transition: all 0.3s;
+            transition: all 0.4s;
+            box-shadow: var(--glow);
         }
 
         .toast.show {
@@ -358,16 +758,33 @@
 
         /* Scrollbar */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
-            background: #0a0a0a;
+            background: var(--bg-secondary);
         }
 
         ::-webkit-scrollbar-thumb {
-            background: #DAA520;
+            background: var(--accent);
             border-radius: 10px;
+        }
+
+        /* Overlay for modals */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            z-index: 2500;
+        }
+
+        .modal-overlay.show {
+            display: block;
         }
     </style>
 </head>
@@ -375,8 +792,115 @@
 
     <!-- Header -->
     <div class="header">
-        <h1><i class="fas fa-feather-alt"></i> AI Shayari</h1>
-        <p>Express your emotions</p>
+        <div class="header-left">
+            <i class="fas fa-feather-alt header-icon"></i>
+            <div>
+                <h1>Aisha Shayari</h1>
+                <p>Express your emotions</p>
+            </div>
+        </div>
+        <button class="settings-btn" onclick="openSettings()">
+            <i class="fas fa-cog"></i>
+        </button>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-palette"></i> Theme Settings</h3>
+                <button class="close-btn" onclick="closeSettings()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="theme-options">
+                <div class="theme-option active" data-theme="pink" onclick="changeTheme('pink')">
+                    <div class="theme-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="theme-info">
+                        <h4>Pink Theme</h4>
+                        <p>Sweet & lovely design</p>
+                    </div>
+                </div>
+                <div class="theme-option" data-theme="dark" onclick="changeTheme('dark')">
+                    <div class="theme-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <div class="theme-info">
+                        <h4>Dark Theme</h4>
+                        <p>Easy on the eyes</p>
+                    </div>
+                </div>
+                <div class="theme-option" data-theme="light" onclick="changeTheme('light')">
+                    <div class="theme-icon">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div class="theme-info">
+                        <h4>Light Theme</h4>
+                        <p>Clean & bright</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div class="modal-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
+    <div class="share-modal" id="shareModal">
+        <div class="share-modal-header">
+            <h3><i class="fas fa-share-alt"></i> Share Shayari</h3>
+        </div>
+        <div class="share-options">
+            <div class="share-option" onclick="shareToSocial('whatsapp')">
+                <div class="share-icon whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <span>WhatsApp</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('telegram')">
+                <div class="share-icon telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </div>
+                <span>Telegram</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('instagram')">
+                <div class="share-icon instagram">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <span>Instagram</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('facebook')">
+                <div class="share-icon facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <span>Facebook</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('twitter')">
+                <div class="share-icon twitter">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <span>Twitter</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('messenger')">
+                <div class="share-icon messenger">
+                    <i class="fab fa-facebook-messenger"></i>
+                </div>
+                <span>Messenger</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('copy')">
+                <div class="share-icon copy">
+                    <i class="fas fa-copy"></i>
+                </div>
+                <span>Copy</span>
+            </div>
+            <div class="share-option" onclick="shareToSocial('more')">
+                <div class="share-icon more">
+                    <i class="fas fa-ellipsis-h"></i>
+                </div>
+                <span>More</span>
+            </div>
+        </div>
     </div>
 
     <!-- Toast Notification -->
@@ -394,7 +918,6 @@
                     <option value="Sad">Sad</option>
                     <option value="Attitude">Attitude</option>
                     <option value="Friendship">Friendship</option>
-                    <option value="Islamic">Islamic</option>
                     <option value="Motivational">Motivational</option>
                 </select>
             </div>
@@ -402,10 +925,8 @@
                 <label>Language</label>
                 <select id="filterLanguage" onchange="filterShayari()">
                     <option value="">All Languages</option>
-                    <option value="Bangla">Bangla</option>
+                    <option value="English">English</option>
                     <option value="Hindi">Hindi</option>
-                    <option value="Urdu">Urdu</option>
-                    <option value="Mixed">Mixed</option>
                 </select>
             </div>
         </div>
@@ -413,7 +934,7 @@
         <div id="shayariContainer">
             <div class="loading">
                 <i class="fas fa-circle-notch"></i>
-                <p style="margin-top: 10px;">Loading shayari...</p>
+                <p style="margin-top: 12px; color: var(--text-secondary);">Loading shayari...</p>
             </div>
         </div>
     </div>
@@ -421,8 +942,8 @@
     <!-- Generate Screen -->
     <div class="screen" id="generateScreen">
         <div class="filter-section">
-            <h3><i class="fas fa-robot"></i> AI Shayari Generator</h3>
-            <p style="color: #666; font-size: 13px; margin-bottom: 20px;">Generate beautiful shayari using AI</p>
+            <h3><i class="fas fa-magic"></i> AI Shayari Generator</h3>
+            <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 22px;">Generate beautiful shayari using AI</p>
             
             <div class="filter-group">
                 <label>Select Category *</label>
@@ -432,7 +953,6 @@
                     <option value="Sad">Sad</option>
                     <option value="Attitude">Attitude</option>
                     <option value="Friendship">Friendship</option>
-                    <option value="Islamic">Islamic</option>
                     <option value="Motivational">Motivational</option>
                 </select>
             </div>
@@ -441,10 +961,8 @@
                 <label>Select Language *</label>
                 <select id="genLanguage">
                     <option value="">Choose Language</option>
-                    <option value="Bangla">Bangla</option>
+                    <option value="English">English</option>
                     <option value="Hindi">Hindi</option>
-                    <option value="Urdu">Urdu</option>
-                    <option value="Mixed">Mixed</option>
                 </select>
             </div>
             
@@ -500,43 +1018,145 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
 
     <script>
-        // ============================================
-        // FIREBASE CONFIGURATION
-        // ============================================
+        // Firebase Configuration
         const firebaseConfig = {
-  apiKey: "AIzaSyDpLakcRDEo9UMuRw3WWkBgW8EkwiQ_Ouw",
-  authDomain: "aishagameapp.firebaseapp.com",
-  databaseURL: "https://aishagameapp-default-rtdb.firebaseio.com",
-  projectId: "aishagameapp",
-  storageBucket: "aishagameapp.firebasestorage.app",
-  messagingSenderId: "1079958025420",
-  appId: "1:1079958025420:web:d6f328a107cd51bb487e69",
-  measurementId: "G-N6QH06L4N5"
-};
+            apiKey: "AIzaSyDpLakcRDEo9UMuRw3WWkBgW8EkwiQ_Ouw",
+            authDomain: "aishagameapp.firebaseapp.com",
+            databaseURL: "https://aishagameapp-default-rtdb.firebaseio.com",
+            projectId: "aishagameapp",
+            storageBucket: "aishagameapp.firebasestorage.app",
+            messagingSenderId: "1079958025420",
+            appId: "1:1079958025420:web:d6f328a107cd51bb487e69",
+            measurementId: "G-N6QH06L4N5"
+        };
 
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Global Variables
         let allShayari = [];
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let currentShareId = null;
 
-        // Load Data on Page Load
+        // Theme Management
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'pink';
+            applyTheme(savedTheme);
+        }
+
+        function changeTheme(theme) {
+            localStorage.setItem('theme', theme);
+            applyTheme(theme);
+            closeSettings();
+            showToast('✓ Theme changed successfully!');
+        }
+
+        function applyTheme(theme) {
+            document.body.className = '';
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else if (theme === 'light') {
+                document.body.classList.add('light-theme');
+            }
+            
+            document.querySelectorAll('.theme-option').forEach(function(option) {
+                option.classList.remove('active');
+                if (option.getAttribute('data-theme') === theme) {
+                    option.classList.add('active');
+                }
+            });
+        }
+
+        function openSettings() {
+            document.getElementById('settingsModal').classList.add('show');
+        }
+
+        function closeSettings() {
+            document.getElementById('settingsModal').classList.remove('show');
+        }
+
+        document.getElementById('settingsModal').addEventListener('click', function(e) {
+            if (e.target.id === 'settingsModal') {
+                closeSettings();
+            }
+        });
+
+        // Share Modal
+        function openShareModal(id) {
+            currentShareId = id;
+            document.getElementById('shareOverlay').classList.add('show');
+            document.getElementById('shareModal').classList.add('show');
+        }
+
+        function closeShareModal() {
+            document.getElementById('shareOverlay').classList.remove('show');
+            document.getElementById('shareModal').classList.remove('show');
+        }
+
+        function shareToSocial(platform) {
+            if (!currentShareId) return;
+            
+            const shayari = allShayari.find(function(s) { return s.id === currentShareId; });
+            if (!shayari) return;
+            
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n' + shayari.category + ' | ' + shayari.language + '\n\nShared via Aisha Shayari App';
+            const encodedText = encodeURIComponent(text);
+            
+            let url = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    url = 'https://api.whatsapp.com/send?text=' + encodedText;
+                    window.open(url, '_blank');
+                    break;
+                case 'telegram':
+                    url = 'https://t.me/share/url?url=&text=' + encodedText;
+                    window.open(url, '_blank');
+                    break;
+                case 'instagram':
+                    copyShayari(currentShareId);
+                    showToast('Text copied! Open Instagram and paste');
+                    break;
+                case 'facebook':
+                    url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href) + '&quote=' + encodedText;
+                    window.open(url, '_blank');
+                    break;
+                case 'twitter':
+                    url = 'https://twitter.com/intent/tweet?text=' + encodedText;
+                    window.open(url, '_blank');
+                    break;
+                case 'messenger':
+                    url = 'fb-messenger://share?link=' + encodeURIComponent(window.location.href);
+                    window.open(url, '_blank');
+                    break;
+                case 'copy':
+                    copyShayari(currentShareId);
+                    break;
+                case 'more':
+                    if (navigator.share) {
+                        navigator.share({ title: 'Aisha Shayari', text: text });
+                    } else {
+                        copyShayari(currentShareId);
+                    }
+                    break;
+            }
+            
+            closeShareModal();
+        }
+
         window.onload = function() {
+            initTheme();
             loadAllShayari();
             loadFavorites();
         };
 
-        // ============================================
-        // SCREEN NAVIGATION
-        // ============================================
         function switchScreen(screen) {
-            // Hide all screens
-            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.querySelectorAll('.screen').forEach(function(s) {
+                s.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-item').forEach(function(n) {
+                n.classList.remove('active');
+            });
             
-            // Show selected screen
             if (screen === 'home') {
                 document.getElementById('homeScreen').classList.add('active');
                 document.querySelectorAll('.nav-item')[0].classList.add('active');
@@ -550,119 +1170,71 @@
             }
         }
 
-        // ============================================
-        // LOAD SHAYARI FROM FIREBASE
-        // ============================================
         function loadAllShayari() {
-            database.ref('shayari').on('value', (snapshot) => {
+            database.ref('shayari').on('value', function(snapshot) {
                 const data = snapshot.val();
                 
                 if (!data) {
-                    document.getElementById('shayariContainer').innerHTML = `
-                        <div class="empty-state">
-                            <i class="fas fa-inbox"></i>
-                            <h3>No Shayari Available</h3>
-                            <p>Check back later for new shayari</p>
-                        </div>
-                    `;
+                    document.getElementById('shayariContainer').innerHTML = '<div class="empty-state"><i class="fas fa-inbox"></i><h3>No Shayari Available</h3><p>Check back later for new shayari</p></div>';
                     return;
                 }
 
-                allShayari = Object.keys(data).map(key => ({
-                    id: key,
-                    ...data[key]
-                }));
+                allShayari = [];
+                for (let key in data) {
+                    allShayari.push({ id: key, ...data[key] });
+                }
 
-                allShayari.sort((a, b) => b.timestamp - a.timestamp);
+                allShayari.sort(function(a, b) { return b.timestamp - a.timestamp; });
                 displayShayari(allShayari);
             });
         }
 
-        // ============================================
-        // DISPLAY SHAYARI
-        // ============================================
         function displayShayari(shayariArray) {
             const container = document.getElementById('shayariContainer');
             
             if (shayariArray.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-search"></i>
-                        <h3>No Results Found</h3>
-                        <p>Try different filters</p>
-                    </div>
-                `;
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><h3>No Results Found</h3><p>Try different filters</p></div>';
                 return;
             }
 
             let html = '';
-            shayariArray.forEach(item => {
-                const isFavorite = favorites.includes(item.id);
+            shayariArray.forEach(function(item) {
+                const isFavorite = favorites.indexOf(item.id) !== -1;
                 const fontClass = item.language.toLowerCase();
-                
-                const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
-                
-                const imageHtml = item.imageUrl 
-                    ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
-                    : '';
+                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
+                const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
 
-                html += `
-                    <div class="shayari-card">
-                        <div class="author-header">
-                            <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
-                            <div class="author-info">
-                                <h4>${item.authorName}</h4>
-                                <span>${timeAgo(item.timestamp)}</span>
-                            </div>
-                        </div>
-                        ${imageHtml}
-                        <div class="shayari-text ${fontClass}">${item.text}</div>
-                        <div class="tags">
-                            <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
-                            <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
-                            <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
-                        </div>
-                        <div class="actions">
-                            <button class="action-btn" onclick="copyShayari('${item.id}')">
-                                <i class="fas fa-copy"></i> Copy
-                            </button>
-                            <button class="action-btn" onclick="shareShayari('${item.id}')">
-                                <i class="fas fa-share-alt"></i> Share
-                            </button>
-                            <button class="action-btn ${isFavorite ? 'liked' : ''}" onclick="toggleFavorite('${item.id}')">
-                                <i class="fas fa-heart"></i> ${isFavorite ? 'Saved' : 'Save'}
-                            </button>
-                        </div>
-                    </div>
-                `;
+                html += '<div class="shayari-card">';
+                html += '<div class="author-header">';
+                html += '<img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '">';
+                html += '<div class="author-info"><h4>' + item.authorName + '</h4><span>' + timeAgo(item.timestamp) + '</span></div></div>';
+                html += imageHtml;
+                html += '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div>';
+                html += '<div class="tags">';
+                html += '<span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span>';
+                html += '<span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span>';
+                html += '<span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span>';
+                html += '</div><div class="actions">';
+                html += '<button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button>';
+                html += '<button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button>';
+                html += '<button class="action-btn ' + (isFavorite ? 'liked' : '') + '" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> ' + (isFavorite ? 'Saved' : 'Save') + '</button>';
+                html += '</div></div>';
             });
 
             container.innerHTML = html;
         }
 
-        // ============================================
-        // FILTER SHAYARI
-        // ============================================
         function filterShayari() {
             const category = document.getElementById('filterCategory').value;
             const language = document.getElementById('filterLanguage').value;
-            
             let filtered = allShayari;
             
-            if (category) {
-                filtered = filtered.filter(s => s.category === category);
-            }
-            
-            if (language) {
-                filtered = filtered.filter(s => s.language === language);
-            }
+            if (category) filtered = filtered.filter(function(s) { return s.category === category; });
+            if (language) filtered = filtered.filter(function(s) { return s.language === language; });
             
             displayShayari(filtered);
         }
 
-        // ============================================
-        // AI SHAYARI GENERATOR
-        // ============================================
         function generateAIShayari() {
             const category = document.getElementById('genCategory').value;
             const language = document.getElementById('genLanguage').value;
@@ -673,30 +1245,14 @@
                 return;
             }
 
-            // AI Logic: Get similar shayari from database
-            const similar = allShayari.filter(s => 
-                s.category === category && 
-                s.language === language && 
-                s.mood === mood
-            );
+            const similar = allShayari.filter(function(s) {
+                return s.category === category && s.language === language && s.mood === mood;
+            });
 
-            let generated;
-            if (similar.length > 0) {
-                // Pick random from similar
-                generated = similar[Math.floor(Math.random() * similar.length)];
-            } else {
-                // Pick random from same category
-                const categoryMatch = allShayari.filter(s => s.category === category);
-                if (categoryMatch.length > 0) {
-                    generated = categoryMatch[Math.floor(Math.random() * categoryMatch.length)];
-                } else {
-                    // Pick any random
-                    generated = allShayari[Math.floor(Math.random() * allShayari.length)];
-                }
-            }
-
+            let generated = similar.length > 0 ? similar[Math.floor(Math.random() * similar.length)] : allShayari[Math.floor(Math.random() * allShayari.length)];
+            
             if (!generated) {
-                showToast('No shayari available to generate');
+                showToast('No shayari available');
                 return;
             }
 
@@ -706,138 +1262,52 @@
         function displayGeneratedShayari(item) {
             const container = document.getElementById('generatedContainer');
             const fontClass = item.language.toLowerCase();
-            const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
-            const imageHtml = item.imageUrl 
-                ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
-                : '';
+            const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
+            const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
 
-            container.innerHTML = `
-                <div class="shayari-card">
-                    <span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span>
-                    <div class="author-header">
-                        <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
-                        <div class="author-info">
-                            <h4>${item.authorName}</h4>
-                            <span>AI Selected</span>
-                        </div>
-                    </div>
-                    ${imageHtml}
-                    <div class="shayari-text ${fontClass}">${item.text}</div>
-                    <div class="tags">
-                        <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
-                        <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
-                        <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
-                    </div>
-                    <div class="actions">
-                        <button class="action-btn" onclick="copyShayari('${item.id}')">
-                            <i class="fas fa-copy"></i> Copy
-                        </button>
-                        <button class="action-btn" onclick="shareShayari('${item.id}')">
-                            <i class="fas fa-share-alt"></i> Share
-                        </button>
-                        <button class="action-btn" onclick="toggleFavorite('${item.id}')">
-                            <i class="fas fa-heart"></i> Save
-                        </button>
-                    </div>
-                </div>
-            `;
-
+            container.innerHTML = '<div class="shayari-card"><span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span><div class="author-header"><img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '"><div class="author-info"><h4>' + item.authorName + '</h4><span>AI Selected</span></div></div>' + imageHtml + '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span><span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span><span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span></div><div class="actions"><button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> Save</button></div></div>';
             showToast('✨ Shayari generated successfully!');
         }
 
-        // ============================================
-        // FAVORITES
-        // ============================================
         function toggleFavorite(id) {
-            if (favorites.includes(id)) {
-                favorites = favorites.filter(f => f !== id);
+            const index = favorites.indexOf(id);
+            if (index !== -1) {
+                favorites.splice(index, 1);
                 showToast('Removed from favorites');
             } else {
                 favorites.push(id);
                 showToast('Added to favorites ❤️');
             }
-            
             localStorage.setItem('favorites', JSON.stringify(favorites));
-            
-            // Refresh current view
-            if (document.getElementById('homeScreen').classList.contains('active')) {
-                filterShayari();
-            } else if (document.getElementById('favoritesScreen').classList.contains('active')) {
-                loadFavorites();
-            }
+            if (document.getElementById('homeScreen').classList.contains('active')) filterShayari();
+            else if (document.getElementById('favoritesScreen').classList.contains('active')) loadFavorites();
         }
 
         function loadFavorites() {
             const container = document.getElementById('favoritesContainer');
-            
             if (favorites.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fas fa-heart-broken"></i>
-                        <h3>No Favorites Yet</h3>
-                        <p>Start adding shayari to your favorites</p>
-                    </div>
-                `;
+                container.innerHTML = '<div class="empty-state"><i class="fas fa-heart-broken"></i><h3>No Favorites Yet</h3><p>Start adding shayari to your favorites</p></div>';
                 return;
             }
 
-            const favShayari = allShayari.filter(s => favorites.includes(s.id));
-            
+            const favShayari = allShayari.filter(function(s) { return favorites.indexOf(s.id) !== -1; });
             let html = '';
-            favShayari.forEach(item => {
+            favShayari.forEach(function(item) {
                 const fontClass = item.language.toLowerCase();
-                const authorPhoto = item.authorPhoto || `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName)}&background=DAA520&color=000&size=100`;
-                const imageHtml = item.imageUrl 
-                    ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari" onerror="this.style.display='none'">`
-                    : '';
-
-                html += `
-                    <div class="shayari-card">
-                        <div class="author-header">
-                            <img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">
-                            <div class="author-info">
-                                <h4>${item.authorName}</h4>
-                                <span>${timeAgo(item.timestamp)}</span>
-                            </div>
-                        </div>
-                        ${imageHtml}
-                        <div class="shayari-text ${fontClass}">${item.text}</div>
-                        <div class="tags">
-                            <span class="tag"><i class="fas fa-tag"></i> ${item.category}</span>
-                            <span class="tag"><i class="fas fa-language"></i> ${item.language}</span>
-                            <span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span>
-                        </div>
-                        <div class="actions">
-                            <button class="action-btn" onclick="copyShayari('${item.id}')">
-                                <i class="fas fa-copy"></i> Copy
-                            </button>
-                            <button class="action-btn" onclick="shareShayari('${item.id}')">
-                                <i class="fas fa-share-alt"></i> Share
-                            </button>
-                            <button class="action-btn liked" onclick="toggleFavorite('${item.id}')">
-                                <i class="fas fa-heart"></i> Saved
-                            </button>
-                        </div>
-                    </div>
-                `;
+                const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=FF69B4&color=fff&size=100';
+                const imageHtml = item.imageUrl ? '<img src="' + item.imageUrl + '" class="shayari-image" alt="Shayari" onerror="this.style.display=\'none\'">' : '';
+                html += '<div class="shayari-card"><div class="author-header"><img src="' + authorPhoto + '" class="author-avatar" alt="' + item.authorName + '"><div class="author-info"><h4>' + item.authorName + '</h4><span>' + timeAgo(item.timestamp) + '</span></div></div>' + imageHtml + '<div class="shayari-text ' + fontClass + '">' + escapeHtml(item.text) + '</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ' + item.category + '</span><span class="tag"><i class="fas fa-language"></i> ' + item.language + '</span><span class="tag"><i class="fas fa-heart"></i> ' + item.mood + '</span></div><div class="actions"><button class="action-btn" onclick="copyShayari(\'' + item.id + '\')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal(\'' + item.id + '\')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn liked" onclick="toggleFavorite(\'' + item.id + '\')"><i class="fas fa-heart"></i> Saved</button></div></div>';
             });
-
             container.innerHTML = html;
         }
 
-        // ============================================
-        // ACTIONS
-        // ============================================
         function copyShayari(id) {
-            const shayari = allShayari.find(s => s.id === id);
+            const shayari = allShayari.find(function(s) { return s.id === id; });
             if (!shayari) return;
-            
-            const text = `${shayari.text}\n\n- ${shayari.authorName}\n${shayari.category} | ${shayari.language}`;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('✓ Copied to clipboard');
-            }).catch(() => {
-                // Fallback for older browsers
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n' + shayari.category + ' | ' + shayari.language;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(function() { showToast('✓ Copied to clipboard'); });
+            } else {
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
                 document.body.appendChild(textarea);
@@ -845,32 +1315,11 @@
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
                 showToast('✓ Copied to clipboard');
-            });
-        }
-
-        function shareShayari(id) {
-            const shayari = allShayari.find(s => s.id === id);
-            if (!shayari) return;
-            
-            const text = `${shayari.text}\n\n- ${shayari.authorName}\n${shayari.category} | ${shayari.language}\n\nShared via AI Shayari App`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'AI Shayari',
-                    text: text
-                }).catch(() => {});
-            } else {
-                copyShayari(id);
-                showToast('Text copied! You can paste it anywhere');
             }
         }
 
-        // ============================================
-        // UTILITIES
-        // ============================================
         function timeAgo(timestamp) {
             const seconds = Math.floor((Date.now() - timestamp) / 1000);
-            
             if (seconds < 60) return 'Just now';
             if (seconds < 3600) return Math.floor(seconds / 60) + ' min ago';
             if (seconds < 86400) return Math.floor(seconds / 3600) + ' hour ago';
@@ -882,10 +1331,12 @@
             const toast = document.getElementById('toast');
             toast.textContent = message;
             toast.classList.add('show');
-            
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
+            setTimeout(function() { toast.classList.remove('show'); }, 2500);
+        }
+
+        function escapeHtml(text) {
+            const map = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'};
+            return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
         }
     </script>
 
