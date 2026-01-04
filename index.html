@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#FFFFFF">
     <title>Aisha Shayari</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -16,14 +16,11 @@
             -webkit-tap-highlight-color: transparent;
             -webkit-touch-callout: none;
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
 
         *:focus {
             outline: none !important;
-            -webkit-tap-highlight-color: transparent !important;
         }
 
         :root {
@@ -94,22 +91,70 @@
             background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
             min-height: 100vh;
             padding-bottom: 80px;
-            transition: background 0.5s ease;
+            transition: background 0.4s ease;
         }
 
-        @keyframes spin360 {
+        @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        @keyframes slideIndicator {
-            from { width: 0; }
-            to { width: 100%; }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes livePulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(255, 0, 0, 0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .header {
@@ -118,11 +163,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            animation: slideDown 0.5s ease;
         }
 
         .header-left {
@@ -134,6 +180,8 @@
         .header-icon {
             font-size: 28px;
             color: var(--accent);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
         }
 
         .header-text h1 {
@@ -141,11 +189,18 @@
             color: var(--accent);
             font-size: 24px;
             font-weight: 900;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .header-text p {
             color: var(--text-light);
             font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .settings-btn {
@@ -157,16 +212,36 @@
             border-radius: 50%;
             font-size: 20px;
             cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .settings-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .settings-btn:active::before {
+            width: 100px;
+            height: 100px;
         }
 
         .settings-btn.spinning {
-            animation: spin360 0.6s ease-in-out;
+            animation: spin 0.6s ease-in-out;
         }
 
         .settings-btn:active {
-            transform: scale(0.95);
+            transform: scale(0.92);
         }
 
         .modal {
@@ -176,7 +251,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.75);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -188,22 +263,19 @@
         .modal.show {
             display: flex;
             opacity: 1;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
             background: white;
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 25px;
             width: 100%;
             max-width: 400px;
             max-height: 80vh;
             overflow-y: auto;
-            transform: translateY(30px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal.show .modal-content {
-            transform: translateY(0);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: scaleIn 0.3s ease;
         }
 
         .modal-header {
@@ -211,25 +283,43 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0,0,0,0.08);
         }
 
         .modal-header h3 {
             color: var(--accent);
             font-size: 20px;
-            font-weight: 700;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
         }
 
         .close-btn {
-            background: none;
+            background: rgba(0,0,0,0.05);
             border: none;
-            font-size: 24px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 18px;
             color: var(--text-light);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .close-btn:hover {
+            background: rgba(0,0,0,0.1);
+            transform: rotate(90deg);
         }
 
         .close-btn.spinning {
-            animation: spin360 0.6s ease-in-out;
+            animation: spin 0.5s ease-in-out;
         }
 
         .close-btn:active {
@@ -243,22 +333,33 @@
         }
 
         .theme-option {
-            background: #F8F9FA;
-            border: 2px solid #E0E0E0;
-            border-radius: 15px;
-            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border: 2px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            padding: 16px;
             cursor: pointer;
             text-align: center;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .theme-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .theme-option:active {
-            transform: scale(0.95);
+            transform: scale(0.96);
         }
 
         .theme-option.active {
             border-color: var(--accent);
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: scaleIn 0.3s ease;
         }
 
         .theme-option.active * {
@@ -266,8 +367,8 @@
         }
 
         .theme-icon {
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             margin: 0 auto 10px;
             display: flex;
@@ -275,18 +376,23 @@
             justify-content: center;
             font-size: 22px;
             color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.12);
         }
 
         .theme-info h4 {
             color: #2C3E50;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 3px;
+            transition: color 0.3s ease;
         }
 
         .theme-info p {
             color: #7F8C8D;
             font-size: 10px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .theme-option[data-theme="white"] .theme-icon { background: linear-gradient(135deg, #FFFFFF, #F5F5F5); color: #E74C3C; border: 2px solid #E74C3C; }
@@ -353,6 +459,7 @@
 
         .screen.active {
             display: block;
+            animation: fadeIn 0.3s ease;
         }
 
         .filter-section {
@@ -360,14 +467,18 @@
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            animation: slideUp 0.4s ease;
         }
 
         .filter-section h3 {
             color: var(--accent);
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
             margin-bottom: 15px;
+            transition: color 0.3s ease;
+            letter-spacing: 0.5px;
         }
 
         .filter-group {
@@ -378,8 +489,9 @@
             display: block;
             color: var(--text-color);
             font-size: 14px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 8px;
+            transition: color 0.3s ease;
         }
 
         .filter-group select {
@@ -391,12 +503,42 @@
             border-radius: 12px;
             font-size: 14px;
             font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .filter-group select:focus {
-            outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF0000;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            animation: livePulse 2s infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .new-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
         }
 
         .shayari-card {
@@ -404,8 +546,10 @@
             border-radius: 20px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
+            animation: slideUp 0.4s ease;
+            position: relative;
         }
 
         .author-header {
@@ -421,17 +565,21 @@
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--accent);
+            transition: all 0.3s ease;
         }
 
         .author-info h4 {
             color: var(--text-color);
             font-size: 15px;
-            font-weight: 600;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
 
         .author-info span {
             color: var(--text-light);
             font-size: 12px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
         .shayari-image {
@@ -447,6 +595,8 @@
             line-height: 1.8;
             font-size: 15px;
             margin-bottom: 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .shayari-text.hindi {
@@ -467,7 +617,8 @@
             padding: 6px 12px;
             border-radius: 15px;
             font-size: 11px;
-            font-weight: 600;
+            font-weight: 700;
+            transition: all 0.2s ease;
         }
 
         .actions {
@@ -477,19 +628,28 @@
         }
 
         .action-btn {
-            background: #F8F9FA;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
             border: 2px solid #E0E0E0;
             color: var(--accent);
             padding: 12px;
             border-radius: 12px;
             cursor: pointer;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 800;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 6px;
             transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .action-btn i {
+            font-size: 14px;
+            font-weight: 900;
         }
 
         .action-btn:active {
@@ -500,9 +660,9 @@
             background: linear-gradient(135deg, var(--accent), var(--accent-dark));
             color: white;
             border-color: transparent;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
 
-        /* Bottom Nav with Animated Indicator */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -512,8 +672,9 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             padding: 10px 0 5px 0;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
             z-index: 1000;
+            transition: all 0.3s ease;
         }
 
         .nav-item {
@@ -521,7 +682,7 @@
             padding: 8px;
             cursor: pointer;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .nav-item::after {
@@ -556,14 +717,11 @@
         .nav-item span {
             font-size: 11px;
             color: var(--text-light);
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
         }
 
-        .nav-item.active i {
-            color: var(--accent);
-        }
-
+        .nav-item.active i,
         .nav-item.active span {
             color: var(--accent);
         }
@@ -576,17 +734,19 @@
         .loading i {
             font-size: 40px;
             color: var(--accent);
-            animation: spin360 1s linear infinite;
+            animation: spin 1s linear infinite;
         }
 
         .loading p {
             color: var(--text-color);
             margin-top: 10px;
+            font-weight: 600;
         }
 
         .empty-state {
             text-align: center;
             padding: 60px 20px;
+            animation: fadeIn 0.5s ease;
         }
 
         .empty-state i {
@@ -599,12 +759,14 @@
         .empty-state h3 {
             color: var(--text-color);
             font-size: 18px;
+            font-weight: 700;
             margin-bottom: 8px;
         }
 
         .empty-state p {
             color: var(--text-light);
             font-size: 13px;
+            font-weight: 600;
         }
 
         .btn-primary {
@@ -615,10 +777,15 @@
             padding: 15px;
             border-radius: 12px;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 900;
             cursor: pointer;
             margin-top: 15px;
             transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary:active {
@@ -631,11 +798,13 @@
             padding: 6px 12px;
             border-radius: 15px;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 900;
             display: inline-flex;
             align-items: center;
             gap: 5px;
             margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .toast {
@@ -647,11 +816,13 @@
             color: white;
             padding: 12px 25px;
             border-radius: 25px;
-            font-weight: 600;
+            font-weight: 800;
             font-size: 13px;
             z-index: 4000;
             opacity: 0;
             transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
         }
 
         .toast.show {
@@ -666,7 +837,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.7);
             z-index: 2500;
         }
 
@@ -688,6 +859,7 @@
 
         .share-modal.show {
             display: block;
+            animation: slideUp 0.3s ease;
         }
 
         .share-modal-header {
@@ -700,7 +872,8 @@
         .share-modal-header h3 {
             color: var(--accent);
             font-size: 18px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 0.5px;
         }
 
         .share-options {
@@ -719,7 +892,7 @@
         }
 
         .share-option:active {
-            transform: scale(0.9);
+            transform: scale(0.92);
         }
 
         .share-icon {
@@ -731,6 +904,7 @@
             justify-content: center;
             font-size: 24px;
             color: white;
+            transition: all 0.3s ease;
         }
 
         .share-icon.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
@@ -745,7 +919,25 @@
         .share-option span {
             font-size: 11px;
             color: var(--text-color);
-            font-weight: 600;
+            font-weight: 700;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
         }
 
     </style>
@@ -768,7 +960,7 @@
     <div class="modal" id="settingsModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fas fa-palette"></i> Themes</h3>
+                <h3><i class="fas fa-palette"></i> THEMES</h3>
                 <button class="close-btn" id="closeBtn" onclick="closeSettings()">
                     <i class="fas fa-times"></i>
                 </button>
@@ -780,7 +972,7 @@
     <div class="modal-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
     <div class="share-modal" id="shareModal">
         <div class="share-modal-header">
-            <h3><i class="fas fa-share-alt"></i> Share</h3>
+            <h3><i class="fas fa-share-alt"></i> SHARE</h3>
         </div>
         <div class="share-options">
             <div class="share-option" onclick="shareToSocial('whatsapp')">
@@ -823,9 +1015,9 @@
     <div class="content-wrapper">
         <div class="screen active" id="homeScreen">
             <div class="filter-section">
-                <h3><i class="fas fa-filter"></i> Filter</h3>
+                <h3><i class="fas fa-filter"></i> FILTER</h3>
                 <div class="filter-group">
-                    <label>Category</label>
+                    <label>CATEGORY</label>
                     <select id="filterCategory" onchange="filterShayari()">
                         <option value="">All Categories</option>
                         <option value="Love">Love</option>
@@ -836,7 +1028,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label>Language</label>
+                    <label>LANGUAGE</label>
                     <select id="filterLanguage" onchange="filterShayari()">
                         <option value="">All Languages</option>
                         <option value="English">English</option>
@@ -855,9 +1047,9 @@
 
         <div class="screen" id="generateScreen">
             <div class="filter-section">
-                <h3><i class="fas fa-magic"></i> AI Generator</h3>
+                <h3><i class="fas fa-magic"></i> AI GENERATOR</h3>
                 <div class="filter-group">
-                    <label>Category *</label>
+                    <label>CATEGORY *</label>
                     <select id="genCategory">
                         <option value="">Choose Category</option>
                         <option value="Love">Love</option>
@@ -868,7 +1060,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label>Language *</label>
+                    <label>LANGUAGE *</label>
                     <select id="genLanguage">
                         <option value="">Choose Language</option>
                         <option value="English">English</option>
@@ -876,7 +1068,7 @@
                     </select>
                 </div>
                 <div class="filter-group">
-                    <label>Mood *</label>
+                    <label>MOOD *</label>
                     <select id="genMood">
                         <option value="Romantic">Romantic</option>
                         <option value="Melancholic">Melancholic</option>
@@ -887,7 +1079,7 @@
                     </select>
                 </div>
                 <button class="btn-primary" onclick="generateAIShayari()">
-                    <i class="fas fa-magic"></i> Generate
+                    <i class="fas fa-magic"></i> GENERATE
                 </button>
             </div>
             <div id="generatedContainer"></div>
@@ -907,15 +1099,15 @@
     <div class="bottom-nav">
         <div class="nav-item active" onclick="switchScreen('home')">
             <i class="fas fa-home"></i>
-            <span>Home</span>
+            <span>HOME</span>
         </div>
         <div class="nav-item" onclick="switchScreen('generate')">
             <i class="fas fa-magic"></i>
-            <span>Generate</span>
+            <span>GENERATE</span>
         </div>
         <div class="nav-item" onclick="switchScreen('favorites')">
             <i class="fas fa-heart"></i>
-            <span>Favorites</span>
+            <span>FAVORITES</span>
         </div>
     </div>
 
@@ -1019,7 +1211,7 @@
             localStorage.setItem('theme', theme);
             applyTheme(theme);
             showToast('✨ Theme changed!');
-            setTimeout(() => closeSettings(), 200);
+            setTimeout(() => closeSettings(), 250);
         }
 
         function applyTheme(theme) {
@@ -1047,7 +1239,7 @@
         function closeSettings() {
             const btn = document.getElementById('closeBtn');
             btn.classList.add('spinning');
-            setTimeout(() => btn.classList.remove('spinning'), 600);
+            setTimeout(() => btn.classList.remove('spinning'), 500);
             
             document.getElementById('settingsModal').classList.remove('show');
         }
@@ -1072,40 +1264,90 @@
             const shayari = allShayari.find(s => s.id === currentShareId);
             if (!shayari) return;
             
-            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\nShared via Aisha Shayari';
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via Aisha Shayari';
             const encodedText = encodeURIComponent(text);
-            let url = '';
+            let shareUrl = '';
             
             switch(platform) {
                 case 'whatsapp':
-                    url = 'https://api.whatsapp.com/send?text=' + encodedText;
-                    window.open(url, '_blank');
+                    shareUrl = 'https://api.whatsapp.com/send?text=' + encodedText;
+                    window.open(shareUrl, '_blank');
+                    closeShareModal();
+                    showToast('✅ Opening WhatsApp...');
                     break;
+                    
                 case 'telegram':
-                    url = 'https://t.me/share/url?url=&text=' + encodedText;
-                    window.open(url, '_blank');
+                    shareUrl = 'tg://msg_url?url=&text=' + encodedText;
+                    setTimeout(() => {
+                        const fallback = 'https://t.me/share/url?text=' + encodedText;
+                        window.open(fallback, '_blank');
+                    }, 500);
+                    try {
+                        window.location.href = shareUrl;
+                    } catch(e) {
+                        window.open('https://t.me/share/url?text=' + encodedText, '_blank');
+                    }
+                    closeShareModal();
+                    showToast('✅ Opening Telegram...');
                     break;
+                    
                 case 'instagram':
+                    copyShayari(currentShareId);
+                    closeShareModal();
+                    showToast('📋 Text copied! Now paste in Instagram');
+                    break;
+                    
+                case 'facebook':
+                    shareUrl = 'https://www.facebook.com/sharer/sharer.php?quote=' + encodedText;
+                    window.open(shareUrl, '_blank');
+                    closeShareModal();
+                    showToast('✅ Opening Facebook...');
+                    break;
+                    
+                case 'twitter':
+                    shareUrl = 'https://twitter.com/intent/tweet?text=' + encodedText;
+                    window.open(shareUrl, '_blank');
+                    closeShareModal();
+                    showToast('✅ Opening Twitter...');
+                    break;
+                    
+                case 'messenger':
+                    shareUrl = 'fb-messenger://share/?link=' + encodeURIComponent(window.location.href) + '&quote=' + encodedText;
+                    setTimeout(() => {
+                        window.open('https://www.facebook.com/dialog/send?link=' + encodeURIComponent(window.location.href), '_blank');
+                    }, 500);
+                    try {
+                        window.location.href = shareUrl;
+                    } catch(e) {
+                        window.open('https://www.facebook.com/dialog/send?link=' + encodeURIComponent(window.location.href), '_blank');
+                    }
+                    closeShareModal();
+                    showToast('✅ Opening Messenger...');
+                    break;
+                    
                 case 'copy':
                     copyShayari(currentShareId);
+                    closeShareModal();
                     break;
-                case 'facebook':
-                    url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
-                    window.open(url, '_blank');
-                    break;
-                case 'twitter':
-                    url = 'https://twitter.com/intent/tweet?text=' + encodedText;
-                    window.open(url, '_blank');
-                    break;
+                    
                 case 'more':
                     if (navigator.share) {
-                        navigator.share({ title: 'Aisha Shayari', text: text });
+                        navigator.share({ 
+                            title: 'Aisha Shayari', 
+                            text: text
+                        }).then(() => {
+                            closeShareModal();
+                            showToast('✅ Shared successfully!');
+                        }).catch(() => {
+                            copyShayari(currentShareId);
+                            closeShareModal();
+                        });
                     } else {
                         copyShayari(currentShareId);
+                        closeShareModal();
                     }
                     break;
             }
-            closeShareModal();
         }
 
         window.onload = function() {
@@ -1128,6 +1370,12 @@
                 document.querySelectorAll('.nav-item')[2].classList.add('active');
                 loadFavorites();
             }
+        }
+
+        function isNewShayari(timestamp) {
+            const now = Date.now();
+            const twentyFourHours = 24 * 60 * 60 * 1000;
+            return (now - timestamp) < twentyFourHours;
         }
 
         function loadAllShayari() {
@@ -1157,8 +1405,10 @@
                 const fontClass = item.language.toLowerCase();
                 const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
                 const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
+                const newBadge = isNewShayari(item.timestamp) ? '<div class="new-badge">NEW</div>' : '';
 
                 html += '<div class="shayari-card">';
+                html += newBadge;
                 html += '<div class="author-header">';
                 html += `<img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}">`;
                 html += `<div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>${timeAgo(item.timestamp)}</span></div></div>`;
@@ -1211,7 +1461,7 @@
             const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
             const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
 
-            container.innerHTML = `<div class="shayari-card"><span class="ai-badge"><i class="fas fa-robot"></i> AI Generated</span><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>AI Selected</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> Save</button></div></div>`;
+            container.innerHTML = `<div class="shayari-card"><span class="ai-badge"><i class="fas fa-robot"></i> AI GENERATED</span><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>AI Selected</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> COPY</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> SHARE</button><button class="action-btn" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> SAVE</button></div></div>`;
             showToast('✨ Generated!');
         }
 
@@ -1241,7 +1491,7 @@
                 const fontClass = item.language.toLowerCase();
                 const authorPhoto = item.authorPhoto || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(item.authorName) + '&background=random&size=100';
                 const imageHtml = item.imageUrl ? `<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">` : '';
-                html += `<div class="shayari-card"><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>${timeAgo(item.timestamp)}</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button><button class="action-btn liked" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> Saved</button></div></div>`;
+                html += `<div class="shayari-card"><div class="author-header"><img src="${authorPhoto}" class="author-avatar" alt="${item.authorName}"><div class="author-info"><h4>${escapeHtml(item.authorName)}</h4><span>${timeAgo(item.timestamp)}</span></div></div>${imageHtml}<div class="shayari-text ${fontClass}">${escapeHtml(item.text)}</div><div class="tags"><span class="tag"><i class="fas fa-tag"></i> ${item.category}</span><span class="tag"><i class="fas fa-language"></i> ${item.language}</span><span class="tag"><i class="fas fa-heart"></i> ${item.mood}</span></div><div class="actions"><button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> COPY</button><button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> SHARE</button><button class="action-btn liked" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> SAVED</button></div></div>`;
             });
             container.innerHTML = html;
         }
@@ -1249,7 +1499,7 @@
         function copyShayari(id) {
             const shayari = allShayari.find(s => s.id === id);
             if (!shayari) return;
-            const text = shayari.text + '\n\n- ' + shayari.authorName;
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via Aisha Shayari';
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text).then(() => showToast('✅ Copied!'));
             } else {
