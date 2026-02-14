@@ -948,7 +948,7 @@
         <div class="header-left">
             <i class="fas fa-feather-alt header-icon"></i>
             <div class="header-text">
-                <h1>Aisha Shayari</h1>
+                <h1>DilSe Shayari</h1>
                 <p>Express your emotions</p>
             </div>
         </div>
@@ -1264,7 +1264,7 @@
             const shayari = allShayari.find(s => s.id === currentShareId);
             if (!shayari) return;
             
-            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via Aisha Shayari';
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via DilSe Shayari';
             const encodedText = encodeURIComponent(text);
             let shareUrl = '';
             
@@ -1333,7 +1333,7 @@
                 case 'more':
                     if (navigator.share) {
                         navigator.share({ 
-                            title: 'Aisha Shayari', 
+                            title: 'DilSe Shayari', 
                             text: text
                         }).then(() => {
                             closeShareModal();
@@ -1499,7 +1499,7 @@
         function copyShayari(id) {
             const shayari = allShayari.find(s => s.id === id);
             if (!shayari) return;
-            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via Aisha Shayari';
+            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Shared via DilSe Shayari';
             if (navigator.clipboard) {
                 navigator.clipboard.writeText(text).then(() => showToast('✅ Copied!'));
             } else {
