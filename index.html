@@ -1260,13 +1260,22 @@
         }
 
         function shareToSocial(platform) {
-            if (!currentShareId) return;
-            const shayari = allShayari.find(s => s.id === currentShareId);
-            if (!shayari) return;
-            
-            const text = shayari.text + '\n\n- ' + shayari.authorName + '\n\n📱 Download DilSe Shayari App:\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
-            const encodedText = encodeURIComponent(text);
-            let shareUrl = '';
+    if (!currentShareId) return;
+
+    const shayari = allShayari.find(s => s.id === currentShareId);
+    if (!shayari) return;
+
+    const text = `${shayari.text}
+
+- ${shayari.authorName}
+
+📱 Download DilSe Shayari App
+
+https://play.google.com/store/apps/details?id=com.rajapps.shayari`;
+
+    const encodedText = encodeURIComponent(text);
+    let shareUrl = '';
+        
             
             switch(platform) {
                 case 'whatsapp':
