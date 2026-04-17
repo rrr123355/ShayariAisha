@@ -649,7 +649,7 @@ body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg
         <div class="image-pick-box" onclick="document.getElementById('writeImageInput').click()">
           <i class="fas fa-cloud-upload-alt"></i>
           <p>Choose image from Gallery</p>
-          <small>Will upload to ImgBB (using Admin key)</small>
+          <small>Upload Image to Server</small>
           <input type="file" id="writeImageInput" accept="image/*" onchange="handleWriteImage(event)">
         </div>
         <div class="picked-preview" id="pickedPreview">
@@ -710,7 +710,7 @@ database.ref('settings/imgbbApiKey').on('value',function(snap){
     document.getElementById('imgbbSyncText').textContent='ImgBB connected via Admin key ✓';
     document.getElementById('imgbbSyncInfo').style.borderLeftColor='#4CAF50';
   } else {
-    document.getElementById('imgbbSyncText').textContent='Using default ImgBB key';
+    document.getElementById('imgbbSyncText').textContent='new';
   }
 });
 
