@@ -891,149 +891,185 @@ function shareToSocial(platform){
   const s=allShayari.find(x=>x.id===currentShareId);
   if(!s)return;
 
-  const shareText=s.text+'\n\n— '+(s.authorName||'DilSe')+'\n\n📱 DilSe Shayari App\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
-  const enc=encodeURIComponent(shareText);
+  const shareText=s.text+'\n\n— '+(s.authorName||'DilSe Shayari');
 
-  // Download image to device
-  function downloadAndShare(){
-    if(!s.imageUrl){showToast('No image available');return;}
-    const a=document.createElement('a');
-    a.href=s.imageUrl;
-    a.download='shayari.jpg';
-    a.target='_blank';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showToast('📥 Image downloading... Now share from Gallery!');
-    closeShareModal();
+  // ---- ছবিকে Blob/File এ রূপান্তর ----
+  async function getImageFile(){
+    if(!s.imageUrl)return null;
+    // Method 1: direct fetch with cors
+    try{
+      const r=await fetch(s.imageUrl,{mode:'cors'});
+      const b=await r.blob();
+      if(b&&b.size>0)return new File([b],'shayari.'+(b.type.includes('png')?'png':'jpg'),{type:b.type});
+    }catch(e){}
+    // Method 2: canvas draw (CORS bypass)
+    try{
+      const b=await new Promise((res,rej)=>{
+        const img=new Image();
+        img.crossOrigin='anonymous';
+        img.onload=()=>{
+          const c=document.createElement('canvas');
+          c.width=img.naturalWidth||800;c.height=img.naturalHeight||800;
+          c.getContext('2d').drawImage(img,0,0);
+          c.toBlob(bl=>bl?res(bl):rej(),'image/jpeg',0.92);
+        };
+        img.onerror=()=>rej();
+        img.src=s.imageUrl+(s.imageUrl.includes('?')?'&':'?')+'_cb='+Date.now();
+      });
+      if(b&&b.size>0)return new File([b],'shayari.jpg',{type:'image/jpeg'});
+    }catch(e){}
+    return null;
   }
 
-  // Native share with image file (works on HTTPS mobile)
-  async function nativeShareWithImage(fallbackFn){
-    if(s.imageUrl&&navigator.share){
-      try{
-        const resp=await fetch(s.imageUrl,{mode:'cors'});
-        const blob=await resp.blob();
-        const file=new File([blob],'shayari.'+(blob.type.includes('png')?'png':'jpg'),{type:blob.type});
-        if(navigator.canShare&&navigator.canShare({files:[file]})){
-          await navigator.share({title:'DilSe Shayari',text:shareText,files:[file]});
-          closeShareModal();showToast('✅ Shared with image!');return;
+  // ---- Web Share API দিয়ে সরাসরি ছবি শেয়ার ----
+  async function tryNativeShare(afterFn){
+    showToast('⏳ Preparing image...');
+    const file=await getImageFile();
+    // File share support check
+    if(file&&navigator.share){
+      const canShareFile=(navigator.canShare&&navigator.canShare({files:[file]}));
+      if(canShareFile){
+        try{
+          await navigator.share({files:[file],text:shareText});
+          closeShareModal();showToast('✅ Image shared!');return;
+        }catch(err){
+          if(err.name==='AbortError'){closeShareModal();return;}// user cancelled
         }
+      }
+      // canShare not available but navigator.share exists — try without canShare check
+      try{
+        await navigator.share({files:[file],text:shareText});
+        closeShareModal();showToast('✅ Image shared!');return;
+      }catch(err){
+        if(err.name==='AbortError'){closeShareModal();return;}
+      }
+    }
+    // Fallback
+    afterFn(file);
+  }
+
+  // ---- ছবি download করে gallery তে save ----
+  function saveImageToGallery(file,successMsg){
+    if(file){
+      // Blob URL দিয়ে download
+      try{
+        const url=URL.createObjectURL(file);
+        const a=document.createElement('a');
+        a.href=url;a.download='shayari.jpg';
+        document.body.appendChild(a);a.click();
+        document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url),3000);
+        showToast(successMsg||'📥 Image saving to Gallery...');
+        return true;
       }catch(e){}
     }
-    fallbackFn();
+    if(s.imageUrl){
+      const a=document.createElement('a');
+      a.href=s.imageUrl;a.download='shayari.jpg';a.target='_blank';
+      document.body.appendChild(a);a.click();document.body.removeChild(a);
+      showToast(successMsg||'📥 Downloading image...');
+      return true;
+    }
+    return false;
   }
 
+  // ---- Copy text helper ----
+  function copyTextSilent(txt){
+    try{
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(txt).catch(()=>_legacyCopy(txt));
+      }else{_legacyCopy(txt);}
+    }catch(e){_legacyCopy(txt);}
+  }
+  function _legacyCopy(txt){
+    const el=document.createElement('textarea');
+    el.value=txt;el.style.cssText='position:fixed;top:-9999px;opacity:0';
+    document.body.appendChild(el);el.focus();el.select();
+    try{document.execCommand('copy');}catch(e){}
+    document.body.removeChild(el);
+  }
+
+  // ============ PLATFORM SWITCH ============
   switch(platform){
-    // WhatsApp — native image share, fallback: text+image URL in message
+
     case 'whatsapp':
-      nativeShareWithImage(()=>{
-        const wa=s.imageUrl
-          ? shareText+'\n\n🖼️ '+s.imageUrl
-          : shareText;
-        window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(wa),'_blank');
-        closeShareModal();showToast('✅ Opening WhatsApp...');
+      tryNativeShare(async(file)=>{
+        // Fallback: save image + open WhatsApp with text only
+        saveImageToGallery(file,'📥 Saving image...');
+        setTimeout(()=>{
+          window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(shareText),'_blank');
+          showToast('💬 Opening WhatsApp — attach image from Gallery');
+        },1200);
+        closeShareModal();
       });break;
 
-    // Telegram — native image share, fallback: text with image URL
     case 'telegram':
-      nativeShareWithImage(()=>{
-        const tg=s.imageUrl?shareText+'\n\n🖼️ '+s.imageUrl:shareText;
-        try{window.location.href='tg://msg_url?url=&text='+encodeURIComponent(tg);}catch(e){}
-        setTimeout(()=>window.open('https://t.me/share/url?text='+encodeURIComponent(tg),'_blank'),700);
-        closeShareModal();showToast('✅ Opening Telegram...');
+      tryNativeShare(async(file)=>{
+        saveImageToGallery(file,'📥 Saving image...');
+        setTimeout(()=>{
+          try{window.location.href='tg://msg?text='+encodeURIComponent(shareText);}catch(e){}
+          setTimeout(()=>window.open('https://t.me/share/url?url=&text='+encodeURIComponent(shareText),'_blank'),500);
+          showToast('💬 Opening Telegram — attach image from Gallery');
+        },1200);
+        closeShareModal();
       });break;
 
-    // Instagram — native image share like Telegram (no image URL in text)
     case 'instagram':
-      nativeShareWithImage(()=>{
-        const instaText = s.text + '\n\n— ' + (s.authorName||'DilSe') + '\n\n📱 DilSe Shayari App\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
-        function doCopyInsta(){
-          try{
-            if(navigator.clipboard && navigator.clipboard.writeText){
-              navigator.clipboard.writeText(instaText).then(()=>{
-                showToast('📋 Text copied! Opening Instagram...');
-              }).catch(()=>{
-                const el=document.createElement('textarea');
-                el.value=instaText;el.style.position='fixed';el.style.opacity='0';
-                document.body.appendChild(el);el.focus();el.select();
-                document.execCommand('copy');document.body.removeChild(el);
-                showToast('📋 Text copied! Opening Instagram...');
-              });
-            }else{
-              const el=document.createElement('textarea');
-              el.value=instaText;el.style.position='fixed';el.style.opacity='0';
-              document.body.appendChild(el);el.focus();el.select();
-              document.execCommand('copy');document.body.removeChild(el);
-              showToast('📋 Text copied! Opening Instagram...');
-            }
-          }catch(e){showToast('📋 Opening Instagram...');}
-        }
-        doCopyInsta();
-        try{window.location.href='instagram://app';}catch(e){}
-        setTimeout(()=>window.open('https://www.instagram.com/','_blank'),700);
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file,'📥 Saving image...');
+        setTimeout(()=>{
+          try{window.location.href='instagram://app';}catch(e){}
+          setTimeout(()=>window.open('https://www.instagram.com/','_blank'),500);
+          showToast('📋 Text copied! Paste in Instagram Story/Post');
+        },1200);
         closeShareModal();
       });break;
 
-    // Facebook — share image URL (Facebook renders image preview from URL)
     case 'facebook':
-      if(s.imageUrl){
-        window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(s.imageUrl)+'&quote='+enc,'_blank');
-      }else{
-        window.open('https://www.facebook.com/sharer/sharer.php?quote='+enc,'_blank');
-      }
-      closeShareModal();showToast('✅ Opening Facebook...');break;
-
-    // Twitter — text + image URL (Twitter shows image preview from URL)
-    case 'twitter':
-      const tw=s.imageUrl?shareText+'\n\n'+s.imageUrl:shareText;
-      window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(tw),'_blank');
-      closeShareModal();showToast('✅ Opening Twitter...');break;
-
-    // Messenger — share image URL link
-    case 'messenger':
-      const msLink=s.imageUrl||window.location.href;
-      try{window.location.href='fb-messenger://share/?link='+encodeURIComponent(msLink);}catch(e){}
-      setTimeout(()=>window.open('https://www.facebook.com/dialog/send?link='+encodeURIComponent(msLink),'_blank'),700);
-      closeShareModal();showToast('✅ Opening Messenger...');break;
-
-    // Copy — native image share like Telegram (no image URL in text)
-    case 'copy':
-      nativeShareWithImage(()=>{
-        const copyText = s.text + '\n\n— ' + (s.authorName||'DilSe') + '\n\n📱 DilSe Shayari App\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
-        function doCopy(){
-          try{
-            if(navigator.clipboard && navigator.clipboard.writeText){
-              navigator.clipboard.writeText(copyText).then(()=>{
-                showToast('✅ Copied!');
-              }).catch(()=>{
-                const el=document.createElement('textarea');
-                el.value=copyText;el.style.position='fixed';el.style.opacity='0';
-                document.body.appendChild(el);el.focus();el.select();
-                document.execCommand('copy');document.body.removeChild(el);
-                showToast('✅ Copied!');
-              });
-            }else{
-              const el=document.createElement('textarea');
-              el.value=copyText;el.style.position='fixed';el.style.opacity='0';
-              document.body.appendChild(el);el.focus();el.select();
-              document.execCommand('copy');document.body.removeChild(el);
-              showToast('✅ Copied!');
-            }
-          }catch(e){showToast('✅ Copied!');}
-        }
-        doCopy();
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file,'📥 Saving image...');
+        setTimeout(()=>{
+          try{window.location.href='fb://composer/';}catch(e){}
+          setTimeout(()=>window.open('https://www.facebook.com/','_blank'),500);
+          showToast('📋 Text copied! Paste in Facebook post');
+        },1200);
         closeShareModal();
       });break;
 
-    // More — native share with image file, then fallback download
+    case 'twitter':
+      tryNativeShare(async(file)=>{
+        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText),'_blank');
+        if(file)saveImageToGallery(file,'📥 Saving image...');
+        closeShareModal();showToast('✅ Opening Twitter...');
+      });break;
+
+    case 'messenger':
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file,'📥 Saving image...');
+        setTimeout(()=>{
+          try{window.location.href='fb-messenger://share';}catch(e){}
+          setTimeout(()=>window.open('https://www.messenger.com/','_blank'),500);
+          showToast('📋 Text copied! Paste in Messenger');
+        },1200);
+        closeShareModal();
+      });break;
+
+    case 'copy':
+      copyTextSilent(shareText);
+      showToast('✅ Shayari copied!');
+      closeShareModal();break;
+
     case 'more':
-      nativeShareWithImage(()=>{
-        if(s.imageUrl){downloadAndShare();}
-        else{copyShayari(currentShareId);closeShareModal();}
+      tryNativeShare(async(file)=>{
+        saveImageToGallery(file,'📥 Image saving to Gallery!');
+        closeShareModal();
       });break;
   }
 }
+
 
 // ===== SCREEN SWITCH =====
 function switchScreen(screen){
