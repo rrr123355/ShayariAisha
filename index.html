@@ -454,6 +454,7 @@ body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg
 .upload-box-inner p{color:#2C3E50;font-weight:700;font-size:14px}
 .upload-progress-bar{height:6px;background:#E0E0E0;border-radius:3px;margin-top:10px;overflow:hidden}
 .upload-progress-fill{height:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));width:0%;transition:width .3s ease;border-radius:3px}
+
 </style>
 </head>
 <body>
@@ -891,7 +892,7 @@ function shareToSocial(platform){
   const s=allShayari.find(x=>x.id===currentShareId);
   if(!s)return;
 
-  const shareText=s.text+'\n\n— '+(s.authorName||'DilSe Shayari');
+  const shareText=s.text+'\n\n— '+(s.authorName||'DilSe Shayari')+'\n\n📱 Download DilSe Shayari App & enjoy unlimited shayari!\n👉 https://play.google.com/store/apps/details?id=com.rajapps.shayari';
 
   // ---- ছবিকে Blob/File এ রূপান্তর ----
   async function getImageFile(){
@@ -1114,7 +1115,9 @@ function displayShayari(arr){
         <button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button>
         <button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button>
         <button class="action-btn ${fav?'liked':''}" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> ${fav?'Saved':'Save'}</button>
-      </div></div>`;
+      </div>
+
+    </div>`;
   }).join('');
 }
 function filterShayari(){
@@ -1344,7 +1347,7 @@ function loadMyPosts(){
 // ===== COPY =====
 function copyShayari(id){
   const s=allShayari.find(x=>x.id===id);if(!s)return;
-  const text = s.text + '\n\n— ' + (s.authorName||'DilSe') + '\n\n📱 DilSe Shayari App\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
+  const text = s.text + '\n\n— ' + (s.authorName||'DilSe') + '\n\n📱 Download DilSe Shayari App & enjoy unlimited shayari!\n👉 https://play.google.com/store/apps/details?id=com.rajapps.shayari';
   function fallbackCopy(){
     try{
       const t=document.createElement('textarea');
