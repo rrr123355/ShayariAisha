@@ -887,6 +887,7 @@ document.getElementById('settingsModal').addEventListener('click',e=>{if(e.targe
 // ===== SHARE =====
 function openShareModal(id){currentShareId=id;document.getElementById('shareOverlay').classList.add('show');document.getElementById('shareModal').classList.add('show');}
 function closeShareModal(){document.getElementById('shareOverlay').classList.remove('show');document.getElementById('shareModal').classList.remove('show');}
+
 function shareToSocial(platform){
   if(!currentShareId)return;
   const s=allShayari.find(x=>x.id===currentShareId);
@@ -894,16 +895,17 @@ function shareToSocial(platform){
 
   const shareText=s.text+'\n\n— '+(s.authorName||'DilSe Shayari')+'\n\n📱 Download DilSe Shayari App & enjoy unlimited shayari!\n👉 https://play.google.com/store/apps/details?id=com.rajapps.shayari';
 
-  // ---- ছবিকে Blob/File এ রূপান্তর ----
+  // ✅ Android App এ AndroidInterface ব্যবহার করা হবে
+  const isAndroidApp = (typeof AndroidInterface !== 'undefined');
+
+  // ---- ছবিকে Blob/File এ রূপান্তর (Web browser fallback) ----
   async function getImageFile(){
     if(!s.imageUrl)return null;
-    // Method 1: direct fetch with cors
     try{
       const r=await fetch(s.imageUrl,{mode:'cors'});
       const b=await r.blob();
       if(b&&b.size>0)return new File([b],'shayari.'+(b.type.includes('png')?'png':'jpg'),{type:b.type});
     }catch(e){}
-    // Method 2: canvas draw (CORS bypass)
     try{
       const b=await new Promise((res,rej)=>{
         const img=new Image();
@@ -922,11 +924,62 @@ function shareToSocial(platform){
     return null;
   }
 
-  // ---- Web Share API দিয়ে সরাসরি ছবি শেয়ার ----
+  // ✅ Android App: AndroidInterface দিয়ে সরাসরি শেয়ার
+  async function shareViaAndroid(){
+    showToast('⏳ Preparing image...');
+    if(s.imageUrl){
+      // URL থেকে শেয়ার করব
+      try{
+        AndroidInterface.shareImageFromUrl(s.imageUrl, shareText);
+        closeShareModal();
+        return;
+      }catch(e){
+        // Image URL কাজ না করলে canvas দিয়ে base64 try
+        try{
+          const b=await new Promise((res,rej)=>{
+            const img=new Image();
+            img.crossOrigin='anonymous';
+            img.onload=()=>{
+              const c=document.createElement('canvas');
+              c.width=img.naturalWidth||800;c.height=img.naturalHeight||800;
+              c.getContext('2d').drawImage(img,0,0);
+              c.toBlob(bl=>bl?res(bl):rej(),'image/jpeg',0.92);
+            };
+            img.onerror=()=>rej();
+            img.src=s.imageUrl+(s.imageUrl.includes('?')?'&':'?')+'_cb='+Date.now();
+          });
+          const reader=new FileReader();
+          reader.onload=function(ev){
+            try{
+              AndroidInterface.shareImageWithLink(ev.target.result, shareText);
+              closeShareModal();
+            }catch(ex){
+              AndroidInterface.shareTextOnly(shareText);
+              closeShareModal();
+            }
+          };
+          reader.readAsDataURL(b);
+          return;
+        }catch(ex2){}
+        // সব fail হলে text only
+        try{
+          AndroidInterface.shareTextOnly(shareText);
+          closeShareModal();
+        }catch(ex3){}
+      }
+    } else {
+      // ছবি নেই, শুধু text
+      try{
+        AndroidInterface.shareTextOnly(shareText);
+        closeShareModal();
+      }catch(e){}
+    }
+  }
+
+  // ---- Web Share API (Browser fallback) ----
   async function tryNativeShare(afterFn){
     showToast('⏳ Preparing image...');
     const file=await getImageFile();
-    // File share support check
     if(file&&navigator.share){
       const canShareFile=(navigator.canShare&&navigator.canShare({files:[file]}));
       if(canShareFile){
@@ -934,10 +987,9 @@ function shareToSocial(platform){
           await navigator.share({files:[file],text:shareText});
           closeShareModal();showToast('✅ Image shared!');return;
         }catch(err){
-          if(err.name==='AbortError'){closeShareModal();return;}// user cancelled
+          if(err.name==='AbortError'){closeShareModal();return;}
         }
       }
-      // canShare not available but navigator.share exists — try without canShare check
       try{
         await navigator.share({files:[file],text:shareText});
         closeShareModal();showToast('✅ Image shared!');return;
@@ -945,14 +997,12 @@ function shareToSocial(platform){
         if(err.name==='AbortError'){closeShareModal();return;}
       }
     }
-    // Fallback
     afterFn(file);
   }
 
-  // ---- ছবি download করে gallery তে save ----
+  // ---- ছবি gallery তে save ----
   function saveImageToGallery(file,successMsg){
     if(file){
-      // Blob URL দিয়ে download
       try{
         const url=URL.createObjectURL(file);
         const a=document.createElement('a');
@@ -974,28 +1024,31 @@ function shareToSocial(platform){
     return false;
   }
 
-  // ---- Copy text helper ----
-  function copyTextSilent(txt){
-    try{
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        navigator.clipboard.writeText(txt).catch(()=>_legacyCopy(txt));
-      }else{_legacyCopy(txt);}
-    }catch(e){_legacyCopy(txt);}
-  }
-  function _legacyCopy(txt){
-    const el=document.createElement('textarea');
-    el.value=txt;el.style.cssText='position:fixed;top:-9999px;opacity:0';
-    document.body.appendChild(el);el.focus();el.select();
-    try{document.execCommand('copy');}catch(e){}
-    document.body.removeChild(el);
+  // ✅ Android App হলে সব platform এ AndroidInterface ব্যবহার
+  if(isAndroidApp){
+    switch(platform){
+      case 'whatsapp':
+      case 'telegram':
+      case 'instagram':
+      case 'facebook':
+      case 'twitter':
+      case 'messenger':
+      case 'more':
+        shareViaAndroid();
+        break;
+      case 'copy':
+        copyTextSilent(shareText);
+        showToast('✅ Shayari copied!');
+        closeShareModal();
+        break;
+    }
+    return;
   }
 
-  // ============ PLATFORM SWITCH ============
+  // ---- Browser fallback (website এ) ----
   switch(platform){
-
     case 'whatsapp':
       tryNativeShare(async(file)=>{
-        // Fallback: save image + open WhatsApp with text only
         saveImageToGallery(file,'📥 Saving image...');
         setTimeout(()=>{
           window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(shareText),'_blank');
@@ -1008,8 +1061,8 @@ function shareToSocial(platform){
       tryNativeShare(async(file)=>{
         saveImageToGallery(file,'📥 Saving image...');
         setTimeout(()=>{
-          try{window.location.href='tg://msg?text='+encodeURIComponent(shareText);}catch(e){}
-          setTimeout(()=>window.open('https://t.me/share/url?url=&text='+encodeURIComponent(shareText),'_blank'),500);
+          try{window.location.href='tg://msg?text='+encodeURIComponent(shareText);}
+          catch(e){setTimeout(()=>window.open('https://t.me/share/url?url=&text='+encodeURIComponent(shareText),'_blank'),500);}
           showToast('💬 Opening Telegram — attach image from Gallery');
         },1200);
         closeShareModal();
@@ -1020,9 +1073,9 @@ function shareToSocial(platform){
         copyTextSilent(shareText);
         saveImageToGallery(file,'📥 Saving image...');
         setTimeout(()=>{
-          try{window.location.href='instagram://app';}catch(e){}
-          setTimeout(()=>window.open('https://www.instagram.com/','_blank'),500);
-          showToast('📋 Text copied! Paste in Instagram Story/Post');
+          try{window.location.href='instagram://app';}
+          catch(e){setTimeout(()=>window.open('https://www.instagram.com','_blank'),500);}
+          showToast('✅ Text copied! Paste in Instagram Story/Post');
         },1200);
         closeShareModal();
       });break;
@@ -1032,9 +1085,9 @@ function shareToSocial(platform){
         copyTextSilent(shareText);
         saveImageToGallery(file,'📥 Saving image...');
         setTimeout(()=>{
-          try{window.location.href='fb://composer/';}catch(e){}
-          setTimeout(()=>window.open('https://www.facebook.com/','_blank'),500);
-          showToast('📋 Text copied! Paste in Facebook post');
+          try{window.location.href='fb://composer';}
+          catch(e){setTimeout(()=>window.open('https://www.facebook.com','_blank'),500);}
+          showToast('✅ Text copied! Paste in Facebook post');
         },1200);
         closeShareModal();
       });break;
@@ -1043,7 +1096,7 @@ function shareToSocial(platform){
       tryNativeShare(async(file)=>{
         window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText),'_blank');
         if(file)saveImageToGallery(file,'📥 Saving image...');
-        closeShareModal();showToast('✅ Opening Twitter...');
+        closeShareModal();showToast('🐦 Opening Twitter...');
       });break;
 
     case 'messenger':
@@ -1051,9 +1104,9 @@ function shareToSocial(platform){
         copyTextSilent(shareText);
         saveImageToGallery(file,'📥 Saving image...');
         setTimeout(()=>{
-          try{window.location.href='fb-messenger://share';}catch(e){}
-          setTimeout(()=>window.open('https://www.messenger.com/','_blank'),500);
-          showToast('📋 Text copied! Paste in Messenger');
+          try{window.location.href='fb-messenger://share';}
+          catch(e){setTimeout(()=>window.open('https://www.messenger.com','_blank'),500);}
+          showToast('✅ Text copied! Paste in Messenger');
         },1200);
         closeShareModal();
       });break;
