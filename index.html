@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FFFFFF">
+<title>DilSe Shayari</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}*::selection{background:transparent;color:inherit}*::-moz-selection{background:transparent;color:inherit}
+*:focus{outline:none!important}
+:root{--bg-start:#FFFFFF;--bg-end:#F8F9FA;--card-bg:#FFFFFF;--text-color:#2C3E50;--text-light:#7F8C8D;--accent:#E74C3C;--accent-dark:#C0392B}
+body.theme-ocean{--bg-start:#00CED1;--bg-end:#4682B4;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00CED1;--accent-dark:#4682B4}
+body.theme-sunset{--bg-start:#FF6B6B;--bg-end:#FFD93D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6B6B;--accent-dark:#FF4757}
+body.theme-purple{--bg-start:#A78BFA;--bg-end:#7C3AED;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#7C3AED;--accent-dark:#6D28D9}
+body.theme-mint{--bg-start:#6EE7B7;--bg-end:#10B981;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#10B981;--accent-dark:#059669}
+body.theme-pink{--bg-start:#FF69B4;--bg-end:#FF1493;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF1493;--accent-dark:#C71585}
+body.theme-dark{--bg-start:#1A1A2E;--bg-end:#16213E;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#E94560;--accent-dark:#C0392B}
+body.theme-golden{--bg-start:#FFD700;--bg-end:#FF8C00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF8C00;--accent-dark:#FF6347}
+body.theme-forest{--bg-start:#2E8B57;--bg-end:#00CED1;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#2E8B57;--accent-dark:#228B22}
+body.theme-royal{--bg-start:#4169E1;--bg-end:#191970;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#4169E1;--accent-dark:#191970}
+body.theme-cosmic{--bg-start:#8B5CF6;--bg-end:#EC4899;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#8B5CF6;--accent-dark:#EC4899}
+body.theme-midnight{--bg-start:#000046;--bg-end:#1CB5E0;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#1CB5E0;--accent-dark:#000046}
+body.theme-crimson{--bg-start:#CB2D3E;--bg-end:#EF473A;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#CB2D3E;--accent-dark:#A82432}
+body.theme-violet{--bg-start:#667EEA;--bg-end:#764BA2;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#667EEA;--accent-dark:#764BA2}
+body.theme-teal{--bg-start:#134E5E;--bg-end:#71B280;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#134E5E;--accent-dark:#0E3946}
+body.theme-candy{--bg-start:#FC5C7D;--bg-end:#6A82FB;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FC5C7D;--accent-dark:#6A82FB}
+body.theme-mango{--bg-start:#FFB75E;--bg-end:#ED8F03;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFB75E;--accent-dark:#ED8F03}
+body.theme-sapphire{--bg-start:#0575E6;--bg-end:#021B79;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#0575E6;--accent-dark:#021B79}
+body.theme-emerald{--bg-start:#11998E;--bg-end:#38EF7D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#11998E;--accent-dark:#0E7D74}
+body.theme-lavender{--bg-start:#E6B0FF;--bg-end:#9B59B6;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#9B59B6;--accent-dark:#7D3C98}
+body.theme-cherry{--bg-start:#FFB7C5;--bg-end:#FF6B9D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6B9D;--accent-dark:#E0558A}
+body.theme-autumn{--bg-start:#D4501C;--bg-end:#F4A460;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#D4501C;--accent-dark:#B03A10}
+body.theme-spring{--bg-start:#A8E063;--bg-end:#56AB2F;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#56AB2F;--accent-dark:#3D8A1E}
+body.theme-arctic{--bg-start:#A8EDEA;--bg-end:#FED6E3;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#A8EDEA;--accent-dark:#7FC8C4}
+body.theme-bamboo{--bg-start:#DAF7A6;--bg-end:#52BE80;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#52BE80;--accent-dark:#3D9966}
+body.theme-desert{--bg-start:#F5DEB3;--bg-end:#DEB887;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#DEB887;--accent-dark:#C4A87A}
+body.theme-jungle{--bg-start:#1B5E20;--bg-end:#4CAF50;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#4CAF50;--accent-dark:#388E3C}
+body.theme-tropical{--bg-start:#43E97B;--bg-end:#38F9D7;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#43E97B;--accent-dark:#2FCC6A}
+body.theme-coral{--bg-start:#FF7F7F;--bg-end:#FF4500;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF4500;--accent-dark:#CC3700}
+body.theme-aurora{--bg-start:#00F260;--bg-end:#0575E6;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#0575E6;--accent-dark:#0456B0}
+body.theme-galaxy{--bg-start:#0F0C29;--bg-end:#302B63;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#302B63;--accent-dark:#0F0C29}
+body.theme-nebula{--bg-start:#DA22FF;--bg-end:#9733EE;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#DA22FF;--accent-dark:#B01AD0}
+body.theme-comet{--bg-start:#1A1A2E;--bg-end:#E94560;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#E94560;--accent-dark:#C73050}
+body.theme-stardust{--bg-start:#B993D6;--bg-end:#8CA6DB;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#B993D6;--accent-dark:#9A7DC4}
+body.theme-supernova{--bg-start:#F83600;--bg-end:#F9D423;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#F83600;--accent-dark:#D02C00}
+body.theme-eclipse{--bg-start:#0C0C0C;--bg-end:#434343;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#434343;--accent-dark:#2A2A2A}
+body.theme-moonlight{--bg-start:#232526;--bg-end:#414345;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C0C0C0;--accent-dark:#A0A0A0}
+body.theme-sunrise{--bg-start:#FF6B35;--bg-end:#F7C59F;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6B35;--accent-dark:#E05A2A}
+body.theme-dusk{--bg-start:#2C3E50;--bg-end:#FD746C;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FD746C;--accent-dark:#E05A54}
+body.theme-strawberry{--bg-start:#FF512F;--bg-end:#DD2476;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#DD2476;--accent-dark:#BB1C60}
+body.theme-blueberry{--bg-start:#1488CC;--bg-end:#2B32B2;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#2B32B2;--accent-dark:#1F2490}
+body.theme-watermelon{--bg-start:#FF6B6B;--bg-end:#4ECDC4;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6B6B;--accent-dark:#E05A5A}
+body.theme-peach{--bg-start:#FFB347;--bg-end:#FFCC02;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFB347;--accent-dark:#E09530}
+body.theme-grape{--bg-start:#6A0572;--bg-end:#AB83A1;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#6A0572;--accent-dark:#4E0355}
+body.theme-lemon{--bg-start:#F7971E;--bg-end:#FFD200;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFD200;--accent-dark:#D4B000}
+body.theme-caramel{--bg-start:#C79A3A;--bg-end:#E8B86D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C79A3A;--accent-dark:#A07D2C}
+body.theme-chocolate{--bg-start:#3E1C00;--bg-end:#6F3C1B;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#6F3C1B;--accent-dark:#4A2710}
+body.theme-bubblegum{--bg-start:#FF77FF;--bg-end:#FF9DE2;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF77FF;--accent-dark:#E055E0}
+body.theme-cotton{--bg-start:#FDDB92;--bg-end:#D1FDFF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FDDB92;--accent-dark:#D4B87A}
+body.theme-diamond{--bg-start:#B2FEFA;--bg-end:#0ED2F7;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#0ED2F7;--accent-dark:#0AB4D2}
+body.theme-platinum{--bg-start:#C0C0C0;--bg-end:#E8E8E8;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#A0A0A0;--accent-dark:#808080}
+body.theme-bronze{--bg-start:#CD7F32;--bg-end:#B8860B;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#CD7F32;--accent-dark:#A66A28}
+body.theme-ruby{--bg-start:#9B111E;--bg-end:#E0115F;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#E0115F;--accent-dark:#BB0E4F}
+body.theme-jade{--bg-start:#00A36C;--bg-end:#2E8B57;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00A36C;--accent-dark:#007A52}
+body.theme-amber{--bg-start:#FF7E00;--bg-end:#FFBF00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFBF00;--accent-dark:#D4A000}
+body.theme-pearl{--bg-start:#F5F5F0;--bg-end:#EAE8E1;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#9E9E9E;--accent-dark:#757575}
+body.theme-obsidian{--bg-start:#1C1C1C;--bg-end:#3D3D3D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#6C6C6C;--accent-dark:#4A4A4A}
+body.theme-opal{--bg-start:#A8C0FF;--bg-end:#3F2B96;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#A8C0FF;--accent-dark:#8AAAE0}
+body.theme-onyx{--bg-start:#0F0F0F;--bg-end:#2D2D2D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#E0E0E0;--accent-dark:#BDBDBD}
+body.theme-fire{--bg-start:#F83600;--bg-end:#FE8C00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#F83600;--accent-dark:#CC2A00}
+body.theme-lava{--bg-start:#CF1512;--bg-end:#F0542A;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#CF1512;--accent-dark:#A81010}
+body.theme-neon{--bg-start:#00FF88;--bg-end:#00B3FF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00FF88;--accent-dark:#00CC70}
+body.theme-electric{--bg-start:#00F5FF;--bg-end:#0080FF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#0080FF;--accent-dark:#0060CC}
+body.theme-magma{--bg-start:#8B0000;--bg-end:#FF4500;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF4500;--accent-dark:#CC3700}
+body.theme-plasma{--bg-start:#FF00FF;--bg-end:#8B00FF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF00FF;--accent-dark:#CC00CC}
+body.theme-inferno{--bg-start:#C02425;--bg-end:#F0CB35;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C02425;--accent-dark:#A01E1F}
+body.theme-thunder{--bg-start:#373B44;--bg-end:#4286F4;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#4286F4;--accent-dark:#3070D8}
+body.theme-lightning{--bg-start:#F7FF00;--bg-end:#DB36A4;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#DB36A4;--accent-dark:#B82C89}
+body.theme-solar{--bg-start:#FFD000;--bg-end:#FF6500;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6500;--accent-dark:#D45200}
+body.theme-cloud{--bg-start:#ECE9E6;--bg-end:#FFFFFF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#B0B0B0;--accent-dark:#909090}
+body.theme-mist{--bg-start:#89F7FE;--bg-end:#66A6FF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#66A6FF;--accent-dark:#4D8FE0}
+body.theme-breeze{--bg-start:#CFECD0;--bg-end:#A0CEA4;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#A0CEA4;--accent-dark:#7EB882}
+body.theme-whisper{--bg-start:#FEE9E7;--bg-end:#FECFEF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#F0A0B8;--accent-dark:#D08098}
+body.theme-silk{--bg-start:#F4E2D8;--bg-end:#BA5370;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#BA5370;--accent-dark:#9A3D58}
+body.theme-velvet{--bg-start:#4A0072;--bg-end:#7B1FA2;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#9C27B0;--accent-dark:#7B1FA2}
+body.theme-satin{--bg-start:#FC5C7D;--bg-end:#6A82FB;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FC5C7D;--accent-dark:#E04070}
+body.theme-cashmere{--bg-start:#F5E6CA;--bg-end:#C8A96E;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C8A96E;--accent-dark:#A88A50}
+body.theme-ivory{--bg-start:#FFFFF0;--bg-end:#FAFAF0;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#D4D4A0;--accent-dark:#B0B080}
+body.theme-chalk{--bg-start:#F5F5F5;--bg-end:#DCDCDC;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#808080;--accent-dark:#606060}
+body.theme-retro{--bg-start:#FF6B35;--bg-end:#F7C59F;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6B35;--accent-dark:#E05A2A}
+body.theme-sepia{--bg-start:#704214;--bg-end:#C3A882;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#704214;--accent-dark:#502E0E}
+body.theme-vintage{--bg-start:#B7410E;--bg-end:#D4A017;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#B7410E;--accent-dark:#92330B}
+body.theme-kodak{--bg-start:#FFD700;--bg-end:#FF4500;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF4500;--accent-dark:#CC3700}
+body.theme-polaroid{--bg-start:#F5F5F0;--bg-end:#D4C5A9;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#8B7355;--accent-dark:#6B5535}
+body.theme-indie{--bg-start:#6C5CE7;--bg-end:#A29BFE;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#6C5CE7;--accent-dark:#5046BE}
+body.theme-grunge{--bg-start:#3D3D3D;--bg-end:#7A7A7A;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#B0B0B0;--accent-dark:#909090}
+body.theme-nineties{--bg-start:#FF1493;--bg-end:#00FF00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF1493;--accent-dark:#CC0070}
+body.theme-vaporwave{--bg-start:#FF6AD5;--bg-end:#C774E8;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C774E8;--accent-dark:#A055C8}
+body.theme-lofi{--bg-start:#7C83FD;--bg-end:#96BAFF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#7C83FD;--accent-dark:#6068D8}
+body.theme-aqua{--bg-start:#00B4D8;--bg-end:#90E0EF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00B4D8;--accent-dark:#0090B0}
+body.theme-lagoon{--bg-start:#00C9FF;--bg-end:#92FE9D;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00C9FF;--accent-dark:#00A8D8}
+body.theme-sea{--bg-start:#36D1DC;--bg-end:#5B86E5;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#36D1DC;--accent-dark:#2AB0BC}
+body.theme-abyss{--bg-start:#0D0D2B;--bg-end:#0A3D5C;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#0A6E9C;--accent-dark:#08507A}
+body.theme-surf{--bg-start:#1FA2FF;--bg-end:#12D8FA;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#1FA2FF;--accent-dark:#1884D4}
+body.theme-tide{--bg-start:#43C6AC;--bg-end:#191654;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#43C6AC;--accent-dark:#349E8A}
+body.theme-pacific{--bg-start:#0B3866;--bg-end:#4DA0B0;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#4DA0B0;--accent-dark:#3D8090}
+body.theme-iceberg{--bg-start:#76B2FE;--bg-end:#B69EFF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#76B2FE;--accent-dark:#5A90E0}
+body.theme-waterfall{--bg-start:#1CD8D2;--bg-end:#93EDC7;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#1CD8D2;--accent-dark:#18B0AB}
+body.theme-rain{--bg-start:#4B6CB7;--bg-end:#182848;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#4B6CB7;--accent-dark:#3A5495}
+body.theme-cyberpunk{--bg-start:#FF003C;--bg-end:#00FFFF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF003C;--accent-dark:#CC0030}
+body.theme-steampunk{--bg-start:#704214;--bg-end:#C47F17;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C47F17;--accent-dark:#A06810}
+body.theme-noir{--bg-start:#0A0A0A;--bg-end:#2C2C2C;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#C0C0C0;--accent-dark:#A0A0A0}
+body.theme-blade{--bg-start:#1C1C1C;--bg-end:#FF4500;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF4500;--accent-dark:#CC3700}
+body.theme-matrix{--bg-start:#0D0208;--bg-end:#003B00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00FF41;--accent-dark:#00CC33}
+body.theme-holo{--bg-start:#4776E6;--bg-end:#8E54E9;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#8E54E9;--accent-dark:#7040C0}
+body.theme-chrome{--bg-start:#ADB5BD;--bg-end:#E9ECEF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#6C757D;--accent-dark:#495057}
+body.theme-glitch{--bg-start:#FF0000;--bg-end:#0000FF;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF0000;--accent-dark:#CC0000}
+body.theme-arcade{--bg-start:#FF6B35;--bg-end:#FFD700;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFD700;--accent-dark:#D4B800}
+body.theme-pixel{--bg-start:#00FF00;--bg-end:#0000AA;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#00FF00;--accent-dark:#00CC00}
+body.theme-sakura{--bg-start:#FFB7C5;--bg-end:#FF85A1;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF85A1;--accent-dark:#E06080}
+body.theme-diwali{--bg-start:#FF6200;--bg-end:#FFD700;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFD700;--accent-dark:#D4B800}
+body.theme-holi{--bg-start:#FF69B4;--bg-end:#00CED1;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF69B4;--accent-dark:#E05090}
+body.theme-carnival{--bg-start:#FF1744;--bg-end:#FF6D00;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FF6D00;--accent-dark:#D05800}
+body.theme-festive{--bg-start:#FF0000;--bg-end:#FFD700;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#FFD700;--accent-dark:#D4B800}
+body.theme-boho{--bg-start:#D4845A;--bg-end:#8B4513;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#D4845A;--accent-dark:#B06840}
+body.theme-tribal{--bg-start:#8B0000;--bg-end:#D2691E;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#D2691E;--accent-dark:#B25518}
+body.theme-zen{--bg-start:#2C5F2E;--bg-end:#97BC62;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#2C5F2E;--accent-dark:#1E4020}
+body.theme-dharma{--bg-start:#FF6B35;--bg-end:#A8336B;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#A8336B;--accent-dark:#882855}
+body.theme-mystic{--bg-start:#4A0072;--bg-end:#AA076B;--card-bg:rgba(255,255,255,0.95);--text-color:#1A1A1A;--text-light:#555;--accent:#AA076B;--accent-dark:#880558}
+
+/* RGB ANIMATIONS */
+@keyframes rgbGlow{0%{box-shadow:0 0 10px 3px rgba(255,0,0,.7),0 0 20px 6px rgba(255,0,0,.4)}14%{box-shadow:0 0 10px 3px rgba(255,165,0,.7),0 0 20px 6px rgba(255,165,0,.4)}28%{box-shadow:0 0 10px 3px rgba(255,255,0,.7),0 0 20px 6px rgba(255,255,0,.4)}42%{box-shadow:0 0 10px 3px rgba(0,255,0,.7),0 0 20px 6px rgba(0,255,0,.4)}57%{box-shadow:0 0 10px 3px rgba(0,150,255,.7),0 0 20px 6px rgba(0,150,255,.4)}71%{box-shadow:0 0 10px 3px rgba(75,0,255,.7),0 0 20px 6px rgba(75,0,255,.4)}85%{box-shadow:0 0 10px 3px rgba(255,0,255,.7),0 0 20px 6px rgba(255,0,255,.4)}100%{box-shadow:0 0 10px 3px rgba(255,0,0,.7),0 0 20px 6px rgba(255,0,0,.4)}}
+@keyframes rgbBorder{0%{border-color:#ff0000;box-shadow:0 0 12px #ff0000,0 4px 20px rgba(0,0,0,.15)}14%{border-color:#ff8800;box-shadow:0 0 12px #ff8800,0 4px 20px rgba(0,0,0,.15)}28%{border-color:#ffff00;box-shadow:0 0 12px #ffff00,0 4px 20px rgba(0,0,0,.15)}42%{border-color:#00ff00;box-shadow:0 0 12px #00ff00,0 4px 20px rgba(0,0,0,.15)}57%{border-color:#0099ff;box-shadow:0 0 12px #0099ff,0 4px 20px rgba(0,0,0,.15)}71%{border-color:#4b00ff;box-shadow:0 0 12px #4b00ff,0 4px 20px rgba(0,0,0,.15)}85%{border-color:#ff00ff;box-shadow:0 0 12px #ff00ff,0 4px 20px rgba(0,0,0,.15)}100%{border-color:#ff0000;box-shadow:0 0 12px #ff0000,0 4px 20px rgba(0,0,0,.15)}}
+@keyframes rgbRing{0%{box-shadow:0 0 0 3px #ff0000,0 0 18px 5px rgba(255,0,0,.6)}14%{box-shadow:0 0 0 3px #ff8800,0 0 18px 5px rgba(255,136,0,.6)}28%{box-shadow:0 0 0 3px #ffff00,0 0 18px 5px rgba(255,255,0,.6)}42%{box-shadow:0 0 0 3px #00ff00,0 0 18px 5px rgba(0,255,0,.6)}57%{box-shadow:0 0 0 3px #0099ff,0 0 18px 5px rgba(0,153,255,.6)}71%{box-shadow:0 0 0 3px #4b00ff,0 0 18px 5px rgba(75,0,255,.6)}85%{box-shadow:0 0 0 3px #ff00ff,0 0 18px 5px rgba(255,0,255,.6)}100%{box-shadow:0 0 0 3px #ff0000,0 0 18px 5px rgba(255,0,0,.6)}}
+@keyframes spinRing{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.05);opacity:.8}}
+@keyframes livePulse{0%,100%{box-shadow:0 0 0 0 rgba(255,0,0,.7)}50%{box-shadow:0 0 0 8px rgba(255,0,0,0)}}
+@keyframes slideDown{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes navPop{0%{transform:scale(1)}40%{transform:scale(1.3)}70%{transform:scale(.9)}100%{transform:scale(1)}}
+@keyframes imgbbSync{0%,100%{opacity:1}50%{opacity:.5}}
+
+body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg-start),var(--bg-end));min-height:100vh;padding-bottom:75px;transition:background .4s ease,--bg-start .4s ease,--bg-end .4s ease;will-change:background}
+
+/* HEADER */
+.header{background:var(--card-bg);padding:8px 16px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 20px rgba(0,0,0,.1);position:sticky;top:0;z-index:1000;animation:slideDown .5s ease}
+.header-left{display:flex;align-items:center;gap:10px}
+.header-icon{font-size:22px;color:var(--accent);animation:pulse 2s infinite}
+.header-text h1{font-family:'Playfair Display',serif;font-size:20px;font-weight:900;background:linear-gradient(135deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-text p{color:var(--text-light);font-size:10px;font-weight:600}
+
+/* PROFILE BUTTON — RGB ring */
+.profile-btn{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;border:none;width:38px;height:38px;border-radius:50%;font-size:17px;cursor:pointer;transition:all .3s ease;display:flex;align-items:center;justify-content:center;padding:0;animation:rgbRing 3s linear infinite;overflow:hidden}
+.profile-btn img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.profile-btn:active{transform:scale(.92)}
+
+/* MODALS */
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.75);z-index:2000;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex;animation:fadeIn .3s ease}
+.modal-content{background:white;border-radius:25px;padding:20px;width:100%;max-width:400px;max-height:92vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3);animation:scaleIn .3s ease}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;padding-bottom:15px;border-bottom:2px solid rgba(0,0,0,.08)}
+.modal-header h3{color:var(--accent);font-size:18px;font-weight:800;display:flex;align-items:center;gap:10px}
+.close-btn{background:rgba(0,0,0,.05);border:none;width:36px;height:36px;border-radius:50%;font-size:16px;color:var(--text-light);cursor:pointer;transition:all .2s ease;display:flex;align-items:center;justify-content:center}
+.close-btn:hover{background:rgba(0,0,0,.1)}
+
+/* PROFILE MODAL — conic spinning ring */
+.profile-edit-section{display:flex;flex-direction:column;align-items:center;gap:18px}
+.profile-ring-wrapper{position:relative;width:120px;height:120px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.profile-ring-wrapper::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(#ff0000,#ff8800,#ffff00,#00ff00,#0099ff,#4b00ff,#ff00ff,#ff0000);animation:spinRing 2s linear infinite;z-index:0}
+.profile-ring-wrapper::after{content:'';position:absolute;inset:2px;border-radius:50%;background:white;z-index:1}
+.profile-pic-preview{width:108px;height:108px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;font-size:40px;color:white;overflow:hidden;position:relative;z-index:2}
+.profile-pic-preview img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.profile-camera-icon{position:absolute;bottom:4px;right:4px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;border:2px solid white;z-index:3;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.profile-form{width:100%}
+.profile-label{display:block;color:var(--text-color);font-size:12px;font-weight:700;margin-bottom:7px;letter-spacing:.5px}
+.profile-input{width:100%;background:#f8f9fa;border:2px solid #E0E0E0;color:#333;padding:12px 14px;border-radius:12px;font-size:14px;font-family:'Poppins',sans-serif;font-weight:600;transition:all .2s ease;-webkit-user-select:text;user-select:text}
+.profile-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(231,76,60,.1);background:white}
+
+/* SETTINGS / THEMES */
+.theme-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.theme-option{background:linear-gradient(135deg,#f8f9fa,#fff);border:2px solid rgba(0,0,0,.06);border-radius:12px;padding:10px 6px;cursor:pointer;text-align:center;transition:all .25s ease;box-shadow:0 3px 10px rgba(0,0,0,.04)}
+.theme-option:hover{transform:translateY(-3px)}
+.theme-option.active{border-color:var(--accent);background:linear-gradient(135deg,var(--accent),var(--accent-dark));transform:scale(1.03)}
+.theme-option.active *{color:white!important}
+.theme-icon{width:38px;height:38px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:16px;color:white;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.theme-info h4{color:#2C3E50;font-size:10px;font-weight:700;margin-bottom:1px}
+.theme-info p{color:#7F8C8D;font-size:9px;font-weight:600}
+.theme-option[data-theme="white"] .theme-icon{background:linear-gradient(135deg,#FFF,#F5F5F5);color:#E74C3C;border:2px solid #E74C3C}
+.theme-option[data-theme="ocean"] .theme-icon{background:linear-gradient(135deg,#00CED1,#4682B4)}
+.theme-option[data-theme="sunset"] .theme-icon{background:linear-gradient(135deg,#FF6B6B,#FFD93D)}
+.theme-option[data-theme="purple"] .theme-icon{background:linear-gradient(135deg,#A78BFA,#7C3AED)}
+.theme-option[data-theme="mint"] .theme-icon{background:linear-gradient(135deg,#6EE7B7,#10B981)}
+.theme-option[data-theme="pink"] .theme-icon{background:linear-gradient(135deg,#FF69B4,#FF1493)}
+.theme-option[data-theme="dark"] .theme-icon{background:linear-gradient(135deg,#1A1A2E,#16213E);color:#E94560}
+.theme-option[data-theme="golden"] .theme-icon{background:linear-gradient(135deg,#FFD700,#FF8C00)}
+.theme-option[data-theme="forest"] .theme-icon{background:linear-gradient(135deg,#2E8B57,#00CED1)}
+.theme-option[data-theme="royal"] .theme-icon{background:linear-gradient(135deg,#4169E1,#191970)}
+.theme-option[data-theme="cosmic"] .theme-icon{background:linear-gradient(135deg,#8B5CF6,#EC4899)}
+.theme-option[data-theme="midnight"] .theme-icon{background:linear-gradient(135deg,#000046,#1CB5E0)}
+.theme-option[data-theme="crimson"] .theme-icon{background:linear-gradient(135deg,#CB2D3E,#EF473A)}
+.theme-option[data-theme="violet"] .theme-icon{background:linear-gradient(135deg,#667EEA,#764BA2)}
+.theme-option[data-theme="teal"] .theme-icon{background:linear-gradient(135deg,#134E5E,#71B280)}
+.theme-option[data-theme="candy"] .theme-icon{background:linear-gradient(135deg,#FC5C7D,#6A82FB)}
+.theme-option[data-theme="mango"] .theme-icon{background:linear-gradient(135deg,#FFB75E,#ED8F03)}
+.theme-option[data-theme="sapphire"] .theme-icon{background:linear-gradient(135deg,#0575E6,#021B79)}
+.theme-option[data-theme="emerald"] .theme-icon{background:linear-gradient(135deg,#11998E,#38EF7D)}
+.theme-option[data-theme="lavender"] .theme-icon{background:linear-gradient(135deg,#E6B0FF,#9B59B6)}
+.theme-option[data-theme="cherry"] .theme-icon{background:linear-gradient(135deg,#FFB7C5,#FF6B9D)}
+.theme-option[data-theme="autumn"] .theme-icon{background:linear-gradient(135deg,#D4501C,#F4A460)}
+.theme-option[data-theme="spring"] .theme-icon{background:linear-gradient(135deg,#A8E063,#56AB2F)}
+.theme-option[data-theme="arctic"] .theme-icon{background:linear-gradient(135deg,#A8EDEA,#FED6E3)}
+.theme-option[data-theme="bamboo"] .theme-icon{background:linear-gradient(135deg,#DAF7A6,#52BE80)}
+.theme-option[data-theme="desert"] .theme-icon{background:linear-gradient(135deg,#F5DEB3,#DEB887)}
+.theme-option[data-theme="jungle"] .theme-icon{background:linear-gradient(135deg,#1B5E20,#4CAF50)}
+.theme-option[data-theme="tropical"] .theme-icon{background:linear-gradient(135deg,#43E97B,#38F9D7)}
+.theme-option[data-theme="coral"] .theme-icon{background:linear-gradient(135deg,#FF7F7F,#FF4500)}
+.theme-option[data-theme="aurora"] .theme-icon{background:linear-gradient(135deg,#00F260,#0575E6)}
+.theme-option[data-theme="galaxy"] .theme-icon{background:linear-gradient(135deg,#0F0C29,#302B63)}
+.theme-option[data-theme="nebula"] .theme-icon{background:linear-gradient(135deg,#DA22FF,#9733EE)}
+.theme-option[data-theme="comet"] .theme-icon{background:linear-gradient(135deg,#1A1A2E,#E94560)}
+.theme-option[data-theme="stardust"] .theme-icon{background:linear-gradient(135deg,#B993D6,#8CA6DB)}
+.theme-option[data-theme="supernova"] .theme-icon{background:linear-gradient(135deg,#F83600,#F9D423)}
+.theme-option[data-theme="eclipse"] .theme-icon{background:linear-gradient(135deg,#0C0C0C,#434343)}
+.theme-option[data-theme="moonlight"] .theme-icon{background:linear-gradient(135deg,#232526,#414345)}
+.theme-option[data-theme="sunrise"] .theme-icon{background:linear-gradient(135deg,#FF6B35,#F7C59F)}
+.theme-option[data-theme="dusk"] .theme-icon{background:linear-gradient(135deg,#2C3E50,#FD746C)}
+.theme-option[data-theme="strawberry"] .theme-icon{background:linear-gradient(135deg,#FF512F,#DD2476)}
+.theme-option[data-theme="blueberry"] .theme-icon{background:linear-gradient(135deg,#1488CC,#2B32B2)}
+.theme-option[data-theme="watermelon"] .theme-icon{background:linear-gradient(135deg,#FF6B6B,#4ECDC4)}
+.theme-option[data-theme="peach"] .theme-icon{background:linear-gradient(135deg,#FFB347,#FFCC02)}
+.theme-option[data-theme="grape"] .theme-icon{background:linear-gradient(135deg,#6A0572,#AB83A1)}
+.theme-option[data-theme="lemon"] .theme-icon{background:linear-gradient(135deg,#F7971E,#FFD200)}
+.theme-option[data-theme="caramel"] .theme-icon{background:linear-gradient(135deg,#C79A3A,#E8B86D)}
+.theme-option[data-theme="chocolate"] .theme-icon{background:linear-gradient(135deg,#3E1C00,#6F3C1B)}
+.theme-option[data-theme="bubblegum"] .theme-icon{background:linear-gradient(135deg,#FF77FF,#FF9DE2)}
+.theme-option[data-theme="cotton"] .theme-icon{background:linear-gradient(135deg,#FDDB92,#D1FDFF)}
+.theme-option[data-theme="diamond"] .theme-icon{background:linear-gradient(135deg,#B2FEFA,#0ED2F7)}
+.theme-option[data-theme="platinum"] .theme-icon{background:linear-gradient(135deg,#C0C0C0,#E8E8E8)}
+.theme-option[data-theme="bronze"] .theme-icon{background:linear-gradient(135deg,#CD7F32,#B8860B)}
+.theme-option[data-theme="ruby"] .theme-icon{background:linear-gradient(135deg,#9B111E,#E0115F)}
+.theme-option[data-theme="jade"] .theme-icon{background:linear-gradient(135deg,#00A36C,#2E8B57)}
+.theme-option[data-theme="amber"] .theme-icon{background:linear-gradient(135deg,#FF7E00,#FFBF00)}
+.theme-option[data-theme="pearl"] .theme-icon{background:linear-gradient(135deg,#F5F5F0,#EAE8E1)}
+.theme-option[data-theme="obsidian"] .theme-icon{background:linear-gradient(135deg,#1C1C1C,#3D3D3D)}
+.theme-option[data-theme="opal"] .theme-icon{background:linear-gradient(135deg,#A8C0FF,#3F2B96)}
+.theme-option[data-theme="onyx"] .theme-icon{background:linear-gradient(135deg,#0F0F0F,#2D2D2D)}
+.theme-option[data-theme="fire"] .theme-icon{background:linear-gradient(135deg,#F83600,#FE8C00)}
+.theme-option[data-theme="lava"] .theme-icon{background:linear-gradient(135deg,#CF1512,#F0542A)}
+.theme-option[data-theme="neon"] .theme-icon{background:linear-gradient(135deg,#00FF88,#00B3FF)}
+.theme-option[data-theme="electric"] .theme-icon{background:linear-gradient(135deg,#00F5FF,#0080FF)}
+.theme-option[data-theme="magma"] .theme-icon{background:linear-gradient(135deg,#8B0000,#FF4500)}
+.theme-option[data-theme="plasma"] .theme-icon{background:linear-gradient(135deg,#FF00FF,#8B00FF)}
+.theme-option[data-theme="inferno"] .theme-icon{background:linear-gradient(135deg,#C02425,#F0CB35)}
+.theme-option[data-theme="thunder"] .theme-icon{background:linear-gradient(135deg,#373B44,#4286F4)}
+.theme-option[data-theme="lightning"] .theme-icon{background:linear-gradient(135deg,#F7FF00,#DB36A4)}
+.theme-option[data-theme="solar"] .theme-icon{background:linear-gradient(135deg,#FFD000,#FF6500)}
+.theme-option[data-theme="cloud"] .theme-icon{background:linear-gradient(135deg,#ECE9E6,#FFFFFF)}
+.theme-option[data-theme="mist"] .theme-icon{background:linear-gradient(135deg,#89F7FE,#66A6FF)}
+.theme-option[data-theme="breeze"] .theme-icon{background:linear-gradient(135deg,#CFECD0,#A0CEA4)}
+.theme-option[data-theme="whisper"] .theme-icon{background:linear-gradient(135deg,#FEE9E7,#FECFEF)}
+.theme-option[data-theme="silk"] .theme-icon{background:linear-gradient(135deg,#F4E2D8,#BA5370)}
+.theme-option[data-theme="velvet"] .theme-icon{background:linear-gradient(135deg,#4A0072,#7B1FA2)}
+.theme-option[data-theme="satin"] .theme-icon{background:linear-gradient(135deg,#FC5C7D,#6A82FB)}
+.theme-option[data-theme="cashmere"] .theme-icon{background:linear-gradient(135deg,#F5E6CA,#C8A96E)}
+.theme-option[data-theme="ivory"] .theme-icon{background:linear-gradient(135deg,#FFFFF0,#FAFAF0)}
+.theme-option[data-theme="chalk"] .theme-icon{background:linear-gradient(135deg,#F5F5F5,#DCDCDC)}
+.theme-option[data-theme="retro"] .theme-icon{background:linear-gradient(135deg,#FF6B35,#F7C59F)}
+.theme-option[data-theme="sepia"] .theme-icon{background:linear-gradient(135deg,#704214,#C3A882)}
+.theme-option[data-theme="vintage"] .theme-icon{background:linear-gradient(135deg,#B7410E,#D4A017)}
+.theme-option[data-theme="kodak"] .theme-icon{background:linear-gradient(135deg,#FFD700,#FF4500)}
+.theme-option[data-theme="polaroid"] .theme-icon{background:linear-gradient(135deg,#F5F5F0,#D4C5A9)}
+.theme-option[data-theme="indie"] .theme-icon{background:linear-gradient(135deg,#6C5CE7,#A29BFE)}
+.theme-option[data-theme="grunge"] .theme-icon{background:linear-gradient(135deg,#3D3D3D,#7A7A7A)}
+.theme-option[data-theme="nineties"] .theme-icon{background:linear-gradient(135deg,#FF1493,#00FF00)}
+.theme-option[data-theme="vaporwave"] .theme-icon{background:linear-gradient(135deg,#FF6AD5,#C774E8)}
+.theme-option[data-theme="lofi"] .theme-icon{background:linear-gradient(135deg,#7C83FD,#96BAFF)}
+.theme-option[data-theme="aqua"] .theme-icon{background:linear-gradient(135deg,#00B4D8,#90E0EF)}
+.theme-option[data-theme="lagoon"] .theme-icon{background:linear-gradient(135deg,#00C9FF,#92FE9D)}
+.theme-option[data-theme="sea"] .theme-icon{background:linear-gradient(135deg,#36D1DC,#5B86E5)}
+.theme-option[data-theme="abyss"] .theme-icon{background:linear-gradient(135deg,#0D0D2B,#0A3D5C)}
+.theme-option[data-theme="surf"] .theme-icon{background:linear-gradient(135deg,#1FA2FF,#12D8FA)}
+.theme-option[data-theme="tide"] .theme-icon{background:linear-gradient(135deg,#43C6AC,#191654)}
+.theme-option[data-theme="pacific"] .theme-icon{background:linear-gradient(135deg,#0B3866,#4DA0B0)}
+.theme-option[data-theme="iceberg"] .theme-icon{background:linear-gradient(135deg,#76B2FE,#B69EFF)}
+.theme-option[data-theme="waterfall"] .theme-icon{background:linear-gradient(135deg,#1CD8D2,#93EDC7)}
+.theme-option[data-theme="rain"] .theme-icon{background:linear-gradient(135deg,#4B6CB7,#182848)}
+.theme-option[data-theme="cyberpunk"] .theme-icon{background:linear-gradient(135deg,#FF003C,#00FFFF)}
+.theme-option[data-theme="steampunk"] .theme-icon{background:linear-gradient(135deg,#704214,#C47F17)}
+.theme-option[data-theme="noir"] .theme-icon{background:linear-gradient(135deg,#0A0A0A,#2C2C2C)}
+.theme-option[data-theme="blade"] .theme-icon{background:linear-gradient(135deg,#1C1C1C,#FF4500)}
+.theme-option[data-theme="matrix"] .theme-icon{background:linear-gradient(135deg,#0D0208,#003B00)}
+.theme-option[data-theme="holo"] .theme-icon{background:linear-gradient(135deg,#4776E6,#8E54E9)}
+.theme-option[data-theme="chrome"] .theme-icon{background:linear-gradient(135deg,#ADB5BD,#E9ECEF)}
+.theme-option[data-theme="glitch"] .theme-icon{background:linear-gradient(135deg,#FF0000,#0000FF)}
+.theme-option[data-theme="arcade"] .theme-icon{background:linear-gradient(135deg,#FF6B35,#FFD700)}
+.theme-option[data-theme="pixel"] .theme-icon{background:linear-gradient(135deg,#00FF00,#0000AA)}
+.theme-option[data-theme="sakura"] .theme-icon{background:linear-gradient(135deg,#FFB7C5,#FF85A1)}
+.theme-option[data-theme="diwali"] .theme-icon{background:linear-gradient(135deg,#FF6200,#FFD700)}
+.theme-option[data-theme="holi"] .theme-icon{background:linear-gradient(135deg,#FF69B4,#00CED1)}
+.theme-option[data-theme="carnival"] .theme-icon{background:linear-gradient(135deg,#FF1744,#FF6D00)}
+.theme-option[data-theme="festive"] .theme-icon{background:linear-gradient(135deg,#FF0000,#FFD700)}
+.theme-option[data-theme="boho"] .theme-icon{background:linear-gradient(135deg,#D4845A,#8B4513)}
+.theme-option[data-theme="tribal"] .theme-icon{background:linear-gradient(135deg,#8B0000,#D2691E)}
+.theme-option[data-theme="zen"] .theme-icon{background:linear-gradient(135deg,#2C5F2E,#97BC62)}
+.theme-option[data-theme="dharma"] .theme-icon{background:linear-gradient(135deg,#FF6B35,#A8336B)}
+.theme-option[data-theme="mystic"] .theme-icon{background:linear-gradient(135deg,#4A0072,#AA076B)}
+
+/* CONTENT */
+.content-wrapper{padding:15px}
+.screen{display:none}
+.screen.active{display:block;animation:fadeIn .3s ease}
+
+/* FILTER */
+.filter-section{background:var(--card-bg);border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 2px 15px rgba(0,0,0,.08);animation:slideUp .4s ease}
+.filter-section h3{color:var(--accent);font-size:16px;font-weight:800;margin-bottom:12px}
+.filter-group{margin-bottom:12px}
+.filter-group label{display:block;color:var(--text-color);font-size:13px;font-weight:700;margin-bottom:6px}
+.filter-group select{width:100%;background:white;border:2px solid #E0E0E0;color:var(--text-color);padding:10px 12px;border-radius:12px;font-size:13px;font-family:'Poppins',sans-serif;font-weight:600}
+.filter-group select:focus{border-color:var(--accent)}
+
+/* SHAYARI CARD */
+.new-badge{position:absolute;top:12px;right:12px;background:#FF0000;color:white;padding:4px 10px;border-radius:20px;font-size:9px;font-weight:900;text-transform:uppercase;display:flex;align-items:center;gap:5px;animation:livePulse 2s infinite;z-index:10}
+.shayari-card{background:var(--card-bg);border-radius:20px;padding:18px;margin-bottom:18px;box-shadow:0 2px 15px rgba(0,0,0,.08);animation:slideUp .4s ease;position:relative}
+/* AUTHOR AVATAR — clean, no RGB */
+.author-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.author-avatar{width:42px;height:42px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);flex-shrink:0}
+.author-info h4{color:var(--text-color);font-size:14px;font-weight:700}
+.author-info span{color:var(--text-light);font-size:11px;font-weight:600}
+.user-badge-small{background:linear-gradient(135deg,#667EEA,#764BA2);color:white;padding:1px 6px;border-radius:6px;font-size:8px;font-weight:800;margin-left:4px}
+/* SHAYARI IMAGE — RGB border */
+.shayari-image{width:100%;max-height:280px;object-fit:cover;border-radius:14px;margin-bottom:12px;border:3px solid var(--accent);animation:rgbBorder 3s linear infinite}
+.shayari-text{color:var(--text-color);line-height:1.8;font-size:15px;margin-bottom:14px;font-weight:500;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.shayari-text.hindi{font-family:'Noto Nastaliq Urdu',serif;font-size:16px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.tag{background:#F8F9FA;color:var(--accent);padding:5px 10px;border-radius:12px;font-size:10px;font-weight:700}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.action-btn{background:linear-gradient(135deg,#f8f9fa,#fff);border:2px solid #E0E0E0;color:var(--accent);padding:10px 6px;border-radius:12px;cursor:pointer;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;gap:5px;transition:all .2s ease;text-transform:uppercase}
+.action-btn:active{transform:scale(.95)}
+.action-btn.liked{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;border-color:transparent;box-shadow:0 4px 15px rgba(231,76,60,.3)}
+
+/* WRITE SHAYARI SCREEN */
+.write-section{background:var(--card-bg);border-radius:20px;padding:20px;margin-bottom:16px;box-shadow:0 2px 15px rgba(0,0,0,.08);animation:slideUp .4s ease}
+.write-section h3{color:var(--accent);font-size:16px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+
+/* ImgBB sync indicator */
+.imgbb-sync-info{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);padding:10px 14px;border-radius:12px;margin-bottom:14px;border-left:4px solid #4CAF50;display:flex;align-items:center;gap:8px}
+.imgbb-sync-info i{color:#388E3C;font-size:14px}
+.imgbb-sync-info span{color:#2E7D32;font-size:11px;font-weight:700}
+.imgbb-sync-info .sync-dot{width:8px;height:8px;background:#4CAF50;border-radius:50%;animation:imgbbSync 1.5s ease infinite;flex-shrink:0}
+
+/* Write author preview */
+.write-author-preview{display:flex;align-items:center;gap:12px;padding:12px 14px;background:linear-gradient(135deg,#f8f9fa,#fff);border-radius:14px;margin-bottom:16px;border:2px solid #E0E0E0}
+.write-author-img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);flex-shrink:0}
+.write-author-placeholder{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));display:flex;align-items:center;justify-content:center;color:white;font-size:18px;font-weight:700;flex-shrink:0;border:2px solid var(--accent)}
+.write-author-name{font-size:14px;font-weight:700;color:var(--text-color)}
+.write-author-sub{font-size:11px;color:var(--text-light);font-weight:600}
+.set-profile-btn{font-size:11px;color:var(--accent);font-weight:800;cursor:pointer;text-decoration:underline}
+
+/* Write form */
+.write-form-group{margin-bottom:14px}
+.write-label{display:block;color:var(--text-color);font-size:11px;font-weight:700;margin-bottom:7px;letter-spacing:.5px;text-transform:uppercase}
+.write-textarea{width:100%;background:#f8f9fa;border:2px solid #E0E0E0;color:#333;padding:14px;border-radius:14px;font-size:15px;font-family:'Poppins',sans-serif;font-weight:500;min-height:140px;resize:none;transition:all .2s ease;-webkit-user-select:text;user-select:text;line-height:1.7}
+.write-textarea:focus{border-color:var(--accent);background:white;box-shadow:0 0 0 3px rgba(231,76,60,.1)}
+.write-select{width:100%;background:white;border:2px solid #E0E0E0;color:#333;padding:12px 14px;border-radius:12px;font-size:14px;font-family:'Poppins',sans-serif;font-weight:600}
+.write-select:focus{border-color:var(--accent)}
+.char-counter{font-size:11px;color:var(--text-light);text-align:right;font-weight:600;margin-top:4px}
+.char-counter.warning{color:#E74C3C}
+
+/* Image pick box */
+.image-pick-box{background:linear-gradient(135deg,#E8F5E9,#C8E6C9);border:2px dashed #4CAF50;border-radius:14px;padding:18px;text-align:center;cursor:pointer;transition:all .3s ease}
+.image-pick-box i{font-size:30px;color:#4CAF50;display:block;margin-bottom:8px}
+.image-pick-box p{color:#2E7D32;font-size:12px;font-weight:700}
+.image-pick-box small{color:#388E3C;font-size:10px;font-weight:600;display:block;margin-top:4px}
+.image-pick-box input[type=file]{display:none}
+.picked-preview{display:none;margin-top:10px;position:relative;border-radius:12px;overflow:hidden}
+.picked-preview img{width:100%;max-height:180px;object-fit:cover;display:block;border-radius:12px}
+.remove-img-btn{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.6);color:white;border:none;width:30px;height:30px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+
+/* Post button */
+.btn-post{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;border:none;padding:15px;border-radius:14px;font-size:15px;font-weight:900;cursor:pointer;transition:all .2s ease;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 20px rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:8px}
+.btn-post:active{transform:scale(.98)}
+.btn-post:disabled{opacity:.5;cursor:not-allowed}
+
+/* My Posts */
+.my-posts-section{background:var(--card-bg);border-radius:18px;padding:16px;margin-bottom:16px;box-shadow:0 2px 15px rgba(0,0,0,.08);animation:slideUp .4s ease}
+.my-posts-section h3{color:var(--accent);font-size:15px;font-weight:800;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.my-post-item{background:#f8f9fa;border-radius:14px;padding:12px;margin-bottom:10px;border:2px solid #E0E0E0}
+.my-post-text{color:var(--text-color);font-size:13px;font-weight:500;line-height:1.6;margin-bottom:8px;white-space:pre-wrap;-webkit-user-select:text;user-select:text}
+.my-post-img{width:100%;max-height:130px;object-fit:cover;border-radius:10px;margin-bottom:8px}
+.status-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:20px;font-size:10px;font-weight:800;text-transform:uppercase}
+.status-pill.pending{background:#FFF3CD;color:#856404;border:1.5px solid #FFC107}
+.status-pill.approved{background:#D4EDDA;color:#155724;border:1.5px solid #28a745}
+.status-pill.rejected{background:#F8D7DA;color:#721c24;border:1.5px solid #dc3545}
+.status-row{display:flex;justify-content:space-between;align-items:center}
+.my-post-time{color:var(--text-light);font-size:10px;font-weight:600}
+.no-profile-warning{background:linear-gradient(135deg,#FFF3CD,#FFE8A1);border-radius:12px;padding:14px;border-left:4px solid #FFC107;margin-bottom:14px}
+.no-profile-warning p{color:#856404;font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px}
+.no-profile-warning button{margin-top:10px;width:100%;background:linear-gradient(135deg,#FFC107,#FF8C00);color:white;border:none;padding:10px;border-radius:10px;font-size:13px;font-weight:900;cursor:pointer}
+
+/* BOTTOM NAV — 5 items */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:var(--card-bg);display:grid;grid-template-columns:repeat(5,1fr);padding:5px 0 3px;box-shadow:0 -2px 15px rgba(0,0,0,.1);z-index:1000}
+.nav-item{text-align:center;padding:4px 2px;cursor:pointer;position:relative;transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.nav-item.active{transform:translateY(-3px)}
+.nav-item i{font-size:18px;color:var(--text-light);display:block;margin-bottom:2px;transition:all .25s cubic-bezier(.34,1.56,.64,1)}
+.nav-item span{font-size:8px;color:var(--text-light);font-weight:700;display:block;transition:all .25s ease}
+.nav-item.active i{color:var(--accent);transform:scale(1.2);animation:navPop .35s cubic-bezier(.34,1.56,.64,1)}
+.nav-item.active span{color:var(--accent);font-weight:800}
+.nav-item::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:3px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:3px 3px 0 0;transition:width .3s cubic-bezier(.34,1.56,.64,1)}
+.nav-item.active::after{width:60%}
+.nav-item:active{transform:scale(.88)}
+
+/* MISC */
+.loading{text-align:center;padding:50px 20px}
+.loading i{font-size:40px;color:var(--accent);animation:spin 1s linear infinite}
+.loading p{color:var(--text-color);margin-top:10px;font-weight:600}
+.empty-state{text-align:center;padding:60px 20px}
+.empty-state i{font-size:55px;color:var(--accent);opacity:.5;margin-bottom:12px}
+.empty-state h3{color:var(--text-color);font-size:17px;font-weight:700;margin-bottom:6px}
+.empty-state p{color:var(--text-light);font-size:12px;font-weight:600}
+.btn-primary{width:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;border:none;padding:14px;border-radius:12px;font-size:15px;font-weight:900;cursor:pointer;margin-top:12px;transition:all .2s ease;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 15px rgba(0,0,0,.2)}
+.ai-badge{background:linear-gradient(135deg,var(--accent),var(--accent-dark));color:white;padding:5px 10px;border-radius:12px;font-size:10px;font-weight:900;display:inline-flex;align-items:center;gap:5px;margin-bottom:8px}
+.toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(0,0,0,.85);color:white;padding:10px 22px;border-radius:25px;font-size:13px;font-weight:600;opacity:0;transition:all .3s ease;z-index:9999;white-space:nowrap}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal-overlay{visibility:hidden;opacity:0;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);z-index:1500;transition:opacity .35s ease,visibility .35s ease}
+.modal-overlay.show{visibility:visible;opacity:1}
+.share-modal{visibility:hidden;opacity:0;position:fixed;bottom:65px;left:0;right:0;background:white;border-radius:25px 25px 0 0;padding:22px 22px 28px;z-index:1600;box-shadow:0 -10px 40px rgba(0,0,0,.2);transform:translateY(105%);transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .35s ease,visibility .35s ease}
+.share-modal.show{visibility:visible;opacity:1;transform:translateY(0)}
+.share-modal-header{text-align:center;margin-bottom:20px;padding-bottom:14px;border-bottom:2px solid rgba(0,0,0,.06)}
+.share-modal-header h3{color:var(--accent);font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.5px}
+.share-options{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.share-option{display:flex;flex-direction:column;align-items:center;gap:7px;cursor:pointer;transition:all .2s ease}
+.share-option:active{transform:scale(.9)}
+.share-option span{font-size:10px;font-weight:700;color:#555}
+.share-icon{width:58px;height:58px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:24px;color:white;box-shadow:0 6px 20px rgba(0,0,0,.18);transition:transform .2s ease,box-shadow .2s ease}
+.share-icon:hover,.share-option:active .share-icon{transform:scale(1.08);box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.share-icon.whatsapp{background:linear-gradient(145deg,#2EE86E,#25D366,#128C7E);box-shadow:0 6px 20px rgba(37,211,102,.35)}
+.share-icon.telegram{background:linear-gradient(145deg,#40B3E0,#0088cc,#005580);box-shadow:0 6px 20px rgba(0,136,204,.35)}
+.share-icon.instagram{background:linear-gradient(45deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D,#F56040,#F77737,#FCAF45,#FFDC80);box-shadow:0 6px 20px rgba(225,48,108,.35)}
+.share-icon.facebook{background:linear-gradient(145deg,#4293F5,#1877F2,#0D4FA8);box-shadow:0 6px 20px rgba(24,119,242,.35)}
+.share-icon.twitter{background:linear-gradient(145deg,#4DC8FA,#1DA1F2,#0D7DBF);box-shadow:0 6px 20px rgba(29,161,242,.35)}
+.share-icon.copy{background:linear-gradient(145deg,#9B89FF,#667eea,#4A3FBF);box-shadow:0 6px 20px rgba(102,126,234,.35)}
+.share-icon.messenger{background:linear-gradient(145deg,#40D0FF,#00B2FF,#0066FF);box-shadow:0 6px 20px rgba(0,178,255,.35)}
+.share-icon.more{background:linear-gradient(145deg,#ff85e0,#f093fb,#f5576c);box-shadow:0 6px 20px rgba(245,87,108,.35)}
+.share-icon.close-btn-icon{background:linear-gradient(145deg,#b0b0b0,#888,#666);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.upload-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.7);z-index:5000;justify-content:center;align-items:center}
+.upload-overlay.show{display:flex}
+.upload-box-inner{background:white;padding:30px;border-radius:20px;text-align:center;min-width:220px}
+.upload-box-inner i{font-size:40px;color:var(--accent);animation:spin 1s linear infinite;display:block;margin-bottom:15px}
+.upload-box-inner p{color:#2C3E50;font-weight:700;font-size:14px}
+.upload-progress-bar{height:6px;background:#E0E0E0;border-radius:3px;margin-top:10px;overflow:hidden}
+.upload-progress-fill{height:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));width:0%;transition:width .3s ease;border-radius:3px}
+
+
+/* ===== NEW SETTINGS UI ===== */
+.scard-new{background:var(--card-bg);border-radius:17px;padding:13px 14px;margin-bottom:9px;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.06);position:relative;overflow:hidden;transition:transform .15s;}
+.scard-new:not(.nc):active{transform:scale(.98);}
+.stitem{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
+.stthumb{width:58px;height:74px;border-radius:12px;border:2.5px solid transparent;overflow:hidden;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s;}
+.stthumb:active{transform:scale(.93);}
+.stthumb.sel{border-color:var(--accent);box-shadow:0 0 0 3px rgba(231,76,60,.2);}
+.stitem.act .stname{color:var(--accent);font-weight:700;}
+.stchk{position:absolute;top:4px;right:4px;background:var(--accent);border-radius:50%;width:18px;height:18px;display:none;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.3);}
+.stthumb.sel .stchk{display:flex;}
+.stname{font-size:10px;color:var(--text-light);font-weight:500;text-align:center;max-width:58px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.slopt-new{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(0,0,0,.06);color:var(--text-color);font-size:14.5px;font-weight:500;cursor:pointer;}
+.slopt-new:last-child{border-bottom:none;}
+.slopt-new.sel{color:var(--accent);}
+.slchk-new{opacity:0;}
+.slopt-new.sel .slchk-new{opacity:1;}
+@keyframes sLangUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+/* Dark mode full UI */
+body.dark-mode{--bg-start:#0d0d0d;--bg-end:#1a1a2e;--card-bg:#1e1e2e;--text-color:#f0f0f0;--text-light:#aaa;--accent:#e94560;--accent-dark:#c0392b;}
+body.dark-mode .modal-content{background:#1e1e2e !important;color:#f0f0f0;}
+body.dark-mode .scard-new{background:#252538;border-color:rgba(255,255,255,0.07);}
+body.dark-mode .filter-group select,body.dark-mode .write-textarea,body.dark-mode .write-select,body.dark-mode .profile-input{background:#252538;color:#f0f0f0;border-color:rgba(255,255,255,0.1);}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <i class="fas fa-feather-alt header-icon"></i>
+    <div class="header-text">
+      <h1>DilSe Shayari</h1>
+      <p>Express your emotions</p>
+    </div>
+  </div>
+  <button class="profile-btn" id="profileBtn" onclick="openProfile()">
+    <i class="fas fa-user"></i>
+  </button>
+</div>
+
+<!-- Profile Modal -->
+<div class="modal" id="profileModal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3><i class="fas fa-user-circle"></i> PROFILE</h3>
+      <button class="close-btn" onclick="closeProfile()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="profile-edit-section">
+      <div class="profile-ring-wrapper" onclick="document.getElementById('profileImageInput').click()">
+        <div class="profile-pic-preview" id="profilePicPreview"><i class="fas fa-user"></i></div>
+        <div class="profile-camera-icon"><i class="fas fa-camera"></i></div>
+      </div>
+      <input type="file" id="profileImageInput" accept="image/*" style="display:none" onchange="handleProfileImage(event)">
+      <div class="profile-form">
+        <label class="profile-label">YOUR NAME</label>
+        <input type="text" id="profileNameInput" class="profile-input" placeholder="Enter your name...">
+        <button class="btn-primary" onclick="saveProfile()"><i class="fas fa-save"></i> SAVE PROFILE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Settings Modal -->
+<!-- Settings Modal (New Design) -->
+<div class="modal" id="settingsModal">
+  <div class="modal-content" style="padding:0;overflow:hidden;border-radius:22px;background:var(--card-bg)">
+    <div style="padding:18px 16px 24px;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:8px;">
+        <button onclick="closeSettings()" style="width:40px;height:40px;min-width:40px;border-radius:12px;border:1.5px solid rgba(0,0,0,0.08);background:var(--card-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-color)"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:22px;font-weight:900;font-family:Georgia,serif;background:linear-gradient(135deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Settings</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin:2px 0;">
+            <hr style="width:22px;height:1.5px;border:none;background:linear-gradient(90deg,transparent,var(--accent));">
+            <svg width="10" height="10" viewBox="0 0 24 24"><path d="M12 21C12 21 3 13.5 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-9 13-9 13z" fill="var(--accent)"/></svg>
+            <hr style="width:22px;height:1.5px;border:none;background:linear-gradient(90deg,var(--accent),transparent);">
+          </div>
+          <div style="font-size:11px;color:var(--text-light);">Customize your experience</div>
+        </div>
+        <span style="font-size:30px;flex-shrink:0;">🪶</span>
+      </div>
+
+      <!-- THEME CARD -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#e91e8c,#f48fb1);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.1 0 2-.9 2-2v-.5c0-.55.45-1 1-1h1c2.76 0 5-2.24 5-5 0-5.52-4.48-10-10-10z"/><circle cx="8" cy="10" r="1.5" fill="#fff" stroke="none"/><circle cx="12" cy="7" r="1.5" fill="#fff" stroke="none"/><circle cx="16" cy="10" r="1.5" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Theme</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Choose your preferred theme</div>
+          </div>
+          <button id="sExpBtn" onclick="sTogTheme()" style="background:none;border:none;cursor:pointer;padding:4px;color:var(--text-light);display:flex;align-items:center;transition:transform .3s;transform:rotate(180deg);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+          </button>
+        </div>
+        <!-- Theme Grid -->
+        <div id="sThemeGrid" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;max-height:300px;overflow-y:auto;padding:2px 0 4px;">
+          <div class="stitem act" onclick="sPickTheme(this,'white')"><div class="stthumb sel" style="background:linear-gradient(180deg,#FFF,#F5F5F5)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">White</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ocean')"><div class="stthumb" style="background:linear-gradient(180deg,#00CED1,#4682B4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ocean</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sunset')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B6B,#FFD93D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sunset</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'purple')"><div class="stthumb" style="background:linear-gradient(180deg,#A78BFA,#7C3AED)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Purple</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mint')"><div class="stthumb" style="background:linear-gradient(180deg,#6EE7B7,#10B981)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mint</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pink')"><div class="stthumb" style="background:linear-gradient(180deg,#FF69B4,#FF1493)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pink</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dark')"><div class="stthumb" style="background:linear-gradient(180deg,#1A1A2E,#16213E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dark</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'golden')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD700,#FF8C00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Golden</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'forest')"><div class="stthumb" style="background:linear-gradient(180deg,#2E8B57,#00CED1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Forest</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'royal')"><div class="stthumb" style="background:linear-gradient(180deg,#4169E1,#191970)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Royal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cosmic')"><div class="stthumb" style="background:linear-gradient(180deg,#8B5CF6,#EC4899)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cosmic</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'midnight')"><div class="stthumb" style="background:linear-gradient(180deg,#000046,#1CB5E0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Midnight</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'crimson')"><div class="stthumb" style="background:linear-gradient(180deg,#CB2D3E,#EF473A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Crimson</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'violet')"><div class="stthumb" style="background:linear-gradient(180deg,#667EEA,#764BA2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Violet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'teal')"><div class="stthumb" style="background:linear-gradient(180deg,#134E5E,#71B280)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Teal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'candy')"><div class="stthumb" style="background:linear-gradient(180deg,#FC5C7D,#6A82FB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Candy</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mango')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB75E,#ED8F03)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mango</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sapphire')"><div class="stthumb" style="background:linear-gradient(180deg,#0575E6,#021B79)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sapphire</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'emerald')"><div class="stthumb" style="background:linear-gradient(180deg,#11998E,#38EF7D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Emerald</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lavender')"><div class="stthumb" style="background:linear-gradient(180deg,#E6B0FF,#9B59B6)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lavender</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cherry')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB7C5,#FF6B9D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cherry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'autumn')"><div class="stthumb" style="background:linear-gradient(180deg,#D4501C,#F4A460)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Autumn</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'spring')"><div class="stthumb" style="background:linear-gradient(180deg,#A8E063,#56AB2F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Spring</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'arctic')"><div class="stthumb" style="background:linear-gradient(180deg,#A8EDEA,#FED6E3)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Arctic</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bamboo')"><div class="stthumb" style="background:linear-gradient(180deg,#DAF7A6,#52BE80)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bamboo</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'desert')"><div class="stthumb" style="background:linear-gradient(180deg,#F5DEB3,#DEB887)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Desert</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'jungle')"><div class="stthumb" style="background:linear-gradient(180deg,#1B5E20,#4CAF50)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Jungle</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tropical')"><div class="stthumb" style="background:linear-gradient(180deg,#43E97B,#38F9D7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tropical</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'coral')"><div class="stthumb" style="background:linear-gradient(180deg,#FF7F7F,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Coral</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'aurora')"><div class="stthumb" style="background:linear-gradient(180deg,#00F260,#0575E6)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Aurora</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'galaxy')"><div class="stthumb" style="background:linear-gradient(180deg,#0F0C29,#302B63)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Galaxy</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'nebula')"><div class="stthumb" style="background:linear-gradient(180deg,#DA22FF,#9733EE)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Nebula</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'comet')"><div class="stthumb" style="background:linear-gradient(180deg,#1A1A2E,#E94560)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Comet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'stardust')"><div class="stthumb" style="background:linear-gradient(180deg,#B993D6,#8CA6DB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Stardust</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'supernova')"><div class="stthumb" style="background:linear-gradient(180deg,#F83600,#F9D423)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Supernova</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'eclipse')"><div class="stthumb" style="background:linear-gradient(180deg,#0C0C0C,#434343)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Eclipse</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'moonlight')"><div class="stthumb" style="background:linear-gradient(180deg,#232526,#414345)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Moonlight</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sunrise')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#F7C59F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sunrise</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dusk')"><div class="stthumb" style="background:linear-gradient(180deg,#2C3E50,#FD746C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dusk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'strawberry')"><div class="stthumb" style="background:linear-gradient(180deg,#FF512F,#DD2476)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Strawberry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'blueberry')"><div class="stthumb" style="background:linear-gradient(180deg,#1488CC,#2B32B2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Blueberry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'watermelon')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B6B,#4ECDC4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Watermelon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'peach')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB347,#FFCC02)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Peach</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'grape')"><div class="stthumb" style="background:linear-gradient(180deg,#6A0572,#AB83A1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Grape</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lemon')"><div class="stthumb" style="background:linear-gradient(180deg,#F7971E,#FFD200)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lemon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'caramel')"><div class="stthumb" style="background:linear-gradient(180deg,#C79A3A,#E8B86D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Caramel</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chocolate')"><div class="stthumb" style="background:linear-gradient(180deg,#3E1C00,#6F3C1B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chocolate</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bubblegum')"><div class="stthumb" style="background:linear-gradient(180deg,#FF77FF,#FF9DE2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bubblegum</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cotton')"><div class="stthumb" style="background:linear-gradient(180deg,#FDDB92,#D1FDFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cotton</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'diamond')"><div class="stthumb" style="background:linear-gradient(180deg,#B2FEFA,#0ED2F7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Diamond</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'platinum')"><div class="stthumb" style="background:linear-gradient(180deg,#C0C0C0,#E8E8E8)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Platinum</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bronze')"><div class="stthumb" style="background:linear-gradient(180deg,#CD7F32,#B8860B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bronze</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ruby')"><div class="stthumb" style="background:linear-gradient(180deg,#9B111E,#E0115F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ruby</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'jade')"><div class="stthumb" style="background:linear-gradient(180deg,#00A36C,#2E8B57)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Jade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'amber')"><div class="stthumb" style="background:linear-gradient(180deg,#FF7E00,#FFBF00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Amber</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pearl')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F0,#EAE8E1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pearl</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'obsidian')"><div class="stthumb" style="background:linear-gradient(180deg,#1C1C1C,#3D3D3D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Obsidian</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'opal')"><div class="stthumb" style="background:linear-gradient(180deg,#A8C0FF,#3F2B96)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Opal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'onyx')"><div class="stthumb" style="background:linear-gradient(180deg,#0F0F0F,#2D2D2D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Onyx</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'fire')"><div class="stthumb" style="background:linear-gradient(180deg,#F83600,#FE8C00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Fire</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lava')"><div class="stthumb" style="background:linear-gradient(180deg,#CF1512,#F0542A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lava</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'neon')"><div class="stthumb" style="background:linear-gradient(180deg,#00FF88,#00B3FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Neon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'electric')"><div class="stthumb" style="background:linear-gradient(180deg,#00F5FF,#0080FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Electric</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'magma')"><div class="stthumb" style="background:linear-gradient(180deg,#8B0000,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Magma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'plasma')"><div class="stthumb" style="background:linear-gradient(180deg,#FF00FF,#8B00FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Plasma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'inferno')"><div class="stthumb" style="background:linear-gradient(180deg,#C02425,#F0CB35)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Inferno</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'thunder')"><div class="stthumb" style="background:linear-gradient(180deg,#373B44,#4286F4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Thunder</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lightning')"><div class="stthumb" style="background:linear-gradient(180deg,#F7FF00,#DB36A4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lightning</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'solar')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD000,#FF6500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Solar</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cloud')"><div class="stthumb" style="background:linear-gradient(180deg,#ECE9E6,#FFFFFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cloud</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mist')"><div class="stthumb" style="background:linear-gradient(180deg,#89F7FE,#66A6FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mist</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'breeze')"><div class="stthumb" style="background:linear-gradient(180deg,#CFECD0,#A0CEA4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Breeze</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'whisper')"><div class="stthumb" style="background:linear-gradient(180deg,#FEE9E7,#FECFEF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Whisper</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'silk')"><div class="stthumb" style="background:linear-gradient(180deg,#F4E2D8,#BA5370)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Silk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'velvet')"><div class="stthumb" style="background:linear-gradient(180deg,#4A0072,#7B1FA2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Velvet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'satin')"><div class="stthumb" style="background:linear-gradient(180deg,#FC5C7D,#6A82FB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Satin</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cashmere')"><div class="stthumb" style="background:linear-gradient(180deg,#F5E6CA,#C8A96E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cashmere</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ivory')"><div class="stthumb" style="background:linear-gradient(180deg,#FFFFF0,#FAFAF0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ivory</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chalk')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F5,#DCDCDC)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chalk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'retro')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#F7C59F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Retro</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sepia')"><div class="stthumb" style="background:linear-gradient(180deg,#704214,#C3A882)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sepia</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'vintage')"><div class="stthumb" style="background:linear-gradient(180deg,#B7410E,#D4A017)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Vintage</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'kodak')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD700,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Kodak</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'polaroid')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F0,#D4C5A9)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Polaroid</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'indie')"><div class="stthumb" style="background:linear-gradient(180deg,#6C5CE7,#A29BFE)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Indie</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'grunge')"><div class="stthumb" style="background:linear-gradient(180deg,#3D3D3D,#7A7A7A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Grunge</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'nineties')"><div class="stthumb" style="background:linear-gradient(180deg,#FF1493,#00FF00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">90s Neon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'vaporwave')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6AD5,#C774E8)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Vaporwave</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lofi')"><div class="stthumb" style="background:linear-gradient(180deg,#7C83FD,#96BAFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lo-Fi</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'aqua')"><div class="stthumb" style="background:linear-gradient(180deg,#00B4D8,#90E0EF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Aqua</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lagoon')"><div class="stthumb" style="background:linear-gradient(180deg,#00C9FF,#92FE9D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lagoon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sea')"><div class="stthumb" style="background:linear-gradient(180deg,#36D1DC,#5B86E5)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sea</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'abyss')"><div class="stthumb" style="background:linear-gradient(180deg,#0D0D2B,#0A3D5C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Abyss</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'surf')"><div class="stthumb" style="background:linear-gradient(180deg,#1FA2FF,#12D8FA)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Surf</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tide')"><div class="stthumb" style="background:linear-gradient(180deg,#43C6AC,#191654)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tide</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pacific')"><div class="stthumb" style="background:linear-gradient(180deg,#0B3866,#4DA0B0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pacific</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'iceberg')"><div class="stthumb" style="background:linear-gradient(180deg,#76B2FE,#B69EFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Iceberg</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'waterfall')"><div class="stthumb" style="background:linear-gradient(180deg,#1CD8D2,#93EDC7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Waterfall</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'rain')"><div class="stthumb" style="background:linear-gradient(180deg,#4B6CB7,#182848)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Rain</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cyberpunk')"><div class="stthumb" style="background:linear-gradient(180deg,#FF003C,#00FFFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cyberpunk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'steampunk')"><div class="stthumb" style="background:linear-gradient(180deg,#704214,#C47F17)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Steampunk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'noir')"><div class="stthumb" style="background:linear-gradient(180deg,#0A0A0A,#2C2C2C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Noir</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'blade')"><div class="stthumb" style="background:linear-gradient(180deg,#1C1C1C,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Blade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'matrix')"><div class="stthumb" style="background:linear-gradient(180deg,#0D0208,#003B00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Matrix</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'holo')"><div class="stthumb" style="background:linear-gradient(180deg,#4776E6,#8E54E9)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Holo</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chrome')"><div class="stthumb" style="background:linear-gradient(180deg,#ADB5BD,#E9ECEF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chrome</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'glitch')"><div class="stthumb" style="background:linear-gradient(180deg,#FF0000,#0000FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Glitch</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'arcade')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Arcade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pixel')"><div class="stthumb" style="background:linear-gradient(180deg,#00FF00,#0000AA)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pixel</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sakura')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB7C5,#FF85A1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sakura</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'diwali')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6200,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Diwali</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'holi')"><div class="stthumb" style="background:linear-gradient(180deg,#FF69B4,#00CED1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Holi</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'carnival')"><div class="stthumb" style="background:linear-gradient(180deg,#FF1744,#FF6D00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Carnival</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'festive')"><div class="stthumb" style="background:linear-gradient(180deg,#FF0000,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Festive</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'boho')"><div class="stthumb" style="background:linear-gradient(180deg,#D4845A,#8B4513)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Boho</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tribal')"><div class="stthumb" style="background:linear-gradient(180deg,#8B0000,#D2691E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tribal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'zen')"><div class="stthumb" style="background:linear-gradient(180deg,#2C5F2E,#97BC62)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Zen</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dharma')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#A8336B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dharma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mystic')"><div class="stthumb" style="background:linear-gradient(180deg,#4A0072,#AA076B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mystic</span></div>
+        </div>
+      </div>
+
+      <!-- DARK MODE -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#7b1fa2,#ce93d8);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/><circle cx="17" cy="5" r="1" fill="#fff" stroke="none"/><circle cx="20" cy="9" r="1" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Dark Mode</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Turn dark mode on or off</div>
+          </div>
+          <div id="sDarkTog" onclick="sTogDark()" style="width:50px;height:27px;border-radius:14px;background:#ccc;position:relative;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="content:'';position:absolute;width:21px;height:21px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .3s;box-shadow:0 2px 5px rgba(0,0,0,.25);" id="sDarkKnob"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGE -->
+      <div class="scard-new" onclick="sOpenLang(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#d81b60,#f06292);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Language</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Select app language</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
+            <span id="sLangVal" style="font-size:13px;font-weight:700;color:var(--accent);">English</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- RATE US -->
+      <div class="scard-new" onclick="sRateApp(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#e65100,#ffb74d);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Rate Us</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Share your rating and support</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:3px;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- SHARE APP -->
+      <div class="scard-new" onclick="sShareApp(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Share App</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Share this app with your friends</div>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- PRIVACY POLICY -->
+      <div class="scard-new" onclick="showToast('Opening Privacy Policy...')" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#4a148c,#9c27b0);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="16" r="1" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Privacy Policy</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Read our privacy policy</div>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- APP VERSION -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#0277bd,#29b6f6);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="3"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">App Version</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">You are using the latest version</div>
+          </div>
+          <span style="border:2px solid var(--accent);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">v7.0</span>
+        </div>
+      </div>
+
+    </div><!-- end scroll wrapper -->
+  </div><!-- end modal-content -->
+</div><!-- end settingsModal -->
+
+<!-- Language Modal Overlay -->
+<div id="sLangOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:3000;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);" onclick="sCloseLang(event)">
+  <div style="background:var(--card-bg);width:100%;max-width:480px;border-radius:24px 24px 0 0;padding:20px 18px 34px;animation:sLangUp .32s cubic-bezier(.4,0,.2,1);">
+    <div style="width:36px;height:4px;background:rgba(0,0,0,.12);border-radius:2px;margin:0 auto 16px;"></div>
+    <div style="font-size:16px;font-weight:700;color:var(--text-color);margin-bottom:10px;">Select Language</div>
+    <div class="slopt-new sel" onclick="sSetLang(this,'English')"><span>English</span><svg class="slchk-new" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <div class="slopt-new" onclick="sSetLang(this,'Hindi')"><span>हिंदी</span><svg class="slchk-new" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+  </div>
+</div>
+
+<!-- Share -->
+<div class="modal-overlay" id="shareOverlay" onclick="closeShareModal()"></div>
+<div class="share-modal" id="shareModal">
+  <div class="share-modal-header"><h3><i class="fas fa-share-alt"></i> SHARE</h3></div>
+  <div class="share-options">
+    <div class="share-option" onclick="shareToSocial('whatsapp')"><div class="share-icon whatsapp"><i class="fab fa-whatsapp"></i></div><span>WhatsApp</span></div>
+    <div class="share-option" onclick="shareToSocial('telegram')"><div class="share-icon telegram"><i class="fab fa-telegram-plane"></i></div><span>Telegram</span></div>
+    <div class="share-option" onclick="shareToSocial('instagram')"><div class="share-icon instagram"><i class="fab fa-instagram"></i></div><span>Instagram</span></div>
+    <div class="share-option" onclick="shareToSocial('facebook')"><div class="share-icon facebook"><i class="fab fa-facebook-f"></i></div><span>Facebook</span></div>
+    <div class="share-option" onclick="shareToSocial('twitter')"><div class="share-icon twitter"><i class="fab fa-twitter"></i></div><span>Twitter</span></div>
+    <div class="share-option" onclick="shareToSocial('messenger')"><div class="share-icon messenger"><i class="fab fa-facebook-messenger"></i></div><span>Messenger</span></div>
+    <div class="share-option" onclick="shareToSocial('copy')"><div class="share-icon copy"><i class="fas fa-copy"></i></div><span>Copy</span></div>
+    <div class="share-option" onclick="shareToSocial('more')"><div class="share-icon more"><i class="fas fa-ellipsis-h"></i></div><span>More</span></div>
+    <div class="share-option" onclick="closeShareModal()"><div class="share-icon close-btn-icon"><i class="fas fa-times"></i></div><span>Close</span></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="upload-overlay" id="uploadOverlay">
+  <div class="upload-box-inner">
+    <i class="fas fa-circle-notch"></i>
+    <p id="uploadText">Uploading...</p>
+    <div class="upload-progress-bar"><div class="upload-progress-fill" id="uploadFill"></div></div>
+  </div>
+</div>
+
+<div class="content-wrapper">
+
+  <!-- HOME -->
+  <div class="screen active" id="homeScreen">
+    <div class="filter-section">
+      <h3><i class="fas fa-filter"></i> FILTER</h3>
+      <div class="filter-group"><label>CATEGORY</label>
+        <select id="filterCategory" onchange="filterShayari()">
+          <option value="All">All Categories</option>
+          <option value="Love">Love</option><option value="Sad">Sad</option>
+          <option value="Attitude">Attitude</option><option value="Friendship">Friendship</option>
+          <option value="Motivational">Motivational</option>
+        </select></div>
+      <div class="filter-group"><label>LANGUAGE</label>
+        <select id="filterLanguage" onchange="filterShayari()">
+          <option value="All">All Languages</option>
+          <option value="English">English</option><option value="Hindi">Hindi</option>
+        </select></div>
+    </div>
+    <div id="shayariContainer"><div class="loading"><i class="fas fa-circle-notch"></i><p>Loading...</p></div></div>
+  </div>
+
+  <!-- GENERATE -->
+  <div class="screen" id="generateScreen">
+    <div class="filter-section">
+      <h3><i class="fas fa-magic"></i> AI GENERATOR</h3>
+      <div class="filter-group"><label>CATEGORY *</label>
+        <select id="genCategory"><option value="">Choose</option>
+          <option value="Love">Love</option><option value="Sad">Sad</option>
+          <option value="Attitude">Attitude</option><option value="Friendship">Friendship</option>
+          <option value="Motivational">Motivational</option></select></div>
+      <div class="filter-group"><label>LANGUAGE *</label>
+        <select id="genLanguage"><option value="">Choose</option>
+          <option value="English">English</option><option value="Hindi">Hindi</option></select></div>
+      <div class="filter-group"><label>MOOD</label>
+        <select id="genMood">
+          <option value="Romantic">Romantic</option><option value="Melancholic">Melancholic</option>
+          <option value="Inspirational">Inspirational</option><option value="Joyful">Joyful</option>
+        </select></div>
+      <button class="btn-primary" onclick="generateAIShayari()"><i class="fas fa-magic"></i> GENERATE</button>
+    </div>
+    <div id="generatedContainer"></div>
+  </div>
+
+  <!-- FAVORITES -->
+  <div class="screen" id="favoritesScreen">
+    <div id="favoritesContainer"><div class="empty-state"><i class="fas fa-heart-broken"></i><h3>No Favorites</h3><p>Save shayari to see here</p></div></div>
+  </div>
+
+  <!-- WRITE SHAYARI -->
+  <div class="screen" id="writeScreen">
+    <div class="write-section">
+      <h3><i class="fas fa-pen-fancy"></i> WRITE SHAYARI</h3>
+
+      <!-- ImgBB sync indicator -->
+      <div class="imgbb-sync-info" id="imgbbSyncInfo">
+        <div class="sync-dot"></div>
+        <i class="fas fa-link"></i>
+        <span id="imgbbSyncText">Loading ImgBB key from Admin...</span>
+      </div>
+
+      <!-- Author preview — no RGB, clean -->
+      <div class="write-author-preview" id="writeAuthorBox">
+        <div class="write-author-placeholder" id="writeAvatarEl"><i class="fas fa-user"></i></div>
+        <div>
+          <div class="write-author-name" id="writeNameEl">Set your profile first</div>
+          <div class="write-author-sub">Tap <span class="set-profile-btn" onclick="openProfile()">Profile button</span> to set name &amp; photo</div>
+        </div>
+      </div>
+
+      <!-- No profile warning -->
+      <div class="no-profile-warning" id="noProfileWarning" style="display:none">
+        <p><i class="fas fa-exclamation-triangle"></i> Profile not set! Please set your profile to post Shayari.</p>
+        <button onclick="openProfile()"><i class="fas fa-user"></i> SET PROFILE NOW</button>
+      </div>
+
+      <!-- Shayari text -->
+      <div class="write-form-group">
+        <label class="write-label"><i class="fas fa-quote-left"></i> Your Shayari *</label>
+        <textarea class="write-textarea" id="writeText" placeholder="Dil se likho apni shayari... ✍️" maxlength="500" oninput="updateCharCount()"></textarea>
+        <div class="char-counter" id="charCount">0 / 500</div>
+      </div>
+
+      <!-- Category -->
+      <div class="write-form-group">
+        <label class="write-label"><i class="fas fa-tags"></i> Category *</label>
+        <select class="write-select" id="writeCategory">
+          <option value="">Choose Category</option>
+          <option value="Love">Love</option><option value="Sad">Sad</option>
+          <option value="Attitude">Attitude</option><option value="Friendship">Friendship</option>
+          <option value="Motivational">Motivational</option>
+        </select>
+      </div>
+
+      <!-- Language -->
+      <div class="write-form-group">
+        <label class="write-label"><i class="fas fa-language"></i> Language *</label>
+        <select class="write-select" id="writeLanguage">
+          <option value="">Choose Language</option>
+          <option value="English">English</option><option value="Hindi">Hindi</option>
+        </select>
+      </div>
+
+      <!-- Mood -->
+      <div class="write-form-group">
+        <label class="write-label"><i class="fas fa-heart"></i> Mood</label>
+        <select class="write-select" id="writeMood">
+          <option value="Romantic">Romantic</option><option value="Melancholic">Melancholic</option>
+          <option value="Inspirational">Inspirational</option><option value="Joyful">Joyful</option>
+          <option value="Reflective">Reflective</option><option value="Passionate">Passionate</option>
+        </select>
+      </div>
+
+      <!-- Image — ImgBB upload -->
+      <div class="write-form-group">
+        <label class="write-label"><i class="fas fa-image"></i> Add Image (Optional — via ImgBB)</label>
+        <div class="image-pick-box" onclick="document.getElementById('writeImageInput').click()">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Choose image from Gallery</p>
+          <small>Upload Image to Server</small>
+          <input type="file" id="writeImageInput" accept="image/*" onchange="handleWriteImage(event)">
+        </div>
+        <div class="picked-preview" id="pickedPreview">
+          <img id="pickedPreviewImg" src="" alt="">
+          <button class="remove-img-btn" onclick="removeWriteImage()"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+
+      <button class="btn-post" id="postBtn" onclick="submitShayari()">
+        <i class="fas fa-paper-plane"></i> POST SHAYARI
+      </button>
+    </div>
+
+    <!-- My Posts with approval status -->
+    <div class="my-posts-section" id="myPostsSection" style="display:none">
+      <h3><i class="fas fa-list-alt"></i> My Posts — Status</h3>
+      <div id="myPostsContainer"></div>
+    </div>
+  </div>
+
+  <div class="screen" id="settingsScreen"></div>
+</div>
+
+<!-- BOTTOM NAV — 5 items -->
+<div class="bottom-nav">
+  <div class="nav-item active" onclick="switchScreen('home')"><i class="fas fa-home"></i><span>HOME</span></div>
+  <div class="nav-item" onclick="switchScreen('generate')"><i class="fas fa-magic"></i><span>GENERATE</span></div>
+  <div class="nav-item" onclick="switchScreen('favorites')"><i class="fas fa-heart"></i><span>FAVORITES</span></div>
+  <div class="nav-item" onclick="switchScreen('write')"><i class="fas fa-pen-fancy"></i><span>WRITE</span></div>
+  <div class="nav-item" onclick="openSettings()"><i class="fas fa-cog"></i><span>SETTINGS</span></div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig={
+  apiKey:"AIzaSyDpLakcRDEo9UMuRw3WWkBgW8EkwiQ_Ouw",
+  authDomain:"aishagameapp.firebaseapp.com",
+  databaseURL:"https://aishagameapp-default-rtdb.firebaseio.com",
+  projectId:"aishagameapp",
+  storageBucket:"aishagameapp.firebasestorage.app",
+  messagingSenderId:"1079958025420",
+  appId:"1:1079958025420:web:d6f328a107cd51bb487e69",
+  measurementId:"G-N6QH06L4N5"
+};
+firebase.initializeApp(firebaseConfig);
+const database=firebase.database();
+
+// ============================================================
+// ImgBB KEY — Firebase realtime sync (Admin key = User key)
+// Auto updates here when Admin panel settings/imgbbApiKey changes
+// ============================================================
+let IMGBB_KEY='9d0dc3093c6e1c78f89fd149ceaf2688'; // default fallback
+database.ref('settings/imgbbApiKey').on('value',function(snap){
+  const k=snap.val();
+  if(k&&k.trim()){
+    IMGBB_KEY=k.trim();
+    document.getElementById('imgbbSyncText').textContent='ImgBB connected via Admin key ✓';
+    document.getElementById('imgbbSyncInfo').style.borderLeftColor='#4CAF50';
+  } else {
+    document.getElementById('imgbbSyncText').textContent='new';
+  }
+});
+
+let allShayari=[],favorites=JSON.parse(localStorage.getItem('favorites')||'[]'),currentShareId=null,writeImgFile=null;
+
+// ===== THEMES =====
+const themes=[
+  {id:'white',name:'White',desc:'Clean'},{id:'ocean',name:'Ocean',desc:'Breeze'},
+  {id:'sunset',name:'Sunset',desc:'Glow'},{id:'purple',name:'Purple',desc:'Dream'},
+  {id:'mint',name:'Mint',desc:'Fresh'},{id:'pink',name:'Pink',desc:'Love'},
+  {id:'dark',name:'Dark',desc:'Night'},{id:'golden',name:'Golden',desc:'Hour'},
+  {id:'forest',name:'Forest',desc:'Green'},{id:'royal',name:'Royal',desc:'Blue'},
+  {id:'cosmic',name:'Cosmic',desc:'Space'},{id:'midnight',name:'Midnight',desc:'Deep'},
+  {id:'crimson',name:'Crimson',desc:'Red'},{id:'violet',name:'Violet',desc:'Purple'},
+  {id:'teal',name:'Teal',desc:'Ocean'},{id:'candy',name:'Candy',desc:'Sweet'},
+  {id:'mango',name:'Mango',desc:'Tropical'},{id:'sapphire',name:'Sapphire',desc:'Blue'},
+  {id:'emerald',name:'Emerald',desc:'Green'},
+  {id:'lavender',name:'Lavender',desc:'Fields'},
+  {id:'cherry',name:'Cherry',desc:'Blossom'},
+  {id:'autumn',name:'Autumn',desc:'Leaves'},
+  {id:'spring',name:'Spring',desc:'Bloom'},
+  {id:'arctic',name:'Arctic',desc:'Ice'},
+  {id:'bamboo',name:'Bamboo',desc:'Zen'},
+  {id:'desert',name:'Desert',desc:'Sand'},
+  {id:'jungle',name:'Jungle',desc:'Wild'},
+  {id:'tropical',name:'Tropical',desc:'Paradise'},
+  {id:'coral',name:'Coral',desc:'Reef'},
+  {id:'aurora',name:'Aurora',desc:'Lights'},
+  {id:'galaxy',name:'Galaxy',desc:'Stars'},
+  {id:'nebula',name:'Nebula',desc:'Dust'},
+  {id:'comet',name:'Comet',desc:'Streak'},
+  {id:'stardust',name:'Stardust',desc:'Dream'},
+  {id:'supernova',name:'Supernova',desc:'Blast'},
+  {id:'eclipse',name:'Eclipse',desc:'Shadow'},
+  {id:'moonlight',name:'Moonlight',desc:'Glow'},
+  {id:'sunrise',name:'Sunrise',desc:'Dawn'},
+  {id:'dusk',name:'Dusk',desc:'Twilight'},
+  {id:'strawberry',name:'Strawberry',desc:'Sweet'},
+  {id:'blueberry',name:'Blueberry',desc:'Burst'},
+  {id:'watermelon',name:'Watermelon',desc:'Fresh'},
+  {id:'peach',name:'Peach',desc:'Soft'},
+  {id:'grape',name:'Grape',desc:'Vine'},
+  {id:'lemon',name:'Lemon',desc:'Zesty'},
+  {id:'caramel',name:'Caramel',desc:'Drip'},
+  {id:'chocolate',name:'Chocolate',desc:'Rich'},
+  {id:'bubblegum',name:'Bubblegum',desc:'Pop'},
+  {id:'cotton',name:'Cotton Candy',desc:'Fluffy'},
+  {id:'diamond',name:'Diamond',desc:'Sparkle'},
+  {id:'platinum',name:'Platinum',desc:'Shine'},
+  {id:'bronze',name:'Bronze',desc:'Classic'},
+  {id:'ruby',name:'Ruby',desc:'Gem'},
+  {id:'jade',name:'Jade',desc:'Stone'},
+  {id:'amber',name:'Amber',desc:'Warm'},
+  {id:'pearl',name:'Pearl',desc:'Lustre'},
+  {id:'obsidian',name:'Obsidian',desc:'Dark'},
+  {id:'opal',name:'Opal',desc:'Iridescent'},
+  {id:'onyx',name:'Onyx',desc:'Black'},
+  {id:'fire',name:'Fire',desc:'Flame'},
+  {id:'lava',name:'Lava',desc:'Flow'},
+  {id:'neon',name:'Neon',desc:'Glow'},
+  {id:'electric',name:'Electric',desc:'Spark'},
+  {id:'magma',name:'Magma',desc:'Core'},
+  {id:'plasma',name:'Plasma',desc:'Energy'},
+  {id:'inferno',name:'Inferno',desc:'Blaze'},
+  {id:'thunder',name:'Thunder',desc:'Storm'},
+  {id:'lightning',name:'Lightning',desc:'Bolt'},
+  {id:'solar',name:'Solar',desc:'Flare'},
+  {id:'cloud',name:'Cloud',desc:'Soft'},
+  {id:'mist',name:'Mist',desc:'Fog'},
+  {id:'breeze',name:'Breeze',desc:'Cool'},
+  {id:'whisper',name:'Whisper',desc:'Gentle'},
+  {id:'silk',name:'Silk',desc:'Smooth'},
+  {id:'velvet',name:'Velvet',desc:'Soft'},
+  {id:'satin',name:'Satin',desc:'Sheen'},
+  {id:'cashmere',name:'Cashmere',desc:'Warm'},
+  {id:'ivory',name:'Ivory',desc:'Pure'},
+  {id:'chalk',name:'Chalk',desc:'Matte'},
+  {id:'retro',name:'Retro',desc:'Vintage'},
+  {id:'sepia',name:'Sepia',desc:'Old'},
+  {id:'vintage',name:'Vintage',desc:'Classic'},
+  {id:'kodak',name:'Kodak',desc:'Film'},
+  {id:'polaroid',name:'Polaroid',desc:'Snap'},
+  {id:'indie',name:'Indie',desc:'Vibe'},
+  {id:'grunge',name:'Grunge',desc:'Rock'},
+  {id:'nineties',name:'90s Neon',desc:'Rad'},
+  {id:'vaporwave',name:'Vaporwave',desc:'Aesthetic'},
+  {id:'lofi',name:'Lo-Fi',desc:'Chill'},
+  {id:'aqua',name:'Aqua',desc:'Marine'},
+  {id:'lagoon',name:'Lagoon',desc:'Blue'},
+  {id:'sea',name:'Sea',desc:'Wave'},
+  {id:'abyss',name:'Abyss',desc:'Deep'},
+  {id:'surf',name:'Surf',desc:'Ride'},
+  {id:'tide',name:'Tide',desc:'Ripple'},
+  {id:'pacific',name:'Pacific',desc:'Vast'},
+  {id:'iceberg',name:'Iceberg',desc:'Chill'},
+  {id:'waterfall',name:'Waterfall',desc:'Flow'},
+  {id:'rain',name:'Rain',desc:'Drop'},
+  {id:'cyberpunk',name:'Cyberpunk',desc:'2077'},
+  {id:'steampunk',name:'Steampunk',desc:'Gear'},
+  {id:'noir',name:'Noir',desc:'Shadow'},
+  {id:'blade',name:'Blade',desc:'Runner'},
+  {id:'matrix',name:'Matrix',desc:'Code'},
+  {id:'holo',name:'Holo',desc:'Graphic'},
+  {id:'chrome',name:'Chrome',desc:'Metal'},
+  {id:'glitch',name:'Glitch',desc:'Error'},
+  {id:'arcade',name:'Arcade',desc:'Game'},
+  {id:'pixel',name:'Pixel',desc:'8-Bit'},
+  {id:'sakura',name:'Sakura',desc:'Japan'},
+  {id:'diwali',name:'Diwali',desc:'Festival'},
+  {id:'holi',name:'Holi',desc:'Colors'},
+  {id:'carnival',name:'Carnival',desc:'Rio'},
+  {id:'festive',name:'Festive',desc:'Joy'},
+  {id:'boho',name:'Boho',desc:'Chic'},
+  {id:'tribal',name:'Tribal',desc:'Pattern'},
+  {id:'zen',name:'Zen',desc:'Peace'},
+  {id:'dharma',name:'Dharma',desc:'Soul'},
+  {id:'mystic',name:'Mystic',desc:'Spirit'}
+];
+function loadThemes(){
+  const c=document.getElementById('themeContainer');
+  if(!c) return;
+  const cur=localStorage.getItem('theme')||'white';
+  c.innerHTML=themes.map(t=>`<div class="theme-option ${t.id===cur?'active':''}" data-theme="${t.id}" onclick="changeTheme('${t.id}')">
+    <div class="theme-icon"><i class="fas fa-palette"></i></div>
+    <div class="theme-info"><h4>${t.name}</h4><p>${t.desc}</p></div></div>`).join('');
+}
+function changeTheme(theme){localStorage.setItem('theme',theme);applyTheme(theme);showToast('Theme: '+theme.charAt(0).toUpperCase()+theme.slice(1));}
+function applyTheme(theme){
+  // Remove only theme-* classes to prevent full className reset flash
+  const toRemove = Array.from(document.body.classList).filter(c => c.startsWith('theme-'));
+  toRemove.forEach(c => document.body.classList.remove(c));
+  if(theme !== 'white') document.body.classList.add('theme-' + theme);
+  document.querySelectorAll('.theme-option').forEach(o => o.classList.toggle('active', o.getAttribute('data-theme') === theme));
+  sUpdateThemeSel();
+}
+function initTheme(){applyTheme(localStorage.getItem('theme')||'white');loadThemes();updateProfileBtn();}
+
+// ===== PROFILE =====
+function openProfile(){
+  document.getElementById('profileNameInput').value=localStorage.getItem('profileName')||'';
+  const saved=localStorage.getItem('profilePhoto');
+  document.getElementById('profilePicPreview').innerHTML=saved?`<img src="${saved}" alt="Profile">`:`<i class="fas fa-user"></i>`;
+  document.getElementById('profileModal').classList.add('show');
+}
+function closeProfile(){document.getElementById('profileModal').classList.remove('show');}
+function handleProfileImage(event){
+  const file=event.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{document.getElementById('profilePicPreview').innerHTML=`<img src="${e.target.result}" alt="Profile">`;};
+  reader.readAsDataURL(file);
+}
+function saveProfile(){
+  const name=document.getElementById('profileNameInput').value.trim();
+  if(!name){showToast('Please enter your name');return;}
+  const img=document.querySelector('#profilePicPreview img');
+  localStorage.setItem('profileName',name);
+  if(img)localStorage.setItem('profilePhoto',img.src); // base64
+  updateProfileBtn();
+  updateWritePreview();
+  closeProfile();
+  showToast('Profile saved! ✓');
+}
+function getUserId(){
+  let uid=localStorage.getItem('userId');
+  if(!uid){uid='user_'+Date.now()+'_'+Math.random().toString(36).substr(2,9);localStorage.setItem('userId',uid);}
+  return uid;
+}
+function updateProfileBtn(){
+  const btn=document.getElementById('profileBtn');
+  const photo=localStorage.getItem('profilePhoto'),name=localStorage.getItem('profileName');
+  if(photo)btn.innerHTML=`<img src="${photo}" alt="Profile">`;
+  else if(name)btn.innerHTML=`<span style="font-size:14px;font-weight:900">${name.charAt(0).toUpperCase()}</span>`;
+  else btn.innerHTML=`<i class="fas fa-user"></i>`;
+}
+document.getElementById('profileModal').addEventListener('click',e=>{if(e.target.id==='profileModal')closeProfile();});
+
+// ===== SETTINGS =====
+function openSettings(){document.getElementById('settingsModal').classList.add('show');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.querySelectorAll('.nav-item')[4].classList.add('active');}
+function closeSettings(){document.getElementById('settingsModal').classList.remove('show');document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));document.querySelectorAll('.nav-item')[0].classList.add('active');}
+document.getElementById('settingsModal').addEventListener('click',e=>{if(e.target.id==='settingsModal')closeSettings();});
+
+// ===== SHARE =====
+function openShareModal(id){currentShareId=id;document.getElementById('shareOverlay').classList.add('show');document.getElementById('shareModal').classList.add('show');}
+function closeShareModal(){document.getElementById('shareOverlay').classList.remove('show');document.getElementById('shareModal').classList.remove('show');}
+
+// ✅ Universal Copy Function — WebView + Browser দুটোতেই কাজ করে
+function copyTextSilent(text){
+  // Method 1: textarea execCommand (WebView তে সবচেয়ে reliable)
+  try{
+    const t = document.createElement('textarea');
+    t.value = text;
+    t.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+    document.body.appendChild(t);
+    t.focus();
+    t.select();
+    t.setSelectionRange(0, text.length);
+    const ok = document.execCommand('copy');
+    document.body.removeChild(t);
+    if(ok) return true;
+  } catch(e){}
+  // Method 2: modern clipboard API
+  try{
+    navigator.clipboard.writeText(text);
+    return true;
+  } catch(e){}
+  return false;
+}
+
+function shareToSocial(platform){
+  if(!currentShareId)return;
+  const s=allShayari.find(x=>x.id===currentShareId);
+  if(!s)return;
+
+  const shareText=s.text+'\n\n— '+(s.authorName||'DilSe Shayari')+'\n\n📱 Download DilSe Shayari App:\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
+
+  const isAndroidApp = (typeof AndroidInterface !== 'undefined');
+
+  // ---- Canvas দিয়ে Base64 image বানানো ----
+  async function getBase64Image(){
+    if(!s.imageUrl) return null;
+    try{
+      return await new Promise((resolve, reject)=>{
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = ()=>{
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth || 800;
+          c.height = img.naturalHeight || 800;
+          c.getContext('2d').drawImage(img, 0, 0);
+          const data = c.toDataURL('image/jpeg', 0.92);
+          data.length > 100 ? resolve(data) : reject();
+        };
+        img.onerror = ()=> reject();
+        img.src = s.imageUrl + (s.imageUrl.includes('?')?'&':'?') + 't='+Date.now();
+      });
+    } catch(e){ return null; }
+  }
+
+  // ---- Blob/File বানানো (Web browser) ----
+  async function getImageFile(){
+    if(!s.imageUrl) return null;
+    try{
+      const r = await fetch(s.imageUrl, {mode:'cors'});
+      const b = await r.blob();
+      if(b && b.size > 0) return new File([b], 'shayari.jpg', {type: b.type});
+    } catch(e){}
+    try{
+      const b = await new Promise((res,rej)=>{
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = ()=>{
+          const c = document.createElement('canvas');
+          c.width = img.naturalWidth||800; c.height = img.naturalHeight||800;
+          c.getContext('2d').drawImage(img,0,0);
+          c.toBlob(bl=> bl?res(bl):rej(), 'image/jpeg', 0.92);
+        };
+        img.onerror = ()=>rej();
+        img.src = s.imageUrl + (s.imageUrl.includes('?')?'&':'?') + 't='+Date.now();
+      });
+      if(b && b.size>0) return new File([b], 'shayari.jpg', {type:'image/jpeg'});
+    } catch(e){}
+    return null;
+  }
+
+  // ✅ Android App: Platform specific share
+  async function shareOnAndroid(targetPlatform){
+    showToast('⏳ Preparing...');
+    try{
+      const base64 = await getBase64Image();
+      const imgData = base64 || null;
+
+      // Platform URL বানানো
+      const encodedText = encodeURIComponent(shareText);
+      let appUrl = null;
+
+      switch(targetPlatform){
+        case 'whatsapp':
+          appUrl = 'whatsapp://send?text=' + encodedText;
+          break;
+        case 'telegram':
+          appUrl = 'tg://msg?text=' + encodedText;
+          break;
+        case 'instagram':
+          appUrl = 'instagram://app';
+          break;
+        case 'facebook':
+          appUrl = 'fb://composer';
+          break;
+        case 'twitter':
+          appUrl = 'twitter://post?message=' + encodedText;
+          break;
+        case 'messenger':
+          appUrl = 'fb-messenger://share';
+          break;
+        default:
+          appUrl = null;
+      }
+
+      // প্রথমে image share করো, তারপর app open করো
+      if(imgData){
+        AndroidInterface.shareImageWithLink(imgData, shareText);
+      } else if(s.imageUrl){
+        AndroidInterface.shareImageFromUrl(s.imageUrl, shareText);
+      } else {
+        // ছবি নেই — app URL দিয়ে সরাসরি open
+        if(appUrl){
+          const a = document.createElement('a');
+          a.href = appUrl;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        } else {
+          AndroidInterface.shareTextOnly(shareText);
+        }
+      }
+      closeShareModal();
+    } catch(e){
+      try{
+        AndroidInterface.shareTextOnly(shareText);
+        closeShareModal();
+      } catch(ex){}
+    }
+  }
+
+  // ---- Web browser: Native Share API ----
+  async function tryNativeShare(afterFn){
+    const file = await getImageFile();
+    if(file && navigator.share){
+      try{
+        if(navigator.canShare && navigator.canShare({files:[file]})){
+          await navigator.share({files:[file], text:shareText});
+          closeShareModal(); showToast('✅ Shared!'); return;
+        }
+      } catch(err){
+        if(err.name==='AbortError'){closeShareModal(); return;}
+      }
+    }
+    afterFn(file);
+  }
+
+  // ---- Gallery save helper ----
+  function saveImageToGallery(file, msg){
+    if(file){
+      try{
+        const url = URL.createObjectURL(file);
+        const a = document.createElement('a');
+        a.href=url; a.download='shayari.jpg';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(()=>URL.revokeObjectURL(url), 3000);
+        if(msg) showToast(msg);
+        return true;
+      } catch(e){}
+    }
+    if(s.imageUrl){
+      const a = document.createElement('a');
+      a.href=s.imageUrl; a.download='shayari.jpg'; a.target='_blank';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      if(msg) showToast(msg);
+      return true;
+    }
+    return false;
+  }
+
+  // ============ ANDROID APP ============
+  if(isAndroidApp){
+    switch(platform){
+      case 'whatsapp':
+        shareOnAndroid('whatsapp'); break;
+      case 'telegram':
+        shareOnAndroid('telegram'); break;
+      case 'instagram':
+        shareOnAndroid('instagram'); break;
+      case 'facebook':
+        shareOnAndroid('facebook'); break;
+      case 'twitter':
+        shareOnAndroid('twitter'); break;
+      case 'messenger':
+        shareOnAndroid('messenger'); break;
+      case 'more':
+        shareOnAndroid('more'); break;
+
+      case 'copy':{
+        const copied = copyTextSilent(shareText);
+        showToast(copied ? '✅ Shayari copied!' : '⚠️ Copy failed, try again');
+        closeShareModal();
+        break;}
+    }
+    return;
+  }
+
+  // ============ WEB BROWSER FALLBACK ============
+  switch(platform){
+    case 'whatsapp':
+      tryNativeShare(async(file)=>{
+        saveImageToGallery(file, '📥 Image saved! Now attach in WhatsApp');
+        setTimeout(()=> window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(shareText),'_blank'), 1000);
+        closeShareModal();
+      }); break;
+
+    case 'telegram':
+      tryNativeShare(async(file)=>{
+        saveImageToGallery(file, '📥 Image saved! Now attach in Telegram');
+        setTimeout(()=> window.open('https://t.me/share/url?url=&text='+encodeURIComponent(shareText),'_blank'), 1000);
+        closeShareModal();
+      }); break;
+
+    case 'instagram':
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file, '📥 Image saved! Text copied — paste in Instagram');
+        setTimeout(()=>{ try{window.location.href='instagram://app';}catch(e){window.open('https://www.instagram.com','_blank');} }, 1200);
+        closeShareModal();
+      }); break;
+
+    case 'facebook':
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file, '📥 Image saved! Text copied');
+        setTimeout(()=> window.open('https://www.facebook.com','_blank'), 1000);
+        closeShareModal();
+      }); break;
+
+    case 'twitter':
+      tryNativeShare(async(file)=>{
+        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(shareText),'_blank');
+        if(file) saveImageToGallery(file);
+        closeShareModal(); showToast('🐦 Opening Twitter...');
+      }); break;
+
+    case 'messenger':
+      tryNativeShare(async(file)=>{
+        copyTextSilent(shareText);
+        saveImageToGallery(file, '📥 Image saved! Text copied');
+        setTimeout(()=>{ try{window.location.href='fb-messenger://share';}catch(e){window.open('https://www.messenger.com','_blank');} }, 1200);
+        closeShareModal();
+      }); break;
+
+    case 'copy':{
+      const copied2 = copyTextSilent(shareText);
+      showToast(copied2 ? '✅ Shayari copied!' : '⚠️ Copy failed');
+      closeShareModal(); break;}
+
+    case 'more':
+      tryNativeShare(async(file)=>{
+        saveImageToGallery(file, '📥 Image saving...');
+        closeShareModal();
+      }); break;
+  }
+}
+
+
+// ===== SCREEN SWITCH =====
+function switchScreen(screen){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const map={home:0,generate:1,favorites:2,write:3};
+  if(screen in map){document.getElementById(screen+'Screen').classList.add('active');document.querySelectorAll('.nav-item')[map[screen]].classList.add('active');}
+  if(screen==='favorites')loadFavorites();
+  if(screen==='write'){updateWritePreview();loadMyPosts();}
+}
+
+// ===== LOAD SHAYARI =====
+function loadAllShayari(){
+  database.ref('shayari').on('value',snap=>{
+    const data=snap.val();
+    if(!data){document.getElementById('shayariContainer').innerHTML='<div class="empty-state"><i class="fas fa-inbox"></i><h3>No Shayari</h3><p>Check back later</p></div>';return;}
+    allShayari=Object.entries(data).map(([id,v])=>({id,...v})).sort((a,b)=>b.timestamp-a.timestamp);
+    const visible=allShayari.filter(s=>!s.isUserPost||(s.isUserPost&&s.status==='approved'));
+    displayShayari(visible);
+  });
+}
+function displayShayari(arr){
+  const c=document.getElementById('shayariContainer');
+  if(!arr.length){c.innerHTML='<div class="empty-state"><i class="fas fa-search"></i><h3>No Results</h3><p>Try different filters</p></div>';return;}
+  c.innerHTML=arr.map(item=>{
+    const fav=favorites.includes(item.id);
+    const photo=item.authorPhoto&&item.authorPhoto.length>10
+      ? item.authorPhoto  // base64 or URL
+      : `https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName||'A')}&background=random&size=100`;
+    const imgHtml=item.imageUrl?`<img src="${item.imageUrl}" class="shayari-image" alt="Shayari">`:'';
+    const isNew=Date.now()-item.timestamp<86400000;
+    const uBadge=item.isUserPost?`<span class="user-badge-small">User</span>`:'';
+    return `<div class="shayari-card">
+      ${isNew?`<div class="new-badge">NEW</div>`:''}
+      <div class="author-header">
+        <img src="${photo}" class="author-avatar" alt="${escapeHtml(item.authorName||'')}">
+        <div class="author-info"><h4>${escapeHtml(item.authorName||'Anonymous')}${uBadge}</h4><span>${timeAgo(item.timestamp)}</span></div>
+      </div>${imgHtml}
+      <div class="shayari-text ${item.language==='Hindi'?'hindi':''}">${escapeHtml(item.text||'')}</div>
+      <div class="tags"><span class="tag">${item.category||''}</span><span class="tag">${item.language||''}</span><span class="tag">${item.mood||''}</span></div>
+      <div class="actions">
+        <button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> Copy</button>
+        <button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> Share</button>
+        <button class="action-btn ${fav?'liked':''}" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> ${fav?'Saved':'Save'}</button>
+      </div>
+
+    </div>`;
+  }).join('');
+}
+function filterShayari(){
+  const cat=document.getElementById('filterCategory').value,lang=document.getElementById('filterLanguage').value;
+  const visible=allShayari.filter(s=>(!s.isUserPost||(s.isUserPost&&s.status==='approved'))&&(cat==='All'||s.category===cat)&&(lang==='All'||s.language===lang));
+  displayShayari(visible);
+}
+
+// ===== GENERATE =====
+function generateAIShayari(){
+  const cat=document.getElementById('genCategory').value,lang=document.getElementById('genLanguage').value;
+  if(!cat||!lang){showToast('Select category & language');return;}
+  const pool=allShayari.filter(s=>(!s.isUserPost||(s.isUserPost&&s.status==='approved'))&&s.category===cat&&s.language===lang);
+  const item=pool.length?pool[Math.floor(Math.random()*pool.length)]:allShayari[Math.floor(Math.random()*allShayari.length)];
+  if(!item){showToast('No shayari available');return;}
+  const photo=item.authorPhoto&&item.authorPhoto.length>10?item.authorPhoto:`https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName||'A')}&background=random&size=100`;
+  const imgHtml=item.imageUrl?`<img src="${item.imageUrl}" class="shayari-image" alt="">`:'';
+  document.getElementById('generatedContainer').innerHTML=`<div class="shayari-card">
+    <span class="ai-badge"><i class="fas fa-robot"></i> AI GENERATED</span>
+    <div class="author-header"><img src="${photo}" class="author-avatar" alt=""><div class="author-info"><h4>${escapeHtml(item.authorName||'')}</h4><span>AI Selected</span></div></div>${imgHtml}
+    <div class="shayari-text ${item.language==='Hindi'?'hindi':''}">${escapeHtml(item.text||'')}</div>
+    <div class="tags"><span class="tag">${item.category||''}</span><span class="tag">${item.language||''}</span><span class="tag">${item.mood||''}</span></div>
+    <div class="actions">
+      <button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> COPY</button>
+      <button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> SHARE</button>
+      <button class="action-btn" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> SAVE</button>
+    </div></div>`;
+  showToast('Generated!');
+}
+
+// ===== FAVORITES =====
+function toggleFavorite(id){
+  const idx=favorites.indexOf(id);
+  idx!==-1?favorites.splice(idx,1):favorites.push(id);
+  localStorage.setItem('favorites',JSON.stringify(favorites));
+  showToast(idx!==-1?'Removed':'Added to favorites ❤️');
+  if(document.getElementById('homeScreen').classList.contains('active'))filterShayari();
+  else if(document.getElementById('favoritesScreen').classList.contains('active'))loadFavorites();
+}
+function loadFavorites(){
+  const c=document.getElementById('favoritesContainer');
+  if(!favorites.length){c.innerHTML='<div class="empty-state"><i class="fas fa-heart-broken"></i><h3>No Favorites</h3><p>Save shayari to see here</p></div>';return;}
+  const arr=allShayari.filter(s=>favorites.includes(s.id));
+  if(!arr.length){c.innerHTML='<div class="empty-state"><i class="fas fa-inbox"></i><h3>Favorites loading...</h3></div>';return;}
+  c.innerHTML=arr.map(item=>{
+    const photo=item.authorPhoto&&item.authorPhoto.length>10?item.authorPhoto:`https://ui-avatars.com/api/?name=${encodeURIComponent(item.authorName||'A')}&background=random&size=100`;
+    const imgHtml=item.imageUrl?`<img src="${item.imageUrl}" class="shayari-image" alt="">`:'';
+    return `<div class="shayari-card">
+      <div class="author-header"><img src="${photo}" class="author-avatar" alt=""><div class="author-info"><h4>${escapeHtml(item.authorName||'')}</h4><span>${timeAgo(item.timestamp)}</span></div></div>${imgHtml}
+      <div class="shayari-text ${item.language==='Hindi'?'hindi':''}">${escapeHtml(item.text||'')}</div>
+      <div class="tags"><span class="tag">${item.category||''}</span><span class="tag">${item.language||''}</span><span class="tag">${item.mood||''}</span></div>
+      <div class="actions">
+        <button class="action-btn" onclick="copyShayari('${item.id}')"><i class="fas fa-copy"></i> COPY</button>
+        <button class="action-btn" onclick="openShareModal('${item.id}')"><i class="fas fa-share-alt"></i> SHARE</button>
+        <button class="action-btn liked" onclick="toggleFavorite('${item.id}')"><i class="fas fa-heart"></i> SAVED</button>
+      </div></div>`;
+  }).join('');
+}
+
+// ============================================================
+// WRITE SHAYARI — ImgBB upload with Firebase-synced key
+// ============================================================
+function updateWritePreview(){
+  const name=localStorage.getItem('profileName'),photo=localStorage.getItem('profilePhoto');
+  const warnEl=document.getElementById('noProfileWarning');
+  if(!name){warnEl.style.display='block';}else{warnEl.style.display='none';}
+  // Avatar
+  const box=document.getElementById('writeAuthorBox');
+  const existingImg=box.querySelector('.write-author-img');
+  const placeholder=box.querySelector('.write-author-placeholder');
+  if(photo&&photo.length>10){
+    if(existingImg){existingImg.src=photo;}
+    else{
+      const img=document.createElement('img');
+      img.src=photo;img.className='write-author-img';img.alt='avatar';
+      if(placeholder)placeholder.replaceWith(img);
+      else box.insertBefore(img,box.firstChild);
+    }
+  } else {
+    if(existingImg){existingImg.remove();}
+    let ph=box.querySelector('.write-author-placeholder');
+    if(!ph){ph=document.createElement('div');ph.className='write-author-placeholder';ph.id='writeAvatarEl';box.insertBefore(ph,box.firstChild);}
+    ph.innerHTML=name?name.charAt(0).toUpperCase():'<i class="fas fa-user"></i>';
+  }
+  document.getElementById('writeNameEl').textContent=name||'Set your profile first';
+}
+
+function updateCharCount(){
+  const len=document.getElementById('writeText').value.length;
+  const el=document.getElementById('charCount');
+  el.textContent=len+' / 500';el.className='char-counter'+(len>450?' warning':'');
+}
+
+function handleWriteImage(event){
+  const file=event.target.files[0];if(!file)return;
+  writeImgFile=file;
+  const reader=new FileReader();
+  reader.onload=e=>{document.getElementById('pickedPreviewImg').src=e.target.result;document.getElementById('pickedPreview').style.display='block';};
+  reader.readAsDataURL(file);
+}
+function removeWriteImage(){writeImgFile=null;document.getElementById('pickedPreview').style.display='none';document.getElementById('writeImageInput').value='';}
+
+// ImgBB upload — uses Admin's Firebase-synced key
+async function uploadToImgBB_user(file){
+  return new Promise(function(resolve,reject){
+    if(!IMGBB_KEY){reject('ImgBB key not available. Please try again.');return;}
+    const reader=new FileReader();
+    reader.onloadend=async function(){
+      try{
+        const base64=reader.result.split(',')[1];
+        const fd=new FormData();
+        fd.append('key',IMGBB_KEY);
+        fd.append('image',base64);
+        // progress simulation
+        let p=0;
+        const iv=setInterval(()=>{p=Math.min(p+15,85);document.getElementById('uploadFill').style.width=p+'%';},400);
+        const res=await fetch('https://api.imgbb.com/1/upload',{method:'POST',body:fd});
+        const data=await res.json();
+        clearInterval(iv);
+        document.getElementById('uploadFill').style.width='100%';
+        if(data.success){resolve(data.data.image.url);}
+        else{reject('ImgBB: '+(data.error&&data.error.message||'Upload failed'));}
+      }catch(e){reject('Network error: '+e.message);}
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function submitShayari(){
+  const text=document.getElementById('writeText').value.trim();
+  const category=document.getElementById('writeCategory').value;
+  const language=document.getElementById('writeLanguage').value;
+  const mood=document.getElementById('writeMood').value||'Romantic';
+  const name=localStorage.getItem('profileName');
+  const photo=localStorage.getItem('profilePhoto')||'';
+  if(!name){showToast('Please set your Profile first!');openProfile();return;}
+  if(!text){showToast('Please write your Shayari!');return;}
+  if(!category||!language){showToast('Please select Category and Language!');return;}
+  document.getElementById('postBtn').disabled=true;
+  document.getElementById('uploadFill').style.width='0%';
+  let imageUrl='';
+  if(writeImgFile){
+    showUploadOverlay('Image uploading via ImgBB...');
+    try{imageUrl=await uploadToImgBB_user(writeImgFile);}
+    catch(e){console.warn('Image upload failed:',e);showToast('Image upload failed, posting without image');}
+    hideUploadOverlay();
+  }
+  showUploadOverlay('Posting shayari...');
+  database.ref('user_posts').push({
+    text,category,language,mood,
+    authorName:name,
+    authorPhoto:photo, // base64 (profile image directly)
+    imageUrl,
+    timestamp:Date.now(),
+    userId:getUserId(),
+    status:'pending'
+  }).then(()=>{
+    hideUploadOverlay();
+    showToast('Posted! Waiting for Admin approval 🎉');
+    document.getElementById('writeText').value='';
+    document.getElementById('writeCategory').value='';
+    document.getElementById('writeLanguage').value='';
+    document.getElementById('writeMood').value='Romantic';
+    document.getElementById('uploadFill').style.width='0%';
+    removeWriteImage();updateCharCount();
+    document.getElementById('postBtn').disabled=false;
+    loadMyPosts();
+  }).catch(e=>{
+    hideUploadOverlay();showToast('Error: '+e.message);
+    document.getElementById('postBtn').disabled=false;
+  });
+}
+
+// ===== MY POSTS =====
+function loadMyPosts(){
+  const uid=getUserId();
+  database.ref('user_posts').orderByChild('userId').equalTo(uid).on('value',snap=>{
+    const data=snap.val();
+    const section=document.getElementById('myPostsSection');
+    const container=document.getElementById('myPostsContainer');
+    if(!data){section.style.display='none';return;}
+    section.style.display='block';
+    let posts=Object.entries(data).map(([id,v])=>({id,...v})).sort((a,b)=>b.timestamp-a.timestamp);
+    const statusIcon={pending:'fa-clock',approved:'fa-check-circle',rejected:'fa-times-circle'};
+    const statusLabel={pending:'Pending Review',approved:'Approved ✓',rejected:'Rejected ✗'};
+
+    function renderMyPosts(deletedIds){
+      const filtered=posts.filter(p=>!deletedIds.has(p.id));
+      if(!filtered.length){section.style.display='none';return;}
+      section.style.display='block';
+      container.innerHTML=filtered.map(p=>{
+        const st=p.status||'pending';
+        const imgHtml=p.imageUrl?`<img src="${p.imageUrl}" class="my-post-img" alt="">`:'';
+        return `<div class="my-post-item">
+          ${imgHtml}
+          <div class="my-post-text">${escapeHtml(p.text||'')}</div>
+          <div class="status-row">
+            <span class="status-pill ${st}"><i class="fas ${statusIcon[st]}"></i> ${statusLabel[st]}</span>
+            <span class="my-post-time">${timeAgo(p.timestamp)}</span>
+          </div></div>`;
+      }).join('');
+    }
+
+    const approvedPosts=posts.filter(p=>(p.status==='approved'));
+    if(!approvedPosts.length){renderMyPosts(new Set());return;}
+
+    const deletedIds=new Set();
+    let checked=0;
+    approvedPosts.forEach(p=>{
+      if(p.shayariId){
+        database.ref('shayari/'+p.shayariId).once('value',s=>{
+          if(!s.exists()) deletedIds.add(p.id);
+          checked++;
+          if(checked===approvedPosts.length) renderMyPosts(deletedIds);
+        });
+      } else {
+        database.ref('shayari').orderByChild('userPostId').equalTo(p.id).once('value',s=>{
+          if(!s.exists()||!s.val()) deletedIds.add(p.id);
+          checked++;
+          if(checked===approvedPosts.length) renderMyPosts(deletedIds);
+        });
+      }
+    });
+  });
+}
+
+// ===== COPY =====
+function copyShayari(id){
+  const s=allShayari.find(x=>x.id===id);if(!s)return;
+  const text = s.text + '\n\n— ' + (s.authorName||'DilSe') + '\n\n📱 Download DilSe Shayari App:\nhttps://play.google.com/store/apps/details?id=com.rajapps.shayari';
+  // textarea execCommand — WebView + Browser দুটোতেই কাজ করে
+  try{
+    const t=document.createElement('textarea');
+    t.value=text;
+    t.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+    document.body.appendChild(t);
+    t.focus(); t.select(); t.setSelectionRange(0,text.length);
+    const ok=document.execCommand('copy');
+    document.body.removeChild(t);
+    showToast(ok ? '✅ Copied!' : '⚠️ Copy failed');
+    return;
+  }catch(e){}
+  // fallback: modern clipboard
+  try{
+    navigator.clipboard.writeText(text).then(()=>showToast('✅ Copied!')).catch(()=>showToast('⚠️ Copy failed'));
+  }catch(e){showToast('⚠️ Copy failed');}
+}
+
+function showUploadOverlay(t){document.getElementById('uploadText').textContent=t;document.getElementById('uploadOverlay').classList.add('show');}
+function hideUploadOverlay(){document.getElementById('uploadOverlay').classList.remove('show');}
+function timeAgo(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return 'Just now';if(s<3600)return Math.floor(s/60)+' min ago';if(s<86400)return Math.floor(s/3600)+' hour ago';return Math.floor(s/86400)+' day ago';}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
+function escapeHtml(text){return String(text).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
+
+
+// ===== NEW SETTINGS UI FUNCTIONS =====
+function sPickTheme(el, tid) {
+  document.querySelectorAll('.stthumb').forEach(t => t.classList.remove('sel'));
+  document.querySelectorAll('.stitem').forEach(t => t.classList.remove('act'));
+  el.classList.add('act');
+  el.querySelector('.stthumb').classList.add('sel');
+  localStorage.setItem('theme', tid);
+  applyTheme(tid);
+  showToast('Theme: ' + tid.charAt(0).toUpperCase() + tid.slice(1));
+}
+function sTogTheme() {
+  const g = document.getElementById('sThemeGrid');
+  const b = document.getElementById('sExpBtn');
+  const open = g.style.display !== 'none';
+  g.style.display = open ? 'none' : 'flex';
+  b.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+function sTogDark() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  const tog = document.getElementById('sDarkTog');
+  const knob = document.getElementById('sDarkKnob');
+  if(isDark){
+    tog.style.background = 'linear-gradient(90deg,var(--accent),var(--accent-dark))';
+    knob.style.left = '26px';
+    showToast('Dark Mode On!');
+    localStorage.setItem('darkMode','on');
+  } else {
+    tog.style.background = '#ccc';
+    knob.style.left = '3px';
+    showToast('Light Mode On!');
+    localStorage.setItem('darkMode','off');
+  }
+}
+function sOpenLang(e) {
+  const o = document.getElementById('sLangOverlay');
+  o.style.display = 'flex';
+}
+function sCloseLang(e) {
+  if(e.target.id === 'sLangOverlay') {
+    document.getElementById('sLangOverlay').style.display = 'none';
+  }
+}
+function sSetLang(el, lang) {
+  document.querySelectorAll('.slopt-new').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('sLangVal').textContent = lang;
+  document.getElementById('sLangOverlay').style.display = 'none';
+  showToast('Language: ' + lang);
+}
+function sRateApp(e) {
+  window.open('https://play.google.com/store/apps/details?id=com.rajapps.shayari','_blank');
+}
+function sShareApp(e) {
+  const url = 'https://play.google.com/store/apps/details?id=com.rajapps.shayari';
+  if(navigator.share){
+    navigator.share({title:'DilSe Shayari',text:'Amazing Shayari app!',url}).then(()=>showToast('Shared!')).catch(()=>{});
+  } else {
+    if(navigator.clipboard){ navigator.clipboard.writeText(url).then(()=>showToast('Link copied!')); }
+    else { const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);showToast('Link copied!'); }
+  }
+}
+function sInitDarkMode() {
+  if(localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark-mode');
+    const tog = document.getElementById('sDarkTog');
+    const knob = document.getElementById('sDarkKnob');
+    if(tog) tog.style.background = 'linear-gradient(90deg,var(--accent),var(--accent-dark))';
+    if(knob) knob.style.left = '26px';
+  }
+}
+function sUpdateThemeSel() {
+  const cur = localStorage.getItem('theme') || 'white';
+  document.querySelectorAll('.stitem').forEach(item => {
+    const oc = item.getAttribute('onclick') || '';
+    const m = oc.match(/sPickTheme\(this,'([^']+)'\)/);
+    if(m){
+      const act = m[1] === cur;
+      item.classList.toggle('act', act);
+      const th = item.querySelector('.stthumb');
+      if(th) th.classList.toggle('sel', act);
+    }
+  });
+}
+
+window.onload=function(){initTheme();loadAllShayari();sInitDarkMode();sUpdateThemeSel();};
+</script>
+</body>
+</html>
