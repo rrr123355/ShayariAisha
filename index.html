@@ -455,6 +455,30 @@ body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg
 .upload-progress-bar{height:6px;background:#E0E0E0;border-radius:3px;margin-top:10px;overflow:hidden}
 .upload-progress-fill{height:100%;background:linear-gradient(135deg,var(--accent),var(--accent-dark));width:0%;transition:width .3s ease;border-radius:3px}
 
+
+/* ===== NEW SETTINGS UI ===== */
+.scard-new{background:var(--card-bg);border-radius:17px;padding:13px 14px;margin-bottom:9px;box-shadow:0 2px 12px rgba(0,0,0,.07);border:1px solid rgba(0,0,0,.06);position:relative;overflow:hidden;transition:transform .15s;}
+.scard-new:not(.nc):active{transform:scale(.98);}
+.stitem{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
+.stthumb{width:58px;height:74px;border-radius:12px;border:2.5px solid transparent;overflow:hidden;position:relative;transition:border-color .2s,box-shadow .2s,transform .15s;}
+.stthumb:active{transform:scale(.93);}
+.stthumb.sel{border-color:var(--accent);box-shadow:0 0 0 3px rgba(231,76,60,.2);}
+.stitem.act .stname{color:var(--accent);font-weight:700;}
+.stchk{position:absolute;top:4px;right:4px;background:var(--accent);border-radius:50%;width:18px;height:18px;display:none;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(0,0,0,.3);}
+.stthumb.sel .stchk{display:flex;}
+.stname{font-size:10px;color:var(--text-light);font-weight:500;text-align:center;max-width:58px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.slopt-new{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(0,0,0,.06);color:var(--text-color);font-size:14.5px;font-weight:500;cursor:pointer;}
+.slopt-new:last-child{border-bottom:none;}
+.slopt-new.sel{color:var(--accent);}
+.slchk-new{opacity:0;}
+.slopt-new.sel .slchk-new{opacity:1;}
+@keyframes sLangUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
+/* Dark mode full UI */
+body.dark-mode{--bg-start:#0d0d0d;--bg-end:#1a1a2e;--card-bg:#1e1e2e;--text-color:#f0f0f0;--text-light:#aaa;--accent:#e94560;--accent-dark:#c0392b;}
+body.dark-mode .modal-content{background:#1e1e2e !important;color:#f0f0f0;}
+body.dark-mode .scard-new{background:#252538;border-color:rgba(255,255,255,0.07);}
+body.dark-mode .filter-group select,body.dark-mode .write-textarea,body.dark-mode .write-select,body.dark-mode .profile-input{background:#252538;color:#f0f0f0;border-color:rgba(255,255,255,0.1);}
+
 </style>
 </head>
 <body>
@@ -495,13 +519,273 @@ body{font-family:'Poppins',sans-serif;background:linear-gradient(135deg,var(--bg
 </div>
 
 <!-- Settings Modal -->
+<!-- Settings Modal (New Design) -->
 <div class="modal" id="settingsModal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3><i class="fas fa-palette"></i> THEMES</h3>
-      <button class="close-btn" onclick="closeSettings()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="theme-options" id="themeContainer"></div>
+  <div class="modal-content" style="padding:0;overflow:hidden;border-radius:22px;background:var(--card-bg)">
+    <div style="padding:18px 16px 24px;max-height:88vh;overflow-y:auto;-webkit-overflow-scrolling:touch;">
+
+      <!-- Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:8px;">
+        <button onclick="closeSettings()" style="width:40px;height:40px;min-width:40px;border-radius:12px;border:1.5px solid rgba(0,0,0,0.08);background:var(--card-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 6px rgba(0,0,0,0.07);">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-color)"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:22px;font-weight:900;font-family:Georgia,serif;background:linear-gradient(135deg,var(--accent),var(--accent-dark));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Settings</div>
+          <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin:2px 0;">
+            <hr style="width:22px;height:1.5px;border:none;background:linear-gradient(90deg,transparent,var(--accent));">
+            <svg width="10" height="10" viewBox="0 0 24 24"><path d="M12 21C12 21 3 13.5 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 5.5-9 13-9 13z" fill="var(--accent)"/></svg>
+            <hr style="width:22px;height:1.5px;border:none;background:linear-gradient(90deg,var(--accent),transparent);">
+          </div>
+          <div style="font-size:11px;color:var(--text-light);">Customize your experience</div>
+        </div>
+        <span style="font-size:30px;flex-shrink:0;">🪶</span>
+      </div>
+
+      <!-- THEME CARD -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#e91e8c,#f48fb1);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c1.1 0 2-.9 2-2v-.5c0-.55.45-1 1-1h1c2.76 0 5-2.24 5-5 0-5.52-4.48-10-10-10z"/><circle cx="8" cy="10" r="1.5" fill="#fff" stroke="none"/><circle cx="12" cy="7" r="1.5" fill="#fff" stroke="none"/><circle cx="16" cy="10" r="1.5" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Theme</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Choose your preferred theme</div>
+          </div>
+          <button id="sExpBtn" onclick="sTogTheme()" style="background:none;border:none;cursor:pointer;padding:4px;color:var(--text-light);display:flex;align-items:center;transition:transform .3s;transform:rotate(180deg);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+          </button>
+        </div>
+        <!-- Theme Grid -->
+        <div id="sThemeGrid" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;max-height:300px;overflow-y:auto;padding:2px 0 4px;">
+          <div class="stitem act" onclick="sPickTheme(this,'white')"><div class="stthumb sel" style="background:linear-gradient(180deg,#FFF,#F5F5F5)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">White</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ocean')"><div class="stthumb" style="background:linear-gradient(180deg,#00CED1,#4682B4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ocean</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sunset')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B6B,#FFD93D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sunset</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'purple')"><div class="stthumb" style="background:linear-gradient(180deg,#A78BFA,#7C3AED)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Purple</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mint')"><div class="stthumb" style="background:linear-gradient(180deg,#6EE7B7,#10B981)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mint</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pink')"><div class="stthumb" style="background:linear-gradient(180deg,#FF69B4,#FF1493)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pink</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dark')"><div class="stthumb" style="background:linear-gradient(180deg,#1A1A2E,#16213E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dark</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'golden')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD700,#FF8C00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Golden</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'forest')"><div class="stthumb" style="background:linear-gradient(180deg,#2E8B57,#00CED1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Forest</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'royal')"><div class="stthumb" style="background:linear-gradient(180deg,#4169E1,#191970)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Royal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cosmic')"><div class="stthumb" style="background:linear-gradient(180deg,#8B5CF6,#EC4899)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cosmic</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'midnight')"><div class="stthumb" style="background:linear-gradient(180deg,#000046,#1CB5E0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Midnight</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'crimson')"><div class="stthumb" style="background:linear-gradient(180deg,#CB2D3E,#EF473A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Crimson</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'violet')"><div class="stthumb" style="background:linear-gradient(180deg,#667EEA,#764BA2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Violet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'teal')"><div class="stthumb" style="background:linear-gradient(180deg,#134E5E,#71B280)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Teal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'candy')"><div class="stthumb" style="background:linear-gradient(180deg,#FC5C7D,#6A82FB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Candy</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mango')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB75E,#ED8F03)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mango</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sapphire')"><div class="stthumb" style="background:linear-gradient(180deg,#0575E6,#021B79)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sapphire</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'emerald')"><div class="stthumb" style="background:linear-gradient(180deg,#11998E,#38EF7D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Emerald</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lavender')"><div class="stthumb" style="background:linear-gradient(180deg,#E6B0FF,#9B59B6)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lavender</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cherry')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB7C5,#FF6B9D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cherry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'autumn')"><div class="stthumb" style="background:linear-gradient(180deg,#D4501C,#F4A460)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Autumn</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'spring')"><div class="stthumb" style="background:linear-gradient(180deg,#A8E063,#56AB2F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Spring</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'arctic')"><div class="stthumb" style="background:linear-gradient(180deg,#A8EDEA,#FED6E3)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Arctic</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bamboo')"><div class="stthumb" style="background:linear-gradient(180deg,#DAF7A6,#52BE80)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bamboo</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'desert')"><div class="stthumb" style="background:linear-gradient(180deg,#F5DEB3,#DEB887)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Desert</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'jungle')"><div class="stthumb" style="background:linear-gradient(180deg,#1B5E20,#4CAF50)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Jungle</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tropical')"><div class="stthumb" style="background:linear-gradient(180deg,#43E97B,#38F9D7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tropical</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'coral')"><div class="stthumb" style="background:linear-gradient(180deg,#FF7F7F,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Coral</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'aurora')"><div class="stthumb" style="background:linear-gradient(180deg,#00F260,#0575E6)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Aurora</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'galaxy')"><div class="stthumb" style="background:linear-gradient(180deg,#0F0C29,#302B63)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Galaxy</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'nebula')"><div class="stthumb" style="background:linear-gradient(180deg,#DA22FF,#9733EE)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Nebula</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'comet')"><div class="stthumb" style="background:linear-gradient(180deg,#1A1A2E,#E94560)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Comet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'stardust')"><div class="stthumb" style="background:linear-gradient(180deg,#B993D6,#8CA6DB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Stardust</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'supernova')"><div class="stthumb" style="background:linear-gradient(180deg,#F83600,#F9D423)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Supernova</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'eclipse')"><div class="stthumb" style="background:linear-gradient(180deg,#0C0C0C,#434343)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Eclipse</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'moonlight')"><div class="stthumb" style="background:linear-gradient(180deg,#232526,#414345)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Moonlight</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sunrise')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#F7C59F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sunrise</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dusk')"><div class="stthumb" style="background:linear-gradient(180deg,#2C3E50,#FD746C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dusk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'strawberry')"><div class="stthumb" style="background:linear-gradient(180deg,#FF512F,#DD2476)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Strawberry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'blueberry')"><div class="stthumb" style="background:linear-gradient(180deg,#1488CC,#2B32B2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Blueberry</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'watermelon')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B6B,#4ECDC4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Watermelon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'peach')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB347,#FFCC02)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Peach</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'grape')"><div class="stthumb" style="background:linear-gradient(180deg,#6A0572,#AB83A1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Grape</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lemon')"><div class="stthumb" style="background:linear-gradient(180deg,#F7971E,#FFD200)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lemon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'caramel')"><div class="stthumb" style="background:linear-gradient(180deg,#C79A3A,#E8B86D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Caramel</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chocolate')"><div class="stthumb" style="background:linear-gradient(180deg,#3E1C00,#6F3C1B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chocolate</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bubblegum')"><div class="stthumb" style="background:linear-gradient(180deg,#FF77FF,#FF9DE2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bubblegum</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cotton')"><div class="stthumb" style="background:linear-gradient(180deg,#FDDB92,#D1FDFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cotton</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'diamond')"><div class="stthumb" style="background:linear-gradient(180deg,#B2FEFA,#0ED2F7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Diamond</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'platinum')"><div class="stthumb" style="background:linear-gradient(180deg,#C0C0C0,#E8E8E8)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Platinum</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'bronze')"><div class="stthumb" style="background:linear-gradient(180deg,#CD7F32,#B8860B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Bronze</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ruby')"><div class="stthumb" style="background:linear-gradient(180deg,#9B111E,#E0115F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ruby</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'jade')"><div class="stthumb" style="background:linear-gradient(180deg,#00A36C,#2E8B57)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Jade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'amber')"><div class="stthumb" style="background:linear-gradient(180deg,#FF7E00,#FFBF00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Amber</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pearl')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F0,#EAE8E1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pearl</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'obsidian')"><div class="stthumb" style="background:linear-gradient(180deg,#1C1C1C,#3D3D3D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Obsidian</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'opal')"><div class="stthumb" style="background:linear-gradient(180deg,#A8C0FF,#3F2B96)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Opal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'onyx')"><div class="stthumb" style="background:linear-gradient(180deg,#0F0F0F,#2D2D2D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Onyx</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'fire')"><div class="stthumb" style="background:linear-gradient(180deg,#F83600,#FE8C00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Fire</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lava')"><div class="stthumb" style="background:linear-gradient(180deg,#CF1512,#F0542A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lava</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'neon')"><div class="stthumb" style="background:linear-gradient(180deg,#00FF88,#00B3FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Neon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'electric')"><div class="stthumb" style="background:linear-gradient(180deg,#00F5FF,#0080FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Electric</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'magma')"><div class="stthumb" style="background:linear-gradient(180deg,#8B0000,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Magma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'plasma')"><div class="stthumb" style="background:linear-gradient(180deg,#FF00FF,#8B00FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Plasma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'inferno')"><div class="stthumb" style="background:linear-gradient(180deg,#C02425,#F0CB35)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Inferno</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'thunder')"><div class="stthumb" style="background:linear-gradient(180deg,#373B44,#4286F4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Thunder</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lightning')"><div class="stthumb" style="background:linear-gradient(180deg,#F7FF00,#DB36A4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lightning</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'solar')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD000,#FF6500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Solar</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cloud')"><div class="stthumb" style="background:linear-gradient(180deg,#ECE9E6,#FFFFFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cloud</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mist')"><div class="stthumb" style="background:linear-gradient(180deg,#89F7FE,#66A6FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mist</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'breeze')"><div class="stthumb" style="background:linear-gradient(180deg,#CFECD0,#A0CEA4)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Breeze</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'whisper')"><div class="stthumb" style="background:linear-gradient(180deg,#FEE9E7,#FECFEF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Whisper</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'silk')"><div class="stthumb" style="background:linear-gradient(180deg,#F4E2D8,#BA5370)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Silk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'velvet')"><div class="stthumb" style="background:linear-gradient(180deg,#4A0072,#7B1FA2)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Velvet</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'satin')"><div class="stthumb" style="background:linear-gradient(180deg,#FC5C7D,#6A82FB)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Satin</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cashmere')"><div class="stthumb" style="background:linear-gradient(180deg,#F5E6CA,#C8A96E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cashmere</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'ivory')"><div class="stthumb" style="background:linear-gradient(180deg,#FFFFF0,#FAFAF0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Ivory</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chalk')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F5,#DCDCDC)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chalk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'retro')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#F7C59F)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Retro</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sepia')"><div class="stthumb" style="background:linear-gradient(180deg,#704214,#C3A882)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sepia</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'vintage')"><div class="stthumb" style="background:linear-gradient(180deg,#B7410E,#D4A017)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Vintage</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'kodak')"><div class="stthumb" style="background:linear-gradient(180deg,#FFD700,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Kodak</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'polaroid')"><div class="stthumb" style="background:linear-gradient(180deg,#F5F5F0,#D4C5A9)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Polaroid</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'indie')"><div class="stthumb" style="background:linear-gradient(180deg,#6C5CE7,#A29BFE)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Indie</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'grunge')"><div class="stthumb" style="background:linear-gradient(180deg,#3D3D3D,#7A7A7A)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Grunge</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'nineties')"><div class="stthumb" style="background:linear-gradient(180deg,#FF1493,#00FF00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">90s Neon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'vaporwave')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6AD5,#C774E8)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Vaporwave</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lofi')"><div class="stthumb" style="background:linear-gradient(180deg,#7C83FD,#96BAFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lo-Fi</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'aqua')"><div class="stthumb" style="background:linear-gradient(180deg,#00B4D8,#90E0EF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Aqua</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'lagoon')"><div class="stthumb" style="background:linear-gradient(180deg,#00C9FF,#92FE9D)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Lagoon</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sea')"><div class="stthumb" style="background:linear-gradient(180deg,#36D1DC,#5B86E5)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sea</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'abyss')"><div class="stthumb" style="background:linear-gradient(180deg,#0D0D2B,#0A3D5C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Abyss</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'surf')"><div class="stthumb" style="background:linear-gradient(180deg,#1FA2FF,#12D8FA)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Surf</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tide')"><div class="stthumb" style="background:linear-gradient(180deg,#43C6AC,#191654)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tide</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pacific')"><div class="stthumb" style="background:linear-gradient(180deg,#0B3866,#4DA0B0)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pacific</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'iceberg')"><div class="stthumb" style="background:linear-gradient(180deg,#76B2FE,#B69EFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Iceberg</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'waterfall')"><div class="stthumb" style="background:linear-gradient(180deg,#1CD8D2,#93EDC7)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Waterfall</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'rain')"><div class="stthumb" style="background:linear-gradient(180deg,#4B6CB7,#182848)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Rain</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'cyberpunk')"><div class="stthumb" style="background:linear-gradient(180deg,#FF003C,#00FFFF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Cyberpunk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'steampunk')"><div class="stthumb" style="background:linear-gradient(180deg,#704214,#C47F17)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Steampunk</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'noir')"><div class="stthumb" style="background:linear-gradient(180deg,#0A0A0A,#2C2C2C)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Noir</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'blade')"><div class="stthumb" style="background:linear-gradient(180deg,#1C1C1C,#FF4500)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Blade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'matrix')"><div class="stthumb" style="background:linear-gradient(180deg,#0D0208,#003B00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Matrix</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'holo')"><div class="stthumb" style="background:linear-gradient(180deg,#4776E6,#8E54E9)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Holo</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'chrome')"><div class="stthumb" style="background:linear-gradient(180deg,#ADB5BD,#E9ECEF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Chrome</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'glitch')"><div class="stthumb" style="background:linear-gradient(180deg,#FF0000,#0000FF)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Glitch</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'arcade')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Arcade</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'pixel')"><div class="stthumb" style="background:linear-gradient(180deg,#00FF00,#0000AA)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Pixel</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'sakura')"><div class="stthumb" style="background:linear-gradient(180deg,#FFB7C5,#FF85A1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Sakura</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'diwali')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6200,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Diwali</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'holi')"><div class="stthumb" style="background:linear-gradient(180deg,#FF69B4,#00CED1)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Holi</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'carnival')"><div class="stthumb" style="background:linear-gradient(180deg,#FF1744,#FF6D00)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Carnival</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'festive')"><div class="stthumb" style="background:linear-gradient(180deg,#FF0000,#FFD700)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Festive</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'boho')"><div class="stthumb" style="background:linear-gradient(180deg,#D4845A,#8B4513)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Boho</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'tribal')"><div class="stthumb" style="background:linear-gradient(180deg,#8B0000,#D2691E)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Tribal</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'zen')"><div class="stthumb" style="background:linear-gradient(180deg,#2C5F2E,#97BC62)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Zen</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'dharma')"><div class="stthumb" style="background:linear-gradient(180deg,#FF6B35,#A8336B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Dharma</span></div>
+          <div class="stitem" onclick="sPickTheme(this,'mystic')"><div class="stthumb" style="background:linear-gradient(180deg,#4A0072,#AA076B)"><div class="stchk"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div><span class="stname">Mystic</span></div>
+        </div>
+      </div>
+
+      <!-- DARK MODE -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#7b1fa2,#ce93d8);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/><circle cx="17" cy="5" r="1" fill="#fff" stroke="none"/><circle cx="20" cy="9" r="1" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Dark Mode</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Turn dark mode on or off</div>
+          </div>
+          <div id="sDarkTog" onclick="sTogDark()" style="width:50px;height:27px;border-radius:14px;background:#ccc;position:relative;cursor:pointer;transition:background .3s;flex-shrink:0;">
+            <div style="content:'';position:absolute;width:21px;height:21px;background:#fff;border-radius:50%;top:3px;left:3px;transition:left .3s;box-shadow:0 2px 5px rgba(0,0,0,.25);" id="sDarkKnob"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGE -->
+      <div class="scard-new" onclick="sOpenLang(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#d81b60,#f06292);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Language</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Select app language</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;flex-shrink:0;">
+            <span id="sLangVal" style="font-size:13px;font-weight:700;color:var(--accent);">English</span>
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- RATE US -->
+      <div class="scard-new" onclick="sRateApp(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#e65100,#ffb74d);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="#fff"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Rate Us</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Share your rating and support</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:3px;flex-shrink:0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- SHARE APP -->
+      <div class="scard-new" onclick="sShareApp(event)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#1565c0,#42a5f5);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Share App</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Share this app with your friends</div>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- PRIVACY POLICY -->
+      <div class="scard-new" onclick="showToast('Opening Privacy Policy...')" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#4a148c,#9c27b0);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="9" x2="12" y2="13"/><circle cx="12" cy="16" r="1" fill="#fff" stroke="none"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">Privacy Policy</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">Read our privacy policy</div>
+          </div>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="stroke:var(--text-light);opacity:.6;flex-shrink:0;"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- APP VERSION -->
+      <div class="scard-new nc">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:46px;height:46px;min-width:46px;border-radius:50%;background:linear-gradient(135deg,#0277bd,#29b6f6);display:flex;align-items:center;justify-content:center;">
+            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8" stroke-width="3"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="font-size:15px;font-weight:700;color:var(--text-color);">App Version</div>
+            <div style="font-size:11.5px;color:var(--text-light);margin-top:2px;">You are using the latest version</div>
+          </div>
+          <span style="border:2px solid var(--accent);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">v7.0</span>
+        </div>
+      </div>
+
+    </div><!-- end scroll wrapper -->
+  </div><!-- end modal-content -->
+</div><!-- end settingsModal -->
+
+<!-- Language Modal Overlay -->
+<div id="sLangOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:3000;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px);" onclick="sCloseLang(event)">
+  <div style="background:var(--card-bg);width:100%;max-width:480px;border-radius:24px 24px 0 0;padding:20px 18px 34px;animation:sLangUp .32s cubic-bezier(.4,0,.2,1);">
+    <div style="width:36px;height:4px;background:rgba(0,0,0,.12);border-radius:2px;margin:0 auto 16px;"></div>
+    <div style="font-size:16px;font-weight:700;color:var(--text-color);margin-bottom:10px;">Select Language</div>
+    <div class="slopt-new sel" onclick="sSetLang(this,'English')"><span>English</span><svg class="slchk-new" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <div class="slopt-new" onclick="sSetLang(this,'Hindi')"><span>हिंदी</span><svg class="slchk-new" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
   </div>
 </div>
 
@@ -831,13 +1115,22 @@ const themes=[
   {id:'mystic',name:'Mystic',desc:'Spirit'}
 ];
 function loadThemes(){
-  const c=document.getElementById('themeContainer'),cur=localStorage.getItem('theme')||'white';
+  const c=document.getElementById('themeContainer');
+  if(!c) return;
+  const cur=localStorage.getItem('theme')||'white';
   c.innerHTML=themes.map(t=>`<div class="theme-option ${t.id===cur?'active':''}" data-theme="${t.id}" onclick="changeTheme('${t.id}')">
     <div class="theme-icon"><i class="fas fa-palette"></i></div>
     <div class="theme-info"><h4>${t.name}</h4><p>${t.desc}</p></div></div>`).join('');
 }
 function changeTheme(theme){localStorage.setItem('theme',theme);applyTheme(theme);showToast('Theme changed!');setTimeout(closeSettings,250);}
-function applyTheme(theme){document.body.className='';if(theme!=='white')document.body.classList.add('theme-'+theme);document.querySelectorAll('.theme-option').forEach(o=>o.classList.toggle('active',o.getAttribute('data-theme')===theme));}
+function applyTheme(theme){
+  const wasDark = document.body.classList.contains('dark-mode');
+  document.body.className='';
+  if(wasDark) document.body.classList.add('dark-mode');
+  if(theme!=='white') document.body.classList.add('theme-'+theme);
+  document.querySelectorAll('.theme-option').forEach(o=>o.classList.toggle('active',o.getAttribute('data-theme')===theme));
+  sUpdateThemeSel();
+}
 function initTheme(){applyTheme(localStorage.getItem('theme')||'white');loadThemes();updateProfileBtn();}
 
 // ===== PROFILE =====
@@ -1454,7 +1747,90 @@ function timeAgo(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return 'Ju
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2500);}
 function escapeHtml(text){return String(text).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
 
-window.onload=function(){initTheme();loadAllShayari();};
+
+// ===== NEW SETTINGS UI FUNCTIONS =====
+function sPickTheme(el, tid) {
+  document.querySelectorAll('.stthumb').forEach(t => t.classList.remove('sel'));
+  document.querySelectorAll('.stitem').forEach(t => t.classList.remove('act'));
+  el.classList.add('act');
+  el.querySelector('.stthumb').classList.add('sel');
+  changeTheme(tid);
+}
+function sTogTheme() {
+  const g = document.getElementById('sThemeGrid');
+  const b = document.getElementById('sExpBtn');
+  const open = g.style.display !== 'none';
+  g.style.display = open ? 'none' : 'flex';
+  b.style.transform = open ? 'rotate(0deg)' : 'rotate(180deg)';
+}
+function sTogDark() {
+  const isDark = document.body.classList.toggle('dark-mode');
+  const tog = document.getElementById('sDarkTog');
+  const knob = document.getElementById('sDarkKnob');
+  if(isDark){
+    tog.style.background = 'linear-gradient(90deg,var(--accent),var(--accent-dark))';
+    knob.style.left = '26px';
+    showToast('Dark Mode On!');
+    localStorage.setItem('darkMode','on');
+  } else {
+    tog.style.background = '#ccc';
+    knob.style.left = '3px';
+    showToast('Light Mode On!');
+    localStorage.setItem('darkMode','off');
+  }
+}
+function sOpenLang(e) {
+  const o = document.getElementById('sLangOverlay');
+  o.style.display = 'flex';
+}
+function sCloseLang(e) {
+  if(e.target.id === 'sLangOverlay') {
+    document.getElementById('sLangOverlay').style.display = 'none';
+  }
+}
+function sSetLang(el, lang) {
+  document.querySelectorAll('.slopt-new').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('sLangVal').textContent = lang;
+  document.getElementById('sLangOverlay').style.display = 'none';
+  showToast('Language: ' + lang);
+}
+function sRateApp(e) {
+  window.open('https://play.google.com/store/apps/details?id=com.rajapps.shayari','_blank');
+}
+function sShareApp(e) {
+  const url = 'https://play.google.com/store/apps/details?id=com.rajapps.shayari';
+  if(navigator.share){
+    navigator.share({title:'DilSe Shayari',text:'Amazing Shayari app!',url}).then(()=>showToast('Shared!')).catch(()=>{});
+  } else {
+    if(navigator.clipboard){ navigator.clipboard.writeText(url).then(()=>showToast('Link copied!')); }
+    else { const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);showToast('Link copied!'); }
+  }
+}
+function sInitDarkMode() {
+  if(localStorage.getItem('darkMode') === 'on') {
+    document.body.classList.add('dark-mode');
+    const tog = document.getElementById('sDarkTog');
+    const knob = document.getElementById('sDarkKnob');
+    if(tog) tog.style.background = 'linear-gradient(90deg,var(--accent),var(--accent-dark))';
+    if(knob) knob.style.left = '26px';
+  }
+}
+function sUpdateThemeSel() {
+  const cur = localStorage.getItem('theme') || 'white';
+  document.querySelectorAll('.stitem').forEach(item => {
+    const oc = item.getAttribute('onclick') || '';
+    const m = oc.match(/sPickTheme\(this,'([^']+)'\)/);
+    if(m){
+      const act = m[1] === cur;
+      item.classList.toggle('act', act);
+      const th = item.querySelector('.stthumb');
+      if(th) th.classList.toggle('sel', act);
+    }
+  });
+}
+
+window.onload=function(){initTheme();loadAllShayari();sInitDarkMode();sUpdateThemeSel();};
 </script>
 </body>
 </html>
